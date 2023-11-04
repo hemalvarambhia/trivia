@@ -12,10 +12,10 @@ game.add 'Pat'
 game.add 'Sue'
 
 begin
+  random = Random.new(0)
+  game.roll(random.rand(5) + 1)
   
-  game.roll(rand(5) + 1)
-  
-  if rand(9) == 7
+  if random.rand(9) == 7
     not_a_winner = game.wrong_answer
   else
     not_a_winner = game.was_correctly_answered
