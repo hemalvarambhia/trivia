@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 # Installing both. Why choose??
-
-gem "minitest"
-gem "rspec"
+group :test do
+  gem "minitest"
+  gem "rspec"
+end
