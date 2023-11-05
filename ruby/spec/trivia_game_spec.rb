@@ -49,7 +49,7 @@ describe "Playing Trivia" do
       expect(places[0]).to eq(1)
     end
 
-    it 'asks the player who rolled the die a question from the current category' do
+    it 'asks the player a question from the current category based on what place the player is at' do
       game = UglyTrivia::Game.new
       game.add('Player 1')
       game.add('Player 2')
@@ -59,6 +59,7 @@ describe "Playing Trivia" do
       category = game.send(:current_category)
       expect(category).to eq('Science')
     end
+
     it 'awards the player 6 gold coins when the answer to the question is correct'
     it 'places the player in the penalty box when the answer to the question is wrong'
     it 'returns the player to the starting square when they have moved 12 places'
