@@ -69,6 +69,9 @@ describe "Playing Trivia" do
       expect(category).to eq('Science')
     end
 
+    it 'asks the player a science question when they have moved 5 spaces forwards from the start'
+    it 'asks the player a science question when they have moved 9 spaces forwards from the start'
+
     it 'awards the player a gold coin when they answer the question correctly' do
       game = game_with(['Player 1', 'Player 2'])
 
