@@ -81,5 +81,6 @@ describe "Playing Trivia" do
 
     it 'places the player in the penalty box when the answer to the question is wrong'
     it 'returns the player to the starting square when they have moved 12 places'
+    example 'a player can cycle around the board multiple times, every 12 places'
   end
 end
