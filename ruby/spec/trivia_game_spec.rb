@@ -1,8 +1,15 @@
 require 'spec_helper'
+require_relative '../lib/ugly_trivia/game'
 
 describe "Playing Trivia" do
   describe 'How many players can play trivia' do
-    example 'having 1 player in the game makes it unplayable'
+    example 'having 1 player in the game makes it unplayable' do
+      game = UglyTrivia::Game.new
+
+      game.add('Player 1')
+
+      expect(game.is_playable?).to eq(false)
+    end
     example 'up to 6 players can play the game'
     example 'the game can be played by more than 6 players'
   end
