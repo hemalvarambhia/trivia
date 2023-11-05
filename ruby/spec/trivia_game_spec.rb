@@ -69,7 +69,16 @@ describe "Playing Trivia" do
       expect(category).to eq('Science')
     end
 
-    it 'awards the player 6 gold coins when the answer to the question is correct'
+    it 'awards the player a gold coin when they answer the question correctly' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(1)
+      game.was_correctly_answered
+
+      purses = game.purses
+      expect(purses[0]).to eq(1)
+    end
+
     it 'places the player in the penalty box when the answer to the question is wrong'
     it 'returns the player to the starting square when they have moved 12 places'
   end
