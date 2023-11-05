@@ -9,5 +9,6 @@ describe "Playing Trivia" do
 
   describe 'Rolling the dice' do
     it 'advances the player a number of places as shown on the die'
+    it 'returns the player to the starting square when they have moved 12 places'
   end
 end
