@@ -38,6 +38,15 @@ describe "Playing Trivia" do
   end
 
   describe 'Rolling the die' do
+    example 'the starting category is Pop' do
+      game = UglyTrivia::Game.new
+      game.add('Player 1')
+      game.add('Player 2')
+
+      category = game.send(:current_category)
+      expect(category).to eq('Pop')
+    end
+
     it 'advances a player a number of places as shown on the die' do
       game = UglyTrivia::Game.new
       game.add('Player 1')
