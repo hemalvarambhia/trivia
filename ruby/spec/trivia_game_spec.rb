@@ -38,19 +38,21 @@ describe "Playing Trivia" do
   end
 
   describe 'Rolling the die' do
+    def game_with(players)
+      UglyTrivia::Game.new.tap do |trivia|
+        players.each { |player| trivia.add(player) }
+      end
+    end
+
     example 'the starting category is Pop' do
-      game = UglyTrivia::Game.new
-      game.add('Player 1')
-      game.add('Player 2')
+      game = game_with(['Player 1', 'Player 2'])
 
       category = game.send(:current_category)
       expect(category).to eq('Pop')
     end
 
     it 'advances a player a number of places as shown on the die' do
-      game = UglyTrivia::Game.new
-      game.add('Player 1')
-      game.add('Player 2')
+      game = game_with(['Player 1', 'Player 2'])
 
       game.roll(1)
 
@@ -59,9 +61,7 @@ describe "Playing Trivia" do
     end
 
     it 'asks the player a question from the current category based on what place the player is at' do
-      game = UglyTrivia::Game.new
-      game.add('Player 1')
-      game.add('Player 2')
+      game = game_with(['Player 1', 'Player 2'])
 
       game.roll(1)
 
