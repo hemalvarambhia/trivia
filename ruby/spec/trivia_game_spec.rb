@@ -27,6 +27,14 @@ describe "Playing Trivia" do
 
       expect(game.is_playable?).to eq(true)
     end
+
+    example 'the game can be played by more than 6 players' do
+      game = UglyTrivia::Game.new
+
+      7.times { |number| game.add("Player #{number + 1}") }
+
+      expect(game.is_playable?).to eq(true)
+    end
   end
 
   describe 'Rolling the dice' do
