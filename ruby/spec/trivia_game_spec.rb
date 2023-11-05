@@ -38,7 +38,16 @@ describe "Playing Trivia" do
   end
 
   describe 'Rolling the dice' do
-    it 'advances the player a number of places as shown on the die'
+    it 'advances a player a number of places as shown on the die' do
+      game = UglyTrivia::Game.new
+      game.add('Player 1')
+      game.add('Player 2')
+
+      game.roll(1)
+
+      places = game.places
+      expect(places[0]).to eq(1)
+    end
     it 'returns the player to the starting square when they have moved 12 places'
   end
 end
