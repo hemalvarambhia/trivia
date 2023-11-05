@@ -3,7 +3,7 @@ require_relative '../lib/ugly_trivia/game'
 
 describe "Playing Trivia" do
   describe 'How many players can play trivia' do
-    example 'having 1 player in the game makes it unplayable' do
+    it 'is not a 1-player game' do
       game = UglyTrivia::Game.new
 
       game.add('Player 1')
