@@ -37,7 +37,7 @@ describe "Playing Trivia" do
     end
   end
 
-  describe 'Rolling the dice' do
+  describe 'Rolling the die' do
     it 'advances a player a number of places as shown on the die' do
       game = UglyTrivia::Game.new
       game.add('Player 1')
