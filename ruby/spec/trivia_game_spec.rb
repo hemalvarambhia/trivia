@@ -11,7 +11,7 @@ describe "Playing Trivia" do
       expect(game.is_playable?).to eq(false)
     end
 
-    example 'precisely 2 players can play the game' do
+    it 'requires a minimum of 2 players' do
       game = UglyTrivia::Game.new
 
       game.add('Player 1')
