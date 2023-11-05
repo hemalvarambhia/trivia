@@ -10,7 +10,15 @@ describe "Playing Trivia" do
 
       expect(game.is_playable?).to eq(false)
     end
-    example 'up to 6 players can play the game'
+
+    example 'precisely 2 players can play the game' do
+      game = UglyTrivia::Game.new
+
+      game.add('Player 1')
+      game.add('Player 2')
+
+      expect(game.is_playable?).to eq(true)
+    end
     example 'the game can be played by more than 6 players'
   end
 
