@@ -6,4 +6,8 @@ describe "Playing Trivia" do
     example 'up to 6 players can play the game'
     example 'the game can be played by more than 6 players'
   end
+
+  describe 'Rolling the dice' do
+    it 'advances the player a number of places as shown on the die'
+  end
 end
