@@ -80,7 +80,8 @@ describe "Playing Trivia" do
         game.was_correctly_answered
 
         purses = game.purses
-        expect(purses[0]).to eq(1)
+        player_1 = 0
+        expect(purses[player_1]).to eq(1)
       end
 
       it 'is the next players turn' do
@@ -90,7 +91,8 @@ describe "Playing Trivia" do
         game.was_correctly_answered
 
         current_player = game.current_player
-        expect(current_player).to eq(1)
+        player_2 = 1
+        expect(current_player).to eq(player_2)
       end
     end
 
