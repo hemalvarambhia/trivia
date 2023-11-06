@@ -95,7 +95,15 @@ describe "Playing Trivia" do
     end
 
 
-    it 'places the player in the penalty box when the answer to the question is wrong'
+    it 'places the player in the penalty box when the answer to the question is wrong' do
+      game = game_with(['Player 1', 'Player 2'])
+      game.roll(2)
+      game.wrong_answer
+
+      player_1 = 0
+      player_in_penalty_box = game.in_penalty_box[player_1]
+      expect(player_in_penalty_box).to eq(true)
+    end
     it 'returns the player to the starting square when they have moved 12 places'
     example 'a player can cycle around the board multiple times, every 12 places'
   end
