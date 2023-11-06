@@ -1,6 +1,6 @@
 module UglyTrivia
   class Game
-    attr_reader :places, :purses
+    attr_reader :places, :purses, :current_player
 
     def  initialize
       @players = []

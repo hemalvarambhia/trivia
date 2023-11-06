@@ -82,6 +82,16 @@ describe "Playing Trivia" do
       expect(purses[0]).to eq(1)
     end
 
+    it 'is the next players turn when the previous answered the question correctly' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(1)
+      game.was_correctly_answered
+
+      current_player = game.current_player
+      expect(current_player).to eq(1)
+    end
+
     it 'places the player in the penalty box when the answer to the question is wrong'
     it 'returns the player to the starting square when they have moved 12 places'
     example 'a player can cycle around the board multiple times, every 12 places'
