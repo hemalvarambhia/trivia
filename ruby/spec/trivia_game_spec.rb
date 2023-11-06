@@ -72,8 +72,8 @@ describe "Playing Trivia" do
     it 'asks the player a science question when they have moved 5 spaces forwards from the start'
     it 'asks the player a science question when they have moved 9 spaces forwards from the start'
 
-    context 'when the player answers their question correctly' do
-      it 'awards the player a gold coin when they answer the question correctly' do
+    context 'when a player answers their question correctly' do
+      it 'awards that player a gold coin' do
         game = game_with(['Player 1', 'Player 2'])
 
         game.roll(1)
@@ -83,7 +83,7 @@ describe "Playing Trivia" do
         expect(purses[0]).to eq(1)
       end
 
-      it 'is the next players turn when the previous answered the question correctly' do
+      it 'is the next players turn' do
         game = game_with(['Player 1', 'Player 2'])
 
         game.roll(1)
