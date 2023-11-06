@@ -72,25 +72,28 @@ describe "Playing Trivia" do
     it 'asks the player a science question when they have moved 5 spaces forwards from the start'
     it 'asks the player a science question when they have moved 9 spaces forwards from the start'
 
-    it 'awards the player a gold coin when they answer the question correctly' do
-      game = game_with(['Player 1', 'Player 2'])
+    context 'when the player answers their question correctly' do
+      it 'awards the player a gold coin when they answer the question correctly' do
+        game = game_with(['Player 1', 'Player 2'])
 
-      game.roll(1)
-      game.was_correctly_answered
+        game.roll(1)
+        game.was_correctly_answered
 
-      purses = game.purses
-      expect(purses[0]).to eq(1)
+        purses = game.purses
+        expect(purses[0]).to eq(1)
+      end
+
+      it 'is the next players turn when the previous answered the question correctly' do
+        game = game_with(['Player 1', 'Player 2'])
+
+        game.roll(1)
+        game.was_correctly_answered
+
+        current_player = game.current_player
+        expect(current_player).to eq(1)
+      end
     end
 
-    it 'is the next players turn when the previous answered the question correctly' do
-      game = game_with(['Player 1', 'Player 2'])
-
-      game.roll(1)
-      game.was_correctly_answered
-
-      current_player = game.current_player
-      expect(current_player).to eq(1)
-    end
 
     it 'places the player in the penalty box when the answer to the question is wrong'
     it 'returns the player to the starting square when they have moved 12 places'
