@@ -93,17 +93,23 @@ describe "Playing Trivia" do
     end
 
     context 'when a player answers their question incorrectly' do
-      it 'places the player in the penalty box' do
-        game = game_with(['Player 1', 'Player 2'])
+      let(:game) { game_with(['Player 1', 'Player 2']) }
+      before do
         game.roll(2)
         game.wrong_answer
+      end
 
+      it 'places the player in the penalty box' do
         player_1 = 0
         player_in_penalty_box = game.in_penalty_box[player_1]
         expect(player_in_penalty_box).to eq(true)
       end
 
-      it 'is the next players turn'
+      it 'is the next players turn' do
+        current_player = game.current_player
+        player_2 = 1
+        expect(current_player).to eq(player_2)
+      end
     end
 
     it 'returns the player to the starting square when they have moved 12 places' do
