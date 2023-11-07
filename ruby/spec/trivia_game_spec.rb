@@ -2,6 +2,12 @@ require 'spec_helper'
 require_relative '../lib/ugly_trivia/game'
 
 describe "Playing Trivia" do
+  def game_with(players)
+    UglyTrivia::Game.new.tap do |trivia|
+      players.each { |player| trivia.add(player) }
+    end
+  end
+
   describe 'How many players can play trivia' do
     it 'is not a 1-player game' do
       game = UglyTrivia::Game.new
@@ -38,12 +44,6 @@ describe "Playing Trivia" do
   end
 
   describe 'Rolling the die' do
-    def game_with(players)
-      UglyTrivia::Game.new.tap do |trivia|
-        players.each { |player| trivia.add(player) }
-      end
-    end
-
     example 'the starting category is Pop' do
       game = game_with(['Player 1', 'Player 2'])
 
