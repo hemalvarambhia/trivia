@@ -93,7 +93,7 @@ describe "Playing Trivia" do
     end
 
     context 'when a player answers their question incorrectly' do
-      it 'places the player in the penalty box when the answer to the question is wrong' do
+      it 'places the player in the penalty box' do
         game = game_with(['Player 1', 'Player 2'])
         game.roll(2)
         game.wrong_answer
