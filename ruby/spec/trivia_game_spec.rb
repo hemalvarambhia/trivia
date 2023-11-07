@@ -97,7 +97,7 @@ describe "Playing Trivia" do
     end
   end
 
-  context 'when a player answers their question correctly' do
+  describe 'when a player answers their question correctly' do
     let(:game) { game_with(['Player 1', 'Player 2']) }
     before do
       game.roll(1)
@@ -117,7 +117,7 @@ describe "Playing Trivia" do
     end
   end
 
-  context 'when a player answers their question incorrectly' do
+  describe 'when a player answers their question incorrectly' do
     let(:game) { game_with(['Player 1', 'Player 2']) }
     before do
       game.roll(2)
