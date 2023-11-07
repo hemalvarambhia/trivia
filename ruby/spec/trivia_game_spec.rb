@@ -106,7 +106,15 @@ describe "Playing Trivia" do
       expect(player_in_penalty_box).to eq(true)
     end
 
-    it 'returns the player to the starting square when they have moved 12 places'
+    it 'returns the player to the starting square when they have moved 12 places' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(6)
+      game.roll(6)
+
+      places = game.places
+      expect(places[0]).to eq(0)
+    end
     example 'a player can cycle around the board multiple times, every 12 places'
   end
 end
