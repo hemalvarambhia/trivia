@@ -73,23 +73,19 @@ describe "Playing Trivia" do
     it 'asks the player a science question when they have moved 9 spaces forwards from the start'
 
     context 'when a player answers their question correctly' do
-      it 'awards that player a gold coin' do
-        game = game_with(['Player 1', 'Player 2'])
-
+      let(:game) { game_with(['Player 1', 'Player 2']) }
+      before do
         game.roll(1)
         game.was_correctly_answered
+      end
 
+      it 'awards that player a gold coin' do
         purses = game.purses
         player_1 = 0
         expect(purses[player_1]).to eq(1)
       end
 
       it 'is the next players turn' do
-        game = game_with(['Player 1', 'Player 2'])
-
-        game.roll(1)
-        game.was_correctly_answered
-
         current_player = game.current_player
         player_2 = 1
         expect(current_player).to eq(player_2)
