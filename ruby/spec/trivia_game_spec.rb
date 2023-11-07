@@ -96,14 +96,18 @@ describe "Playing Trivia" do
       end
     end
 
-    it 'places the player in the penalty box when the answer to the question is wrong' do
-      game = game_with(['Player 1', 'Player 2'])
-      game.roll(2)
-      game.wrong_answer
+    context 'when a player answers their question incorrectly' do
+      it 'places the player in the penalty box when the answer to the question is wrong' do
+        game = game_with(['Player 1', 'Player 2'])
+        game.roll(2)
+        game.wrong_answer
 
-      player_1 = 0
-      player_in_penalty_box = game.in_penalty_box[player_1]
-      expect(player_in_penalty_box).to eq(true)
+        player_1 = 0
+        player_in_penalty_box = game.in_penalty_box[player_1]
+        expect(player_in_penalty_box).to eq(true)
+      end
+
+      it 'is the next players turn'
     end
 
     it 'returns the player to the starting square when they have moved 12 places' do
