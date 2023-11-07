@@ -116,6 +116,18 @@ describe "Playing Trivia" do
       player_1 = 0
       expect(places[player_1]).to eq(0)
     end
-    example 'a player can cycle around the board multiple times, every 12 places'
+
+    example 'a player can cycle around the board multiple times, every 12 places' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      3.times do
+        game.roll(6)
+        game.roll(6)
+      end
+
+      places = game.places
+      player_1 = 0
+      expect(places[player_1]).to eq(0)
+    end
   end
 end
