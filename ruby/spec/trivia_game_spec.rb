@@ -133,7 +133,7 @@ describe "Playing Trivia" do
       expect(purses[player_1]).to eq(1)
     end
 
-    it 'is the next players turn' do
+    it "is the next players turn's" do
       current_player = game.current_player
       player_2 = 1
       expect(current_player).to eq(player_2)
@@ -153,7 +153,7 @@ describe "Playing Trivia" do
       expect(player_in_penalty_box).to eq(true)
     end
 
-    it 'is the next players turn' do
+    it "is the next player's turn" do
       current_player = game.current_player
       player_2 = 1
       expect(current_player).to eq(player_2)
