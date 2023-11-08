@@ -143,5 +143,10 @@ describe "Playing Trivia" do
       player_2 = 1
       expect(current_player).to eq(player_2)
     end
+
+    context 'when the player rolls an odd number' do
+      it 'takes them out of the penalty box when they answer the question correctly'
+      it 'leaves them in the penalty box when they answer the question incorrectly'
+    end
   end
 end
