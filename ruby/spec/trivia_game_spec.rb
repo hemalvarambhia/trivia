@@ -60,8 +60,8 @@ describe "Playing Trivia" do
       expect(places[0]).to eq(1)
     end
 
-    describe 'sciences questions are asked when:' do
-      it 'asks the player a question from the current category based on what place the player is at' do
+    describe 'a player is asked sciences questions when:' do
+      example 'they have moved one place from the start' do
         game = game_with(['Player 1', 'Player 2'])
 
         game.roll(1)
@@ -70,7 +70,7 @@ describe "Playing Trivia" do
         expect(category).to eq('Science')
       end
 
-      it 'asks the player a science question when they have moved 5 spaces forwards from the start' do
+      example 'they have moved 5 spaces forwards from the start' do
         game = game_with(['Player 1', 'Player 2'])
 
         game.roll(5)
@@ -79,7 +79,7 @@ describe "Playing Trivia" do
         expect(category).to eq('Science')
       end
 
-      it 'asks the player a science question when they have moved 9 spaces forwards from the start' do
+      it 'they have moved 9 spaces forwards from the start' do
         game = game_with(['Player 1', 'Player 2'])
 
         game.roll(3)
