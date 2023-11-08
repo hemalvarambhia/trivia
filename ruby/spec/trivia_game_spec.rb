@@ -8,34 +8,27 @@ describe "Playing Trivia" do
 
   describe 'How many players can play trivia' do
     it 'is not a 1-player game' do
-      game = UglyTrivia::Game.new
-
-      game.add('Player 1')
+      game = game_with(['Player 1'])
 
       expect(game.is_playable?).to eq(false)
     end
 
     it 'requires a minimum of 2 players' do
-      game = UglyTrivia::Game.new
-
-      game.add('Player 1')
-      game.add('Player 2')
+      game = game_with(['Player 1', 'Player 2'])
 
       expect(game.is_playable?).to eq(true)
     end
 
     it 'can be played by exactly 6 players' do
-      game = UglyTrivia::Game.new
-
-      6.times { |number| game.add("Player #{number + 1}") }
+      players = (1..6).map {|number| "Player #{number}"}
+      game = game_with(players)
 
       expect(game.is_playable?).to eq(true)
     end
 
     it 'can be played by more than 6 players' do
-      game = UglyTrivia::Game.new
-
-      7.times { |number| game.add("Player #{number + 1}") }
+      players = (1..7).map {|number| "Player #{number}"}
+      game = game_with(players)
 
       expect(game.is_playable?).to eq(true)
     end
