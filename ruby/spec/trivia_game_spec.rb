@@ -160,5 +160,7 @@ describe "Playing Trivia" do
 
       it 'leaves them in the penalty box when they answer the question incorrectly'
     end
+
+    example 'the first player to win 6 gold coins is declared the winner'
   end
 end
