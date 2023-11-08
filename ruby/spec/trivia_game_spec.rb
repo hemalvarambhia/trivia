@@ -60,32 +60,34 @@ describe "Playing Trivia" do
       expect(places[0]).to eq(1)
     end
 
-    it 'asks the player a question from the current category based on what place the player is at' do
-      game = game_with(['Player 1', 'Player 2'])
+    describe 'sciences questions are asked when:' do
+      it 'asks the player a question from the current category based on what place the player is at' do
+        game = game_with(['Player 1', 'Player 2'])
 
-      game.roll(1)
+        game.roll(1)
 
-      category = game.send(:current_category)
-      expect(category).to eq('Science')
-    end
+        category = game.send(:current_category)
+        expect(category).to eq('Science')
+      end
 
-    it 'asks the player a science question when they have moved 5 spaces forwards from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      it 'asks the player a science question when they have moved 5 spaces forwards from the start' do
+        game = game_with(['Player 1', 'Player 2'])
 
-      game.roll(5)
+        game.roll(5)
 
-      category = game.send(:current_category)
-      expect(category).to eq('Science')
-    end
+        category = game.send(:current_category)
+        expect(category).to eq('Science')
+      end
 
-    it 'asks the player a science question when they have moved 9 spaces forwards from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      it 'asks the player a science question when they have moved 9 spaces forwards from the start' do
+        game = game_with(['Player 1', 'Player 2'])
 
-      game.roll(3)
-      game.roll(6)
+        game.roll(3)
+        game.roll(6)
 
-      category = game.send(:current_category)
-      expect(category).to eq('Science')
+        category = game.send(:current_category)
+        expect(category).to eq('Science')
+      end
     end
 
     it 'returns the player to the starting square when they have moved 12 places' do
