@@ -145,7 +145,19 @@ describe "Playing Trivia" do
     end
 
     context 'when the player rolls an odd number' do
-      it 'takes them out of the penalty box when they answer the question correctly'
+      it 'takes them out of the penalty box when they answer the question correctly' do
+        # player 2's turn
+        game.roll(2)
+        game.was_correctly_answered
+
+        # player 1's turn
+        game.roll(3)
+        game.was_correctly_answered
+
+        player_out_of_penalty_box = game.is_getting_out_of_penalty_box
+        expect(player_out_of_penalty_box).to eq(true)
+      end
+
       it 'leaves them in the penalty box when they answer the question incorrectly'
     end
   end
