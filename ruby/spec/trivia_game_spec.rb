@@ -99,6 +99,13 @@ describe "Playing Trivia" do
       expect(places[player_1]).to eq(0)
     end
 
+    it 'does not change who the current player is' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      player_1 = 0
+      expect { game.roll(rand(1..6)) }.not_to change(game, :current_player).from(player_1)
+    end
+
     example 'a player can cycle around the board multiple times, every 12 places' do
       game = game_with(['Player 1', 'Player 2'])
 
