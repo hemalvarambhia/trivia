@@ -78,7 +78,15 @@ describe "Playing Trivia" do
       expect(category).to eq('Science')
     end
 
-    it 'asks the player a science question when they have moved 9 spaces forwards from the start'
+    it 'asks the player a science question when they have moved 9 spaces forwards from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(3)
+      game.roll(6)
+
+      category = game.send(:current_category)
+      expect(category).to eq('Science')
+    end
 
     it 'returns the player to the starting square when they have moved 12 places' do
       game = game_with(['Player 1', 'Player 2'])
