@@ -3,9 +3,7 @@ require_relative '../lib/ugly_trivia/game'
 
 describe "Playing Trivia" do
   def game_with(players)
-    UglyTrivia::Game.new.tap do |trivia|
-      players.each { |player| trivia.add(player) }
-    end
+    UglyTrivia::Game.with(players)
   end
 
   describe 'How many players can play trivia' do

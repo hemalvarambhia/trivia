@@ -2,6 +2,12 @@ module UglyTrivia
   class Game
     attr_reader :places, :purses, :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
 
+    def self.with(players)
+      new.tap do |trivia|
+        players.each { |player| trivia.add(player) }
+      end
+    end
+
     def  initialize
       @players = []
       @places = Array.new(6, 0)
