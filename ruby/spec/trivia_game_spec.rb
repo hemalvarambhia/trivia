@@ -180,6 +180,6 @@ describe "Playing Trivia" do
 
     it 'keeps the player in the penalty box when that player rolls an even number'
 
-    example 'the first player to win 6 gold coins is declared the winner'
+    example 'the first player to have 6 gold coins is declared the winner'
   end
 end
