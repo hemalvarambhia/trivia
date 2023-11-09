@@ -44,7 +44,7 @@ describe "Playing Trivia" do
       expect(places[0]).to eq(1)
     end
 
-    describe 'a player is asked sciences questions when:' do
+    describe 'a player is asked science questions when:' do
       example 'they have moved one place from the start' do
         game = game_with(['Player 1', 'Player 2'])
 
@@ -74,7 +74,7 @@ describe "Playing Trivia" do
       end
     end
 
-    describe 'a player is asked when:' do
+    describe 'a player is asked pop questions when:' do
       example 'they are at the start' do
         game = game_with(['Player 1', 'Player 2'])
 
