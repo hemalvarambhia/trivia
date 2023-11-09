@@ -44,64 +44,6 @@ describe "Playing Trivia" do
       expect(places[0]).to eq(1)
     end
 
-    describe 'a player is asked science questions when:' do
-      example 'they have moved one place from the start' do
-        game = game_with(['Player 1', 'Player 2'])
-
-        game.roll(1)
-
-        category = game.send(:current_category)
-        expect(category).to eq('Science')
-      end
-
-      example 'they have moved 5 spaces forwards from the start' do
-        game = game_with(['Player 1', 'Player 2'])
-
-        game.roll(5)
-
-        category = game.send(:current_category)
-        expect(category).to eq('Science')
-      end
-
-      it 'they have moved 9 spaces forwards from the start' do
-        game = game_with(['Player 1', 'Player 2'])
-
-        game.roll(3)
-        game.roll(6)
-
-        category = game.send(:current_category)
-        expect(category).to eq('Science')
-      end
-    end
-
-    describe 'a player is asked pop questions when:' do
-      example 'they are at the start' do
-        game = game_with(['Player 1', 'Player 2'])
-
-        category = game.send(:current_category)
-        expect(category).to eq('Pop')
-      end
-
-      example 'they have moved 4 places from the start' do
-        game = game_with(['Player 1', 'Player 2'])
-
-        game.roll(4)
-
-        category = game.send(:current_category)
-        expect(category).to eq('Pop')
-      end
-
-      example 'they have moved 8 places from the start' do
-        game = game_with(['Player 1', 'Player 2'])
-
-        game.roll(4)
-        game.roll(4)
-
-        category = game.send(:current_category)
-        expect(category).to eq('Pop')
-      end
-    end
-
     it 'returns the player to the starting square when they have moved 12 places' do
       game = game_with(['Player 1', 'Player 2'])
 
@@ -134,6 +76,64 @@ describe "Playing Trivia" do
     end
 
     example 'after a question is asked, it is places at the bottom of the pack for its category'
+  end
+
+  describe 'a player is asked science questions when:' do
+    example 'they have moved one place from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(1)
+
+      category = game.send(:current_category)
+      expect(category).to eq('Science')
+    end
+
+    example 'they have moved 5 spaces forwards from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(5)
+
+      category = game.send(:current_category)
+      expect(category).to eq('Science')
+    end
+
+    it 'they have moved 9 spaces forwards from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(3)
+      game.roll(6)
+
+      category = game.send(:current_category)
+      expect(category).to eq('Science')
+    end
+  end
+
+  describe 'a player is asked pop questions when:' do
+    example 'they are at the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      category = game.send(:current_category)
+      expect(category).to eq('Pop')
+    end
+
+    example 'they have moved 4 places from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(4)
+
+      category = game.send(:current_category)
+      expect(category).to eq('Pop')
+    end
+
+    example 'they have moved 8 places from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(4)
+      game.roll(4)
+
+      category = game.send(:current_category)
+      expect(category).to eq('Pop')
+    end
   end
 
   context 'given the player answers their question correctly' do
