@@ -35,13 +35,6 @@ describe "Playing Trivia" do
   end
 
   describe 'Rolling the die' do
-    example 'the starting category is Pop' do
-      game = game_with(['Player 1', 'Player 2'])
-
-      category = game.send(:current_category)
-      expect(category).to eq('Pop')
-    end
-
     it 'advances a player a number of places as shown on the die' do
       game = game_with(['Player 1', 'Player 2'])
 
@@ -79,6 +72,18 @@ describe "Playing Trivia" do
         category = game.send(:current_category)
         expect(category).to eq('Science')
       end
+    end
+
+    describe 'a player is asked when:' do
+      example 'they are at the start' do
+        game = game_with(['Player 1', 'Player 2'])
+
+        category = game.send(:current_category)
+        expect(category).to eq('Pop')
+      end
+
+      example 'they have moved 4 places from the start'
+      example 'they have moved 8 places from the start'
     end
 
     it 'returns the player to the starting square when they have moved 12 places' do
