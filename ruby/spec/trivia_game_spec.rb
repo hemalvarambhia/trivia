@@ -91,7 +91,15 @@ describe "Playing Trivia" do
         expect(category).to eq('Pop')
       end
 
-      example 'they have moved 8 places from the start'
+      example 'they have moved 8 places from the start' do
+        game = game_with(['Player 1', 'Player 2'])
+
+        game.roll(4)
+        game.roll(4)
+
+        category = game.send(:current_category)
+        expect(category).to eq('Pop')
+      end
     end
 
     it 'returns the player to the starting square when they have moved 12 places' do
