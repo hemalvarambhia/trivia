@@ -137,12 +137,21 @@ describe "Playing Trivia" do
   end
 
   describe 'A player is asked a sports question when:' do
-    example 'they have moved 2 places from the start'
+    example 'they have moved 2 places from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(2)
+
+      category = game.send(:current_category)
+      expect(category).to eq('Sports')
+    end
+
     example 'they have moved 6 places from the start'
     example 'they have moved 10 places from the start'
   end
 
   describe 'A player is asked a rock question when:' do
+    example 'when they have moved 3 places from the start'
     example 'they have moved 11 places from the the start'
   end
 
