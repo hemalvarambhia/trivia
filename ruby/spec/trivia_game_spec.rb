@@ -6,6 +6,10 @@ describe "Playing Trivia" do
     UglyTrivia::Game.with(players)
   end
 
+  def current_category(game)
+    game.send(:current_category)
+  end
+
   describe 'How many players can play trivia' do
     it 'is not a 1-player game' do
       game = game_with(['Player 1'])
@@ -131,7 +135,7 @@ describe "Playing Trivia" do
       game.roll(4)
       game.roll(4)
 
-      category = game.send(:current_category)
+      category = current_category(game)
       expect(category).to eq('Pop')
     end
   end
