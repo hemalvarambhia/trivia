@@ -88,7 +88,7 @@ describe "Playing Trivia" do
 
       game.roll(1)
 
-      category = game.send(:current_category)
+      category = current_category(game)
       expect(category).to eq('Science')
     end
 
@@ -97,7 +97,7 @@ describe "Playing Trivia" do
 
       game.roll(5)
 
-      category = game.send(:current_category)
+      category = current_category(game)
       expect(category).to eq('Science')
     end
 
@@ -107,7 +107,7 @@ describe "Playing Trivia" do
       game.roll(3)
       game.roll(6)
 
-      category = game.send(:current_category)
+      category = current_category(game)
       expect(category).to eq('Science')
     end
   end
@@ -116,7 +116,7 @@ describe "Playing Trivia" do
     example 'they are at the start' do
       game = game_with(['Player 1', 'Player 2'])
 
-      category = game.send(:current_category)
+      category = current_category(game)
       expect(category).to eq('Pop')
     end
 
@@ -125,7 +125,7 @@ describe "Playing Trivia" do
 
       game.roll(4)
 
-      category = game.send(:current_category)
+      category = current_category(game)
       expect(category).to eq('Pop')
     end
 
@@ -146,7 +146,7 @@ describe "Playing Trivia" do
 
       game.roll(2)
 
-      category = game.send(:current_category)
+      category = current_category(game)
       expect(category).to eq('Sports')
     end
 
