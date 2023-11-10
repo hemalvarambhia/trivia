@@ -78,7 +78,7 @@ describe "Playing Trivia" do
     example 'after a question is asked, it is places at the bottom of the pack for its category'
   end
 
-  describe 'a player is asked science questions when:' do
+  describe 'A player is asked science questions when:' do
     example 'they have moved one place from the start' do
       game = game_with(['Player 1', 'Player 2'])
 
@@ -108,7 +108,7 @@ describe "Playing Trivia" do
     end
   end
 
-  describe 'a player is asked pop questions when:' do
+  describe 'A player is asked pop questions when:' do
     example 'they are at the start' do
       game = game_with(['Player 1', 'Player 2'])
 
@@ -136,17 +136,17 @@ describe "Playing Trivia" do
     end
   end
 
-  describe 'a player is asked a sports question when:' do
+  describe 'A player is asked a sports question when:' do
     example 'they have moved 2 places from the start'
     example 'they have moved 6 places from the start'
     example 'they have moved 10 places from the start'
   end
 
-  describe 'a player is asked a rock question when:' do
+  describe 'A player is asked a rock question when:' do
     example 'they have moved 11 places from the the start'
   end
 
-  context 'given the player answers their question correctly' do
+  context 'Given the player answers their question correctly' do
     let(:game) { game_with(['Player 1', 'Player 2']) }
     before do
       game.roll(1)
@@ -166,7 +166,7 @@ describe "Playing Trivia" do
     end
   end
 
-  context 'given the player answers their question incorrectly' do
+  context 'Given the player answers their question incorrectly' do
     let(:game) { game_with(['Player 1', 'Player 2']) }
     before do
       game.roll(2)
