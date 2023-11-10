@@ -136,6 +136,16 @@ describe "Playing Trivia" do
     end
   end
 
+  describe 'a player is asked a sports question when:' do
+    example 'they have moved 2 places from the start'
+    example 'they have moved 6 places from the start'
+    example 'they have moved 10 places from the start'
+  end
+
+  describe 'a player is asked a rock question when:' do
+    example 'they have moved 11 places from the the start'
+  end
+
   context 'given the player answers their question correctly' do
     let(:game) { game_with(['Player 1', 'Player 2']) }
     before do
