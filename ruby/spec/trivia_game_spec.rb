@@ -155,8 +155,24 @@ describe "Playing Trivia" do
   end
 
   describe 'A player is asked a rock question when:' do
-    example 'when they have moved 3 places from the start'
-    example 'when they have moved 7 places from the start'
+    example 'when they have moved 3 places from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(3)
+
+      category = current_category(game)
+      expect(category).to eq('Rock')
+    end
+    example 'when they have moved 7 places from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(5)
+      game.roll(2)
+
+      category = current_category(game)
+      expect(category).to eq('Rock')
+    end
+
     example 'they have moved 11 places from the the start'
   end
 
