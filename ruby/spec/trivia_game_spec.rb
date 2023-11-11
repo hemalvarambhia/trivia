@@ -240,4 +240,8 @@ describe "Playing Trivia" do
 
     example 'the first player to have 6 gold coins is declared the winner'
   end
+
+  %w{Science Pop Rock Sports}.each do |category|
+    it "consists of 50 #{category} questions"
+  end
 end
