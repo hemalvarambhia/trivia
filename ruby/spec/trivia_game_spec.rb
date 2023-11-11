@@ -194,6 +194,10 @@ describe "Playing Trivia" do
       player_2 = 1
       expect(current_player).to eq(player_2)
     end
+
+    context 'when the last player has answered the question correctly' do
+      example 'the game returns to the very first player'
+    end
   end
 
   context 'Given the player answers their question incorrectly' do
