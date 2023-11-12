@@ -173,7 +173,15 @@ describe "Playing Trivia" do
       expect(category).to eq('Rock')
     end
 
-    example 'they have moved 11 places from the the start'
+    example 'they have moved 11 places from the the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(6)
+      game.roll(5)
+
+      category = current_category(game)
+      expect(category).to eq('Rock')
+    end
   end
 
   context 'Given the player answers their question correctly' do
