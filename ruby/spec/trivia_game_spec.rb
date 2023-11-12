@@ -2,6 +2,12 @@ require 'spec_helper'
 require_relative '../lib/ugly_trivia/game'
 
 describe "Playing Trivia" do
+  class GameWithNoCommentary < UglyTrivia::Game
+    def puts(message)
+      # do nothing
+    end
+  end
+
   def game_with(players)
     UglyTrivia::Game.with(players)
   end
