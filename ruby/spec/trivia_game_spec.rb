@@ -257,8 +257,9 @@ describe "Playing Trivia" do
 
     it 'keeps the player in the penalty box when that player rolls an even number'
 
-    example 'the first player to have 6 gold coins is declared the winner'
   end
+
+  example 'the first player to have 6 gold coins is declared the winner'
 
   %w{Science Pop Rock Sports}.each do |category|
     it "consists of 50 #{category} questions"
