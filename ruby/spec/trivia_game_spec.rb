@@ -150,8 +150,24 @@ describe "Playing Trivia" do
       expect(category).to eq('Sports')
     end
 
-    example 'they have moved 6 places from the start'
-    example 'they have moved 10 places from the start'
+    example 'they have moved 6 places from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(6)
+
+      category = current_category(game)
+      expect(category).to eq('Sports')
+    end
+
+    example 'they have moved 10 places from the start' do
+      game = game_with(['Player 1', 'Player 2'])
+
+      game.roll(6)
+      game.roll(4)
+
+      category = current_category(game)
+      expect(category).to eq('Sports')
+    end
   end
 
   describe 'A player is asked a rock question when:' do
