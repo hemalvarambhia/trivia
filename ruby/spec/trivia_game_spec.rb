@@ -228,7 +228,7 @@ describe "Playing Trivia" do
     end
 
     context 'when the player rolls an odd number' do
-      it 'takes them out of the penalty box when they answer the question correctly' do
+      it 'allows them to get out of the penalty box when they answer the question correctly' do
         # player 2's turn
         game.roll(2)
         game.was_correctly_answered
