@@ -9,7 +9,7 @@ describe "Playing Trivia" do
   end
 
   def game_with(players)
-    UglyTrivia::Game.with(players)
+    UglyTrivia::GameWithNoCommentary.with(players)
   end
 
   def current_category(game)
