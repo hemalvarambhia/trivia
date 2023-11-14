@@ -95,16 +95,17 @@ module UglyTrivia
     end
 
     def current_category
-      return 'Pop' if @places[@current_player] == 0
-      return 'Pop' if @places[@current_player] == 4
-      return 'Pop' if @places[@current_player] == 8
-      return 'Science' if @places[@current_player] == 1
-      return 'Science' if @places[@current_player] == 5
-      return 'Science' if @places[@current_player] == 9
-      return 'Sports' if @places[@current_player] == 2
-      return 'Sports' if @places[@current_player] == 6
-      return 'Sports' if @places[@current_player] == 10
-      return 'Rock'
+      {
+        0 => 'Pop',
+        4 => 'Pop',
+        8 => 'Pop',
+        1 => 'Science',
+        5 => 'Science',
+        9 => 'Science',
+        2 => 'Sports',
+        6 => 'Sports',
+        10 => 'Sports'
+      }.fetch(@places[@current_player], 'Rock')
     end
 
   public
