@@ -91,6 +91,22 @@ describe "Playing Trivia" do
     example 'after a question is asked, it is places at the bottom of the pack for its category'
   end
 
+  it "consists of 50 Science questions" do
+    game = game_with(['Player 1', 'Player 2'])
+
+    questions = game.science_questions
+    expected_questions = (0..49).map {|number| "Science Question #{number}"}
+    expect(questions).to eq(expected_questions)
+  end
+
+  it "consists of 50 Pop questions" do
+    game = game_with(['Player 1', 'Player 2'])
+
+    questions = game.pop_questions
+    expected_questions = (0..49).map {|number| "Pop Question #{number}"}
+    expect(questions).to eq(expected_questions)
+  end
+
   describe 'A player is asked science questions when:' do
     example 'they have moved one place from the start' do
       game = game_with(['Player 1', 'Player 2'])
@@ -309,20 +325,4 @@ describe "Playing Trivia" do
   end
 
   example 'the first player to have 6 gold coins is declared the winner'
-
-  it "consists of 50 Science questions" do
-    game = game_with(['Player 1', 'Player 2'])
-
-    questions = game.science_questions
-    expected_questions = (0..49).map {|number| "Science Question #{number}"}
-    expect(questions).to eq(expected_questions)
-  end
-
-  it "consists of 50 Pop questions" do
-    game = game_with(['Player 1', 'Player 2'])
-
-    questions = game.pop_questions
-    expected_questions = (0..49).map {|number| "Pop Question #{number}"}
-    expect(questions).to eq(expected_questions)
-  end
 end
