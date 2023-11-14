@@ -317,4 +317,12 @@ describe "Playing Trivia" do
     expected_questions = (0..49).map {|number| "Science Question #{number}"}
     expect(questions).to eq(expected_questions)
   end
+
+  it "consists of 50 Pop questions" do
+    game = game_with(['Player 1', 'Player 2'])
+
+    questions = game.pop_questions
+    expected_questions = (0..49).map {|number| "Pop Question #{number}"}
+    expect(questions).to eq(expected_questions)
+  end
 end
