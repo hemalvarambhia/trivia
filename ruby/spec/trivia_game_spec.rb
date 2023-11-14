@@ -107,6 +107,14 @@ describe "Playing Trivia" do
     expect(questions).to eq(expected_questions)
   end
 
+  it 'consists of 50 Sports questions' do
+    game = game_with(['Player 1', 'Player 2'])
+
+    questions = game.sports_questions
+    expected_questions = (0..49).map {|number| "Sports Question #{number}"}
+    expect(questions).to eq(expected_questions)
+  end
+
   describe 'A player is asked science questions when:' do
     example 'they have moved one place from the start' do
       game = game_with(['Player 1', 'Player 2'])
