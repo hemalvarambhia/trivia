@@ -108,7 +108,7 @@ module UglyTrivia
         3 => 'Rock',
         7 => 'Rock',
         11 => 'Rock'
-      }.fetch(@places[@current_player], 'Rock')
+      }[@places[@current_player]]
     end
 
   public
