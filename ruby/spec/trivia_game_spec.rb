@@ -86,6 +86,8 @@ describe "Playing Trivia" do
       expect(places[player_1]).to eq(0)
     end
 
+    it 'asks the player a question from the appropriate category'
+
     example 'after a question is asked, it is places at the bottom of the pack for its category'
   end
 
