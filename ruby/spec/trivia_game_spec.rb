@@ -310,7 +310,11 @@ describe "Playing Trivia" do
 
   example 'the first player to have 6 gold coins is declared the winner'
 
-  %w{Science Pop Rock Sports}.each do |category|
-    it "consists of 50 #{category} questions"
+  it "consists of 50 Science questions" do
+    game = game_with(['Player 1', 'Player 2'])
+
+    questions = game.science_questions
+    expected_questions = (0..49).map {|number| "Science Question #{number}"}
+    expect(questions).to eq(expected_questions)
   end
 end
