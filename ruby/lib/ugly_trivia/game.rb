@@ -104,7 +104,10 @@ module UglyTrivia
         9 => 'Science',
         2 => 'Sports',
         6 => 'Sports',
-        10 => 'Sports'
+        10 => 'Sports',
+        3 => 'Rock',
+        7 => 'Rock',
+        11 => 'Rock'
       }.fetch(@places[@current_player], 'Rock')
     end
 
