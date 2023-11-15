@@ -15,14 +15,13 @@ module UglyTrivia
       @purses = Array.new(6, 0)
       @in_penalty_box = Array.new(6, nil)
 
+      @current_player = 0
+      @is_getting_out_of_penalty_box = false
+
       @pop_questions = []
       @science_questions = []
       @sports_questions = []
       @rock_questions = []
-
-      @current_player = 0
-      @is_getting_out_of_penalty_box = false
-
       50.times do |i|
         @pop_questions.push "Pop Question #{i}"
         @science_questions.push "Science Question #{i}"
