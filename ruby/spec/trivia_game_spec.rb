@@ -203,6 +203,14 @@ describe "Playing Trivia" do
     end
   end
 
+  it 'consists of 50 Rock questions' do
+    game = game_with(['Player 1', 'Player 2'])
+
+    questions = game.rock_questions
+    expected_questions = (0..49).map {|number| "Rock Question #{number}"}
+    expect(questions).to eq(expected_questions)
+  end
+
   describe 'A player is asked a rock question when:' do
     example 'when they have moved 3 places from the start' do
       game = game_with(['Player 1', 'Player 2'])
