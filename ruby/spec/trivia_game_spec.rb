@@ -58,7 +58,8 @@ describe "Playing Trivia" do
 
   context 'Trivial game involving six players' do
     it 'has no one in the penalty box at the beginning' do
-      game = game_with(['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'])
+      players = (1..6).map {|number| "Player #{number}"}
+      game = game_with(players)
 
       expect(game.in_penalty_box[1..-1]).to all eq(false)
       expect(game.in_penalty_box.first).to be_nil
