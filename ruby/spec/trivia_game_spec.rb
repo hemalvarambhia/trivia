@@ -49,6 +49,9 @@ describe "Playing Trivia" do
       game = game_with(['Player 1', 'Player 2', 'Player 3'])
 
       expect(game.in_penalty_box.slice(1..3)).to all eq(false)
+      expect(game.in_penalty_box.first).to be_nil
+      expect(game.in_penalty_box[-2]).to be_nil
+      expect(game.in_penalty_box[-1]).to be_nil
     end
   end
 
@@ -57,6 +60,7 @@ describe "Playing Trivia" do
       game = game_with(['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'])
 
       expect(game.in_penalty_box[1..-1]).to all eq(false)
+      expect(game.in_penalty_box.first).to be_nil
     end
   end
 
