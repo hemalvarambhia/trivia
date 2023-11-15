@@ -52,6 +52,14 @@ describe "Playing Trivia" do
     end
   end
 
+  context 'Trivial game involving six players' do
+    it 'has no one in the penalty box at the beginning' do
+      game = game_with(['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'])
+
+      expect(game.in_penalty_box[1..-1]).to all eq(false)
+    end
+  end
+
   describe 'Rolling the die' do
     it 'does not advance a player when they roll a 0'
     it 'advances a player a number of places as shown on the die' do
