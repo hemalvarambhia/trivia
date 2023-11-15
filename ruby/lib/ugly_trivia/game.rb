@@ -18,16 +18,7 @@ module UglyTrivia
       @current_player = 0
       @is_getting_out_of_penalty_box = false
 
-      @pop_questions = []
-      @science_questions = []
-      @sports_questions = []
-      @rock_questions = []
-      50.times do |i|
-        @pop_questions.push "Pop Question #{i}"
-        @science_questions.push "Science Question #{i}"
-        @sports_questions.push "Sports Question #{i}"
-        @rock_questions.push "Rock Question #{i}"
-      end
+      prepare_questions
     end
 
     def is_playable?
@@ -154,6 +145,19 @@ module UglyTrivia
     end
 
   private
+
+    def prepare_questions
+      @pop_questions = []
+      @science_questions = []
+      @sports_questions = []
+      @rock_questions = []
+      50.times do |i|
+        @pop_questions.push "Pop Question #{i}"
+        @science_questions.push "Science Question #{i}"
+        @sports_questions.push "Sports Question #{i}"
+        @rock_questions.push "Rock Question #{i}"
+      end
+    end
 
     def did_player_win
       !(@purses[@current_player] == 6)
