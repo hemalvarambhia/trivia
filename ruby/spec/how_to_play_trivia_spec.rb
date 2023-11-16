@@ -406,8 +406,25 @@ describe "How to play Trivia" do
   end
 
   context 'Given the player is in the penalty box' do
+    let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
+
+    before do
+      game.roll(2)
+      game.wrong_answer
+    end
+
     context 'and they qualify to leave it' do
-      it "is the next player's turn"
+      it "is the next player's turn" do
+        game.roll(3)
+        game.was_correctly_answered
+
+        game.roll(3)
+        game.was_correctly_answered
+
+        player_2 = 1
+        expect(game.current_player).to eq(player_2)
+      end
+
       it "cycles back to the first player when the last player has had their turn"
     end
 
