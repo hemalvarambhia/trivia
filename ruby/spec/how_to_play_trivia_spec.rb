@@ -405,7 +405,7 @@ describe "How to play Trivia" do
 
   end
 
-  context 'Given the player is in the penalty box' do
+  context 'Given the first player is in the penalty box' do
     let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
 
     before do
@@ -425,7 +425,23 @@ describe "How to play Trivia" do
         expect(game.current_player).to eq(player_2)
       end
 
-      it "cycles back to the first player when the last player has had their turn"
+      context 'Given the last player is also in the penalty box' do
+        before do
+          game.roll(3)
+          game.wrong_answer
+        end
+
+        it 'cycles back to the first player' do
+          game.roll(3)
+          game.was_correctly_answered
+
+          game.roll(5)
+          game.was_correctly_answered
+
+          player_1 = 0
+          expect(game.current_player).to eq(player_1)
+        end
+      end
     end
 
     context 'and they do not qualify to leave it' do
