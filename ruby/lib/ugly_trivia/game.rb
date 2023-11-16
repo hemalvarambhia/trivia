@@ -75,7 +75,14 @@ module UglyTrivia
   private
 
     def ask_question
-      case current_category
+      category = current_category
+      question = question_from(category)
+
+      puts question
+    end
+
+    def question_from(category)
+      case category
       when 'Pop'
         question = @pop_questions.shift
       when 'Science'
@@ -85,8 +92,7 @@ module UglyTrivia
       when 'Rock'
         question = @rock_questions.shift
       end
-
-      puts question
+      question
     end
 
     def current_category
