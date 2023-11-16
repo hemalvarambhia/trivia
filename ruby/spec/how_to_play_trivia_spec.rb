@@ -429,14 +429,19 @@ describe "How to play Trivia" do
         before do
           game.roll(3)
           game.wrong_answer
+          # player 2 is now in the penalty box
         end
 
         it 'cycles back to the first player' do
+          # player 1's turn
           game.roll(3)
           game.was_correctly_answered
+          # player 1 is now getting out of the penalty box
 
+          # player 2's turn
           game.roll(5)
           game.was_correctly_answered
+          # player 2 is now getting out of the penalty box
 
           player_1 = 0
           expect(game.current_player).to eq(player_1)
