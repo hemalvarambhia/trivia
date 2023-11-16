@@ -144,7 +144,8 @@ describe "Playing Trivia" do
 
       game.roll(1)
 
-      expect(game.science_questions).not_to include('Science Question 0')
+      questions_for_category = game.science_questions
+      expect(questions_for_category).not_to include('Science Question 0')
     end
   end
 
