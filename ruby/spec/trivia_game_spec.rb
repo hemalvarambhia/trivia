@@ -23,7 +23,7 @@ describe "Playing Trivia" do
     end
   end
 
-  def game_with(players)
+  def game_without_commentary_involving(players)
     UglyTrivia::GameWithNoCommentary.with(players)
   end
 
@@ -33,27 +33,27 @@ describe "Playing Trivia" do
 
   describe 'How many players can play trivia' do
     it 'is not a 1-player game' do
-      game = game_with(['Player 1'])
+      game = game_without_commentary_involving(['Player 1'])
 
       expect(game.is_playable?).to eq(false)
     end
 
     it 'requires a minimum of 2 players' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       expect(game.is_playable?).to eq(true)
     end
 
     it 'can be played by exactly 6 players' do
       players = (1..6).map {|number| "Player #{number}"}
-      game = game_with(players)
+      game = game_without_commentary_involving(players)
 
       expect(game.is_playable?).to eq(true)
     end
 
     it 'can be played by more than 6 players' do
       players = (1..7).map {|number| "Player #{number}"}
-      game = game_with(players)
+      game = game_without_commentary_involving(players)
 
       expect(game.is_playable?).to eq(true)
     end
@@ -61,7 +61,7 @@ describe "Playing Trivia" do
 
   context 'Trivia game involving three players' do
     it 'has no one in the penalty box at the beginning' do
-      game = game_with(['Player 1', 'Player 2', 'Player 3'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2', 'Player 3'])
 
       expect(game.in_penalty_box[1..3]).to all eq(false)
       # This part feels odd.
@@ -74,7 +74,7 @@ describe "Playing Trivia" do
   context 'Trivial game involving six players' do
     it 'has no one in the penalty box at the beginning' do
       players = (1..6).map {|number| "Player #{number}"}
-      game = game_with(players)
+      game = game_without_commentary_involving(players)
 
       expect(game.in_penalty_box[1..-1]).to all eq(false)
       expect(game.in_penalty_box.first).to be_nil
@@ -84,7 +84,7 @@ describe "Playing Trivia" do
   describe 'Rolling the die' do
     it 'does not advance a player when they roll a 0'
     it 'advances a player a number of places as shown on the die' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(1)
 
@@ -93,7 +93,7 @@ describe "Playing Trivia" do
     end
 
     it 'returns the player to the starting square when they have moved 12 places' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(6)
       game.roll(6)
@@ -104,14 +104,14 @@ describe "Playing Trivia" do
     end
 
     it 'does not change who the current player is' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       player_1 = 0
       expect { game.roll(rand(1..6)) }.not_to change(game, :current_player).from(player_1)
     end
 
     example 'a player can cycle around the board multiple times, every 12 places' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       3.times do
         game.roll(6)
@@ -136,7 +136,7 @@ describe "Playing Trivia" do
   end
 
   it "consists of 50 Science questions" do
-    game = game_with(['Player 1', 'Player 2'])
+    game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
     questions = game.science_questions
     expected_questions = (0..49).map {|number| "Science Question #{number}"}
@@ -145,7 +145,7 @@ describe "Playing Trivia" do
 
   describe 'A player is asked science questions when:' do
     example 'they have moved one place from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(1)
 
@@ -154,7 +154,7 @@ describe "Playing Trivia" do
     end
 
     example 'they have moved 5 spaces forwards from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(5)
 
@@ -163,7 +163,7 @@ describe "Playing Trivia" do
     end
 
     it 'they have moved 9 spaces forwards from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(3)
       game.roll(6)
@@ -174,7 +174,7 @@ describe "Playing Trivia" do
   end
 
   it "consists of 50 Pop questions" do
-    game = game_with(['Player 1', 'Player 2'])
+    game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
     questions = game.pop_questions
     expected_questions = (0..49).map {|number| "Pop Question #{number}"}
@@ -183,14 +183,14 @@ describe "Playing Trivia" do
 
   describe 'A player is asked pop questions when:' do
     example 'they are at the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       category = current_category(game)
       expect(category).to eq('Pop')
     end
 
     example 'they have moved 4 places from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(4)
 
@@ -199,7 +199,7 @@ describe "Playing Trivia" do
     end
 
     example 'they have moved 8 places from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(4)
       game.roll(4)
@@ -210,7 +210,7 @@ describe "Playing Trivia" do
   end
 
   it 'consists of 50 Sports questions' do
-    game = game_with(['Player 1', 'Player 2'])
+    game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
     questions = game.sports_questions
     expected_questions = (0..49).map {|number| "Sports Question #{number}"}
@@ -219,7 +219,7 @@ describe "Playing Trivia" do
 
   describe 'A player is asked a sports question when:' do
     example 'they have moved 2 places from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(2)
 
@@ -228,7 +228,7 @@ describe "Playing Trivia" do
     end
 
     example 'they have moved 6 places from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(6)
 
@@ -237,7 +237,7 @@ describe "Playing Trivia" do
     end
 
     example 'they have moved 10 places from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(6)
       game.roll(4)
@@ -248,7 +248,7 @@ describe "Playing Trivia" do
   end
 
   it 'consists of 50 Rock questions' do
-    game = game_with(['Player 1', 'Player 2'])
+    game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
     questions = game.rock_questions
     expected_questions = (0..49).map {|number| "Rock Question #{number}"}
@@ -257,7 +257,7 @@ describe "Playing Trivia" do
 
   describe 'A player is asked a rock question when:' do
     example 'when they have moved 3 places from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(3)
 
@@ -265,7 +265,7 @@ describe "Playing Trivia" do
       expect(category).to eq('Rock')
     end
     example 'when they have moved 7 places from the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(5)
       game.roll(2)
@@ -275,7 +275,7 @@ describe "Playing Trivia" do
     end
 
     example 'when they have moved 11 places from the the start' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(6)
       game.roll(5)
@@ -286,7 +286,7 @@ describe "Playing Trivia" do
   end
 
   context 'Given the player answers their question correctly' do
-    let(:game) { game_with(['Player 1', 'Player 2']) }
+    let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
     before do
       game.roll(1)
       game.was_correctly_answered
@@ -308,7 +308,7 @@ describe "Playing Trivia" do
 
   context 'when the last player has their turn' do
     example 'the game returns to the very first player' do
-      game = game_with(['Player 1', 'Player 2'])
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
       game.roll(1)
       game.was_correctly_answered
@@ -324,7 +324,7 @@ describe "Playing Trivia" do
   end
 
   context 'Given the player answers their question incorrectly' do
-    let(:game) { game_with(['Player 1', 'Player 2']) }
+    let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
     before do
       game.roll(2)
       game.wrong_answer
