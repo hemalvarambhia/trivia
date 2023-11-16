@@ -77,20 +77,17 @@ module UglyTrivia
     def ask_question
       if current_category == 'Pop'
         question = @pop_questions.shift
-        puts question
       end
       if current_category == 'Science'
         question = @science_questions.shift
-        puts question
       end
       if current_category == 'Sports'
         question = @sports_questions.shift
-        puts question
       end
       if current_category == 'Rock'
         question = @rock_questions.shift
-        puts question
       end
+      puts question
     end
 
     def current_category
