@@ -359,7 +359,14 @@ describe "How to play Trivia" do
       expect(current_player).to eq(player_2)
     end
 
-    it "cycle's back player one's turn when the last player has had their go"
+    it "cycle's back player one's turn when the last player has had their go" do
+      game.roll(3)
+      game.wrong_answer
+
+      current_player = game.current_player
+      first_player = 0
+      expect(current_player).to eq(first_player)
+    end
 
     context 'when the player rolls an odd number' do
       it 'allows them to get out of the penalty box when they answer the question correctly' do
