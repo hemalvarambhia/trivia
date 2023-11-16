@@ -139,7 +139,13 @@ describe "Playing Trivia" do
       end
     end
 
-    example 'after a question is asked, it is places at the bottom of the pack for its category'
+    example 'after a question is asked, it is removed from the pack of questions' do
+      game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
+
+      game.roll(1)
+
+      expect(game.science_questions).not_to include('Science Question 0')
+    end
   end
 
   it "consists of 50 Science questions" do
