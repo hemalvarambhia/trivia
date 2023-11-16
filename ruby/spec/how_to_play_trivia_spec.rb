@@ -306,6 +306,8 @@ describe "How to play Trivia" do
       game.was_correctly_answered
     end
 
+    it 'announces that the answer is correct'
+
     it 'awards that player a gold coin' do
       purses = game.purses
       player_1 = 0
@@ -343,6 +345,8 @@ describe "How to play Trivia" do
       game.roll(2)
       game.wrong_answer
     end
+
+    it 'announces that the answer is incorrect'
 
     it 'places the player in the penalty box' do
       player_1 = 0
