@@ -299,7 +299,7 @@ describe "How to play Trivia" do
     end
   end
 
-  context 'Given the player answers their question correctly' do
+  context 'When the player answers their question correctly' do
     let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
     before do
       game.roll(1)
@@ -320,7 +320,7 @@ describe "How to play Trivia" do
 
   end
 
-  context 'when the last player has their turn' do
+  context 'When the last player has their turn' do
     example 'the game returns to the very first player' do
       game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
@@ -337,7 +337,7 @@ describe "How to play Trivia" do
     end
   end
 
-  context 'Given the player answers their question incorrectly' do
+  context 'When the player answers their question incorrectly' do
     let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
     before do
       game.roll(2)
