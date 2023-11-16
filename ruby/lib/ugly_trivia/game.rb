@@ -75,12 +75,12 @@ module UglyTrivia
   private
 
     def ask_question
-      question = question_from(current_category)
+      question = pick_question_for(current_category)
 
       puts question
     end
 
-    def question_from(category)
+    def pick_question_for(category)
       case category
       when 'Pop'
         question = @pop_questions.shift
