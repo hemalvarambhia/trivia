@@ -120,8 +120,7 @@ module UglyTrivia
           puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
 
           winner = did_player_win()
-          @current_player += 1
-          @current_player = 0 if @current_player == @players.length
+          next_players_turn
 
           winner
         else
