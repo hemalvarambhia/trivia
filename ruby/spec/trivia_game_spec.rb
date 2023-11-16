@@ -8,6 +8,21 @@ describe "Playing Trivia" do
     end
   end
 
+  class UglyTrivia::GameWithCommentary < UglyTrivia::Game
+    def initialize
+      super
+      @commentary = StringIO.new
+    end
+
+    def commentary
+      @commentary.string
+    end
+
+    def puts(message)
+      @commentary.puts(message)
+    end
+  end
+
   def game_with(players)
     UglyTrivia::GameWithNoCommentary.with(players)
   end
@@ -108,7 +123,14 @@ describe "Playing Trivia" do
       expect(places[player_1]).to eq(0)
     end
 
-    it 'asks the player a question from the appropriate category'
+    it 'asks the player a question from the appropriate category' do
+      game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
+
+      game.roll(1)
+
+      expect(game.commentary).to include('The category is Science')
+      expect(game.commentary).to include('Science Question 0')
+    end
 
     example 'after a question is asked, it is places at the bottom of the pack for its category'
   end
