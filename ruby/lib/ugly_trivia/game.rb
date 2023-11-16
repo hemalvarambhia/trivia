@@ -75,8 +75,7 @@ module UglyTrivia
   private
 
     def ask_question
-      category = current_category
-      question = question_from(category)
+      question = question_from(current_category)
 
       puts question
     end
