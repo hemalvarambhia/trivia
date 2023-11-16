@@ -57,27 +57,27 @@ describe "Playing Trivia" do
 
       expect(game.is_playable?).to eq(true)
     end
-  end
 
-  context 'Trivia game involving three players' do
-    it 'has no one in the penalty box at the beginning' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2', 'Player 3'])
+    context 'Trivia game involving three players' do
+      it 'has no one in the penalty box at the beginning' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2', 'Player 3'])
 
-      expect(game.in_penalty_box[1..3]).to all eq(false)
-      # This part feels odd.
-      expect(game.in_penalty_box.first).to be_nil
-      expect(game.in_penalty_box[-2]).to be_nil
-      expect(game.in_penalty_box[-1]).to be_nil
+        expect(game.in_penalty_box[1..3]).to all eq(false)
+        # This part feels odd.
+        expect(game.in_penalty_box.first).to be_nil
+        expect(game.in_penalty_box[-2]).to be_nil
+        expect(game.in_penalty_box[-1]).to be_nil
+      end
     end
-  end
 
-  context 'Trivial game involving six players' do
-    it 'has no one in the penalty box at the beginning' do
-      players = (1..6).map {|number| "Player #{number}"}
-      game = game_without_commentary_involving(players)
+    context 'Trivial game involving six players' do
+      it 'has no one in the penalty box at the beginning' do
+        players = (1..6).map {|number| "Player #{number}"}
+        game = game_without_commentary_involving(players)
 
-      expect(game.in_penalty_box[1..-1]).to all eq(false)
-      expect(game.in_penalty_box.first).to be_nil
+        expect(game.in_penalty_box[1..-1]).to all eq(false)
+        expect(game.in_penalty_box.first).to be_nil
+      end
     end
   end
 
