@@ -405,9 +405,16 @@ describe "How to play Trivia" do
 
   end
 
-  context 'Given the player is in the penalty box and they qualify to leave it' do
-    it "is the next player's turn"
-    it "cycles back to the first player when the last player has had their turn"
+  context 'Given the player is in the penalty box' do
+    context 'and they qualify to leave it' do
+      it "is the next player's turn"
+      it "cycles back to the first player when the last player has had their turn"
+    end
+
+    context 'and they do not qualify to leave it' do
+      it "is the next player's turn"
+      it "cycles back to the first player when the last player has had their turn"
+    end
   end
 
   example 'the first player to have 6 gold coins is declared the winner'
