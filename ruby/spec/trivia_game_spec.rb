@@ -143,9 +143,8 @@ describe "Playing Trivia" do
 
         game.roll(number)
 
-        expected_category = category
-        questions_for_category = game.send("#{expected_category.downcase}_questions")
-        expect(questions_for_category).not_to include("#{expected_category} Question 0")
+        questions_for_category = game.send("#{category.downcase}_questions")
+        expect(questions_for_category).not_to include("#{category} Question 0")
       end
     end
   end
