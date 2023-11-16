@@ -129,7 +129,7 @@ describe "Playing Trivia" do
       3 => 'Rock',
       4 => 'Pop'
     }.each do |number, category|
-      it 'asks the player a question from the appropriate category' do
+      it "asks the player a #{category} question when #{number} is rolled" do
         game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
 
         game.roll(number)
@@ -138,7 +138,7 @@ describe "Playing Trivia" do
         expect(game.commentary).to include("#{category} Question 0")
       end
 
-      example 'after a question is asked, it is removed from the pack of questions' do
+      example "after a #{category} question is asked, it is removed from the pack of questions" do
         game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
 
         game.roll(number)
