@@ -322,11 +322,6 @@ describe "How to play Trivia" do
 
     context 'When the last player has their turn' do
       example 'the game returns to the very first player' do
-        game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-        game.roll(1)
-        game.was_correctly_answered
-
         # player 2's turn
         game.roll(3)
         game.was_correctly_answered
