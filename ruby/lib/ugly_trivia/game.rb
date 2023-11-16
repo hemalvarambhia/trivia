@@ -98,11 +98,6 @@ module UglyTrivia
       }[@places[@current_player]]
     end
 
-    def next_players_turn
-      @current_player += 1
-      @current_player = 0 if @current_player == @players.length
-    end
-
     public
 
     def was_correctly_answered
@@ -164,6 +159,11 @@ module UglyTrivia
 
     def did_player_win
       !(@purses[@current_player] == 6)
+    end
+
+    def next_players_turn
+      @current_player += 1
+      @current_player = 0 if @current_player == @players.length
     end
   end
 end
