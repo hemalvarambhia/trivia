@@ -1,6 +1,7 @@
 ## Inbox
 
 - Quieten printing to standard out.
+- Current player is implicit in the code and it is difficult, then, to set up the test correctly.
 
 ## Penalty Box Diagram
 
