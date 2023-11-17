@@ -27,6 +27,10 @@ describe "How to play Trivia" do
     UglyTrivia::GameWithNoCommentary.with(players)
   end
 
+  def game_with_commentary_involving(players)
+    UglyTrivia::GameWithCommentary.with(players)
+  end
+
   def current_category(game)
     game.send(:current_category)
   end
@@ -282,7 +286,7 @@ describe "How to play Trivia" do
       4 => 'Pop'
     }.each do |number, category|
       it "asks the player a #{category} question when #{number} is rolled" do
-        game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
+        game = game_with_commentary_involving(['Player 1', 'Player 2'])
 
         game.roll(number)
 
@@ -291,7 +295,7 @@ describe "How to play Trivia" do
       end
 
       example "after a #{category} question is asked, it is removed from the pack of questions" do
-        game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
         game.roll(number)
 
@@ -336,7 +340,7 @@ describe "How to play Trivia" do
   end
 
   context 'When the player answers their question incorrectly' do
-    let(:game) { UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2']) }
+    let(:game) { game_with_commentary_involving(['Player 1', 'Player 2']) }
 
     before do
       game.roll(2)
