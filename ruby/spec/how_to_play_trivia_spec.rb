@@ -388,11 +388,11 @@ describe "How to play Trivia" do
 
       it 'still allows them to get out of the penalty box even after they answer the question incorrectly' do
         # player 2's turn
-        game.roll(1)
+        game.roll(2)
         game.was_correctly_answered
 
         # player 1's turn
-        game.roll(5)
+        game.roll(3)
         game.wrong_answer
 
         player_out_of_penalty_box = game.is_getting_out_of_penalty_box
