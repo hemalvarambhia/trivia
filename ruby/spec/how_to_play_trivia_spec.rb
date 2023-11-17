@@ -1,28 +1,28 @@
 require 'spec_helper'
 require_relative '../lib/ugly_trivia/game'
 
+class UglyTrivia::GameWithNoCommentary < UglyTrivia::Game
+  def puts(message)
+    # do nothing
+  end
+end
+
+class UglyTrivia::GameWithCommentary < UglyTrivia::Game
+  def initialize
+    super
+    @commentary = StringIO.new
+  end
+
+  def commentary
+    @commentary.string
+  end
+
+  def puts(message)
+    @commentary.puts(message)
+  end
+end
+
 describe "How to play Trivia" do
-  class UglyTrivia::GameWithNoCommentary < UglyTrivia::Game
-    def puts(message)
-      # do nothing
-    end
-  end
-
-  class UglyTrivia::GameWithCommentary < UglyTrivia::Game
-    def initialize
-      super
-      @commentary = StringIO.new
-    end
-
-    def commentary
-      @commentary.string
-    end
-
-    def puts(message)
-      @commentary.puts(message)
-    end
-  end
-
   def silent_game_involving(players)
     UglyTrivia::GameWithNoCommentary.with(players)
   end
