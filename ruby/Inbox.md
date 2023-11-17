@@ -7,8 +7,8 @@
 ```mermaid
 stateDiagram-v2
     [*] --> OutsidePenaltyBox
-    OutsidePenaltyBox --> InsidePenaltyBox: Answered Question Incorrectly
+    OutsidePenaltyBox --> InsidePenaltyBox: Answered question incorrectly
     InsidePenaltyBox --> CanLeavePenaltyBox: Rolled an odd number 
-    CanLeavePenaltyBox --> OutsidePenaltyBox: Answered Question Correctly
-    CanLeavePenaltyBox --> InsidePenaltyBox: Answered Question Incorrectly
+    CanLeavePenaltyBox --> OutsidePenaltyBox: Answered question correctly
+    CanLeavePenaltyBox --> InsidePenaltyBox: Answered question incorrectly
 ```
