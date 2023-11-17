@@ -334,17 +334,21 @@ describe "How to play Trivia" do
   end
 
   context 'When the player answers their question incorrectly' do
-    let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
+    let(:game) { UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2']) }
+
     before do
       game.roll(2)
       game.wrong_answer
     end
 
-    it 'announces that the answer is incorrect'
+    it 'announces that the answer is incorrect' do
+      expect(game.commentary).to include('Question was incorrectly answered')
+    end
 
     it 'places the player in the penalty box' do
       player_1 = 0
       player_in_penalty_box = game.in_penalty_box[player_1]
+      expect(game.commentary).to include('Player 1 was sent to the penalty box')
       expect(player_in_penalty_box).to eq(true)
     end
 
