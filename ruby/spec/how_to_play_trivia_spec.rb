@@ -405,7 +405,7 @@ describe "How to play Trivia" do
 
   end
 
-  context 'Given the first player is in the penalty box' do
+  context 'Given a player is in the penalty box' do
     let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
 
     before do
