@@ -81,153 +81,155 @@ describe "How to play Trivia" do
     end
   end
 
-  it "consists of 50 Science questions" do
-    game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-    questions = game.science_questions
-    expected_questions = (0..49).map {|number| "Science Question #{number}"}
-    expect(questions).to eq(expected_questions)
-  end
-
-  describe 'A player is asked science questions when:' do
-    example 'they have moved one place from the start' do
+  describe 'Deck of questions' do
+    it "consists of 50 Science questions" do
       game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
-      game.roll(1)
-
-      category = current_category(game)
-      expect(category).to eq('Science')
+      questions = game.science_questions
+      expected_questions = (0..49).map {|number| "Science Question #{number}"}
+      expect(questions).to eq(expected_questions)
     end
 
-    example 'they have moved 5 spaces forwards from the start' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
+    describe 'A player is asked science questions when:' do
+      example 'they have moved one place from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
-      game.roll(5)
+        game.roll(1)
 
-      category = current_category(game)
-      expect(category).to eq('Science')
+        category = current_category(game)
+        expect(category).to eq('Science')
+      end
+
+      example 'they have moved 5 spaces forwards from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+        game.roll(5)
+
+        category = current_category(game)
+        expect(category).to eq('Science')
+      end
+
+      it 'they have moved 9 spaces forwards from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+        game.roll(3)
+        game.roll(6)
+
+        category = current_category(game)
+        expect(category).to eq('Science')
+      end
     end
 
-    it 'they have moved 9 spaces forwards from the start' do
+    it "consists of 50 Pop questions" do
       game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
-      game.roll(3)
-      game.roll(6)
-
-      category = current_category(game)
-      expect(category).to eq('Science')
-    end
-  end
-
-  it "consists of 50 Pop questions" do
-    game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-    questions = game.pop_questions
-    expected_questions = (0..49).map {|number| "Pop Question #{number}"}
-    expect(questions).to eq(expected_questions)
-  end
-
-  describe 'A player is asked pop questions when:' do
-    example 'they are at the start' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-      category = current_category(game)
-      expect(category).to eq('Pop')
+      questions = game.pop_questions
+      expected_questions = (0..49).map {|number| "Pop Question #{number}"}
+      expect(questions).to eq(expected_questions)
     end
 
-    example 'they have moved 4 places from the start' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
+    describe 'A player is asked pop questions when:' do
+      example 'they are at the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
-      game.roll(4)
+        category = current_category(game)
+        expect(category).to eq('Pop')
+      end
 
-      category = current_category(game)
-      expect(category).to eq('Pop')
+      example 'they have moved 4 places from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+        game.roll(4)
+
+        category = current_category(game)
+        expect(category).to eq('Pop')
+      end
+
+      example 'they have moved 8 places from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+        game.roll(4)
+        game.roll(4)
+
+        category = current_category(game)
+        expect(category).to eq('Pop')
+      end
     end
 
-    example 'they have moved 8 places from the start' do
+    it 'consists of 50 Sports questions' do
       game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
-      game.roll(4)
-      game.roll(4)
-
-      category = current_category(game)
-      expect(category).to eq('Pop')
-    end
-  end
-
-  it 'consists of 50 Sports questions' do
-    game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-    questions = game.sports_questions
-    expected_questions = (0..49).map {|number| "Sports Question #{number}"}
-    expect(questions).to eq(expected_questions)
-  end
-
-  describe 'A player is asked a sports question when:' do
-    example 'they have moved 2 places from the start' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-      game.roll(2)
-
-      category = current_category(game)
-      expect(category).to eq('Sports')
+      questions = game.sports_questions
+      expected_questions = (0..49).map {|number| "Sports Question #{number}"}
+      expect(questions).to eq(expected_questions)
     end
 
-    example 'they have moved 6 places from the start' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
+    describe 'A player is asked a sports question when:' do
+      example 'they have moved 2 places from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
-      game.roll(6)
+        game.roll(2)
 
-      category = current_category(game)
-      expect(category).to eq('Sports')
+        category = current_category(game)
+        expect(category).to eq('Sports')
+      end
+
+      example 'they have moved 6 places from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+        game.roll(6)
+
+        category = current_category(game)
+        expect(category).to eq('Sports')
+      end
+
+      example 'they have moved 10 places from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+        game.roll(6)
+        game.roll(4)
+
+        category = current_category(game)
+        expect(category).to eq('Sports')
+      end
     end
 
-    example 'they have moved 10 places from the start' do
+    it 'consists of 50 Rock questions' do
       game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
-      game.roll(6)
-      game.roll(4)
-
-      category = current_category(game)
-      expect(category).to eq('Sports')
-    end
-  end
-
-  it 'consists of 50 Rock questions' do
-    game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-    questions = game.rock_questions
-    expected_questions = (0..49).map {|number| "Rock Question #{number}"}
-    expect(questions).to eq(expected_questions)
-  end
-
-  describe 'A player is asked a rock question when:' do
-    example 'when they have moved 3 places from the start' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-      game.roll(3)
-
-      category = current_category(game)
-      expect(category).to eq('Rock')
-    end
-    example 'when they have moved 7 places from the start' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-      game.roll(5)
-      game.roll(2)
-
-      category = current_category(game)
-      expect(category).to eq('Rock')
+      questions = game.rock_questions
+      expected_questions = (0..49).map {|number| "Rock Question #{number}"}
+      expect(questions).to eq(expected_questions)
     end
 
-    example 'when they have moved 11 places from the the start' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
+    describe 'A player is asked a rock question when:' do
+      example 'when they have moved 3 places from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
-      game.roll(6)
-      game.roll(5)
+        game.roll(3)
 
-      category = current_category(game)
-      expect(category).to eq('Rock')
+        category = current_category(game)
+        expect(category).to eq('Rock')
+      end
+      example 'when they have moved 7 places from the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+        game.roll(5)
+        game.roll(2)
+
+        category = current_category(game)
+        expect(category).to eq('Rock')
+      end
+
+      example 'when they have moved 11 places from the the start' do
+        game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+        game.roll(6)
+        game.roll(5)
+
+        category = current_category(game)
+        expect(category).to eq('Rock')
+      end
     end
   end
 
