@@ -9,5 +9,6 @@ stateDiagram-v2
     [*] --> OutsidePenaltyBox
     OutsidePenaltyBox --> InsidePenaltyBox: Answered Question Incorrectly
     InsidePenaltyBox --> CanLeavePenaltyBox: Rolled an odd number 
-    CanLeavePenaltyBox--> OutsidePenaltyBox: Answered Question Correctly
+    CanLeavePenaltyBox --> OutsidePenaltyBox: Answered Question Correctly
+    CanLeavePenaltyBox --> InsidePenaltyBox: Answered Question Incorrectly
 ```
