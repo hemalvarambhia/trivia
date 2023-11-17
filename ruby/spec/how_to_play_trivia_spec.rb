@@ -436,7 +436,7 @@ describe "How to play Trivia" do
 
     context 'and they qualify to leave it' do
       it "is the next player's turn" do
-        game.roll(3)
+        game.roll(2)
         game.was_correctly_answered
 
         game.roll(3)
