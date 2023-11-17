@@ -362,6 +362,15 @@ describe "How to play Trivia" do
       first_player = 0
       expect(current_player).to eq(first_player)
     end
+  end
+
+  context 'Given a player is in the penalty box' do
+    let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
+
+    before do
+      game.roll(2)
+      game.wrong_answer
+    end
 
     context 'when the player rolls an odd number' do
       it 'allows them to get out of the penalty box when they answer the question correctly' do
@@ -403,15 +412,6 @@ describe "How to play Trivia" do
         player_out_of_penalty_box = game.is_getting_out_of_penalty_box
         expect(player_out_of_penalty_box).to eq(false)
       end
-    end
-  end
-
-  context 'Given a player is in the penalty box' do
-    let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
-
-    before do
-      game.roll(2)
-      game.wrong_answer
     end
 
     context 'and they qualify to leave it' do
