@@ -379,7 +379,7 @@ describe "How to play Trivia" do
   end
 
   context 'Given a player is in the penalty box' do
-    let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
+    let(:game) { game_with_commentary_involving(['Player 1', 'Player 2']) }
 
     before do
       game.roll(2)
@@ -465,6 +465,7 @@ describe "How to play Trivia" do
 
         player_1 = 0
         expect(game.purses[player_1]).to eq(1)
+        expect(game.commentary).to include('Player 1 now has 1 Gold Coins.')
       end
 
       context 'Given the last player is also in the penalty box' do
