@@ -81,74 +81,6 @@ describe "How to play Trivia" do
     end
   end
 
-  describe 'Rolling the die' do
-    it 'does not advance a player when they roll a 0'
-    it 'advances a player a number of places as shown on the die' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-      game.roll(1)
-
-      places = game.places
-      expect(places[0]).to eq(1)
-    end
-
-    it 'returns the player to the starting square when they have moved 12 places' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-      game.roll(6)
-      game.roll(6)
-
-      places = game.places
-      player_1 = 0
-      expect(places[player_1]).to eq(0)
-    end
-
-    it 'does not change who the current player is' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-      player_1 = 0
-      expect { game.roll(rand(1..6)) }.not_to change(game, :current_player).from(player_1)
-    end
-
-    example 'a player can cycle around the board multiple times, every 12 places' do
-      game = game_without_commentary_involving(['Player 1', 'Player 2'])
-
-      3.times do
-        game.roll(6)
-        game.roll(6)
-      end
-
-      places = game.places
-      player_1 = 0
-      expect(places[player_1]).to eq(0)
-    end
-
-    {
-      1 => 'Science',
-      2 => 'Sports',
-      3 => 'Rock',
-      4 => 'Pop'
-    }.each do |number, category|
-      it "asks the player a #{category} question when #{number} is rolled" do
-        game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
-
-        game.roll(number)
-
-        expect(game.commentary).to include("The category is #{category}")
-        expect(game.commentary).to include("#{category} Question 0")
-      end
-
-      example "after a #{category} question is asked, it is removed from the pack of questions" do
-        game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
-
-        game.roll(number)
-
-        questions_for_category = game.send("#{category.downcase}_questions")
-        expect(questions_for_category).not_to include("#{category} Question 0")
-      end
-    end
-  end
-
   it "consists of 50 Science questions" do
     game = game_without_commentary_involving(['Player 1', 'Player 2'])
 
@@ -296,6 +228,74 @@ describe "How to play Trivia" do
 
       category = current_category(game)
       expect(category).to eq('Rock')
+    end
+  end
+
+  describe 'Rolling the die' do
+    it 'does not advance a player when they roll a 0'
+    it 'advances a player a number of places as shown on the die' do
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+      game.roll(1)
+
+      places = game.places
+      expect(places[0]).to eq(1)
+    end
+
+    it 'returns the player to the starting square when they have moved 12 places' do
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+      game.roll(6)
+      game.roll(6)
+
+      places = game.places
+      player_1 = 0
+      expect(places[player_1]).to eq(0)
+    end
+
+    it 'does not change who the current player is' do
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+      player_1 = 0
+      expect { game.roll(rand(1..6)) }.not_to change(game, :current_player).from(player_1)
+    end
+
+    example 'a player can cycle around the board multiple times, every 12 places' do
+      game = game_without_commentary_involving(['Player 1', 'Player 2'])
+
+      3.times do
+        game.roll(6)
+        game.roll(6)
+      end
+
+      places = game.places
+      player_1 = 0
+      expect(places[player_1]).to eq(0)
+    end
+
+    {
+      1 => 'Science',
+      2 => 'Sports',
+      3 => 'Rock',
+      4 => 'Pop'
+    }.each do |number, category|
+      it "asks the player a #{category} question when #{number} is rolled" do
+        game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
+
+        game.roll(number)
+
+        expect(game.commentary).to include("The category is #{category}")
+        expect(game.commentary).to include("#{category} Question 0")
+      end
+
+      example "after a #{category} question is asked, it is removed from the pack of questions" do
+        game = UglyTrivia::GameWithCommentary.with(['Player 1', 'Player 2'])
+
+        game.roll(number)
+
+        questions_for_category = game.send("#{category.downcase}_questions")
+        expect(questions_for_category).not_to include("#{category} Question 0")
+      end
     end
   end
 
