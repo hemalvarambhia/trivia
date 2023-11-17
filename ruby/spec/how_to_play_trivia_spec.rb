@@ -448,6 +448,17 @@ describe "How to play Trivia" do
         expect(game.current_player).to eq(player_2)
       end
 
+      it "awards then a coin when they answer the question correctly" do
+        game.roll(2)
+        game.was_correctly_answered
+
+        game.roll(3)
+        game.was_correctly_answered
+
+        player_1 = 0
+        expect(game.purses[player_1]).to eq(1)
+      end
+
       context 'Given the last player is also in the penalty box' do
         before do
           game.roll(3)
