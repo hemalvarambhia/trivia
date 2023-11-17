@@ -131,8 +131,7 @@ module UglyTrivia
       else
 
         puts "Answer was corrent!!!!"
-        @purses[@current_player] += 1
-        puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
+        award_gold_coin
 
         winner = did_player_win
         next_players_turn
@@ -172,6 +171,11 @@ module UglyTrivia
     def next_players_turn
       @current_player += 1
       @current_player = 0 if @current_player == @players.length
+    end
+
+    def award_gold_coin
+      @purses[@current_player] += 1
+      puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
     end
   end
 end
