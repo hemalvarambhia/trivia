@@ -400,10 +400,13 @@ describe "How to play Trivia" do
     end
 
     context 'when the player rolls an even number' do
-      it 'keeps the player in the penalty box' do
+      before do
+        # Player 2's turn
         game.roll(2)
         game.was_correctly_answered
+      end
 
+      it 'keeps the player in the penalty box' do
         # player 1's turn
         game.roll(4)
         game.wrong_answer
