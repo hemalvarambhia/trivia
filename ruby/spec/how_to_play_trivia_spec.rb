@@ -306,13 +306,16 @@ describe "How to play Trivia" do
   end
 
   context 'When the player answers their question correctly' do
-    let(:game) { game_without_commentary_involving(['Player 1', 'Player 2']) }
+    let(:game) { game_with_commentary_involving(['Player 1', 'Player 2']) }
     before do
       game.roll(1)
       game.was_correctly_answered
     end
 
-    it 'announces that the answer is correct'
+    it 'announces that the answer is correct' do
+      # spelling error - correct rather than corrent
+      expect(game.commentary).to include('Answer was corrent!!!')
+    end
 
     it 'awards that player a gold coin' do
       purses = game.purses
