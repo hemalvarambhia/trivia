@@ -382,6 +382,11 @@ describe "How to play Trivia" do
         game.roll(3)
       end
 
+      it 'allows them to advance a number of spaces' do
+        player_1 = 0
+        expect(game.places[player_1]).to eq(2 + 3)
+      end
+
       it 'allows them to get out of the penalty box when they answer the question correctly' do
         # player 1's turn
         game.was_correctly_answered
