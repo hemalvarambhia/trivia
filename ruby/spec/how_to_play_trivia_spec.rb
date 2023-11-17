@@ -321,6 +321,7 @@ describe "How to play Trivia" do
       purses = game.purses
       player_1 = 0
       expect(purses[player_1]).to eq(1)
+      expect(game.commentary).to include('Player 1 now has 1 Gold Coins.')
     end
 
     it "is the next players turn's" do
