@@ -390,6 +390,15 @@ describe "How to play Trivia" do
         expect(player_out_of_penalty_box).to eq(true)
       end
 
+      it 'takes then out of the penalty box when they are answer the question correctly' do
+        pending('To discuss with domain expert')
+        game.was_correctly_answered
+
+        in_penalty_box = game.in_penalty_box
+        player_1 = 0
+        expect(in_penalty_box[player_1]).to eq(false)
+      end
+
       it 'still allows them to get out of the penalty box even after they answer the question incorrectly' do
         # player 1's turn
         game.wrong_answer
