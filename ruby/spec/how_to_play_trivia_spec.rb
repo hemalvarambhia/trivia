@@ -395,7 +395,7 @@ describe "How to play Trivia" do
         expect(player_out_of_penalty_box).to eq(true)
       end
 
-      it 'takes then out of the penalty box when they are answer the question correctly' do
+      it 'takes them out of the penalty box when they are answer the question correctly' do
         pending('To discuss with domain expert')
         game.was_correctly_answered
 
