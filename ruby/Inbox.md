@@ -1,4 +1,5 @@
 ## Inbox
+- Explore mutation testing with `mutant`;
 - Trivia is poorly encapsulated;
 - `puts "#{@players[@current_player]} was sent to the penalty box"`:
   - does not result in a diff in the golden master;
