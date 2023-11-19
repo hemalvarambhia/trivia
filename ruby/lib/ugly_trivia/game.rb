@@ -151,14 +151,13 @@ module UglyTrivia
   private
 
     def prepare_questions
-      @sports_questions = []
       @rock_questions = []
       50.times do |i|
-        @sports_questions.push "Sports Question #{i}"
         @rock_questions.push "Rock Question #{i}"
       end
       @pop_questions = Array.new(50) { |i| "Pop Question #{i}" }
       @science_questions = Array.new(50) { |i| "Science Question #{i}" }
+      @sports_questions = Array.new(50) { |i| "Sports Question #{i}" }
     end
 
     def did_player_win
