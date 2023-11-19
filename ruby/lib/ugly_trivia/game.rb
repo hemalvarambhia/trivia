@@ -123,8 +123,7 @@ module UglyTrivia
 
           winner
         else
-          @current_player += 1
-          @current_player = 0 if @current_player == @players.length
+          next_players_turn
           true
         end
       else
