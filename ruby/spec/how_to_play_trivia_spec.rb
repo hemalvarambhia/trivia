@@ -493,7 +493,17 @@ describe "How to play Trivia" do
     end
 
     context 'and they do not qualify to leave it' do
-      it "is the next player's turn"
+      it "is the next player's turn" do
+        game.roll(2) # Player 2's turn
+        game.was_correctly_answered
+
+        game.roll(2) # Player 1's turn
+        game.was_correctly_answered
+
+        player_2 = 1
+        expect(game.current_player).to eq(player_2)
+      end
+
       it "cycles back to the first player when the last player has had their turn"
     end
   end
