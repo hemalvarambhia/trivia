@@ -63,8 +63,7 @@ module UglyTrivia
 
       else
 
-        @places[@current_player] = @places[@current_player] + roll
-        @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
+        advance_current_player(roll)
 
         puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
         puts "The category is #{current_category}"
@@ -148,6 +147,11 @@ module UglyTrivia
     end
 
   private
+
+    def advance_current_player(number_of_places)
+      @places[@current_player] = @places[@current_player] + number_of_places
+      @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
+    end
 
     def prepare_questions
       @pop_questions = Array.new(50) { |i| "Pop Question #{i}" }
