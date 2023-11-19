@@ -505,6 +505,7 @@ describe "How to play Trivia" do
       end
 
       it "cycles back to the first player when the last player has had their turn"
+      it 'does not award the player a gold coin when they answer the question correctly'
     end
   end
 
