@@ -146,18 +146,18 @@ module UglyTrivia
   		return true
     end
 
-  private
-
-    def advance_current_player(number_of_places)
-      @places[@current_player] = @places[@current_player] + number_of_places
-      @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
-    end
+    private
 
     def prepare_questions
       @pop_questions = Array.new(50) { |i| "Pop Question #{i}" }
       @science_questions = Array.new(50) { |i| "Science Question #{i}" }
       @sports_questions = Array.new(50) { |i| "Sports Question #{i}" }
       @rock_questions = Array.new(50) { |i| "Rock Question #{i}" }
+    end
+
+    def advance_current_player(number_of_places)
+      @places[@current_player] = @places[@current_player] + number_of_places
+      @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
     end
 
     def did_player_win
