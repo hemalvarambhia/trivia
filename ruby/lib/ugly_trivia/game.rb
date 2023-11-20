@@ -138,9 +138,7 @@ module UglyTrivia
     end
 
     def wrong_answer
-  		puts 'Question was incorrectly answered'
-  		puts "#{@players[@current_player]} was sent to the penalty box"
-  		@in_penalty_box[@current_player] = true
+  		place_current_player_in_penalty_box
 
       next_players_turn
   		return true
@@ -153,6 +151,12 @@ module UglyTrivia
       @science_questions = Array.new(50) { |i| "Science Question #{i}" }
       @sports_questions = Array.new(50) { |i| "Sports Question #{i}" }
       @rock_questions = Array.new(50) { |i| "Rock Question #{i}" }
+    end
+
+    def place_current_player_in_penalty_box
+      puts 'Question was incorrectly answered'
+      puts "#{@players[@current_player]} was sent to the penalty box"
+      @in_penalty_box[@current_player] = true
     end
 
     def advance_current_player(number_of_places)
