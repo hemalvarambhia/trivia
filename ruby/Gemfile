@@ -8,5 +8,6 @@ end
 group :test do
   gem "minitest"
   gem "rspec"
+  gem 'mutant-rspec'
   gem 'simplecov', require: false
 end
