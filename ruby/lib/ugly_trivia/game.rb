@@ -115,7 +115,7 @@ module UglyTrivia
       if @in_penalty_box[@current_player]
         if @is_getting_out_of_penalty_box
           puts 'Answer was correct!!!!'
-          award_gold_coin
+          award_gold_coin_to_current_player
 
           winner = did_player_win()
           next_players_turn
@@ -128,7 +128,7 @@ module UglyTrivia
       else
 
         puts "Answer was corrent!!!!"
-        award_gold_coin
+        award_gold_coin_to_current_player
 
         winner = did_player_win
         next_players_turn
@@ -173,7 +173,7 @@ module UglyTrivia
       @current_player = 0 if @current_player == @players.length
     end
 
-    def award_gold_coin
+    def award_gold_coin_to_current_player
       @purses[@current_player] += 1
       puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
     end
