@@ -401,6 +401,23 @@ describe "How to play Trivia" do
         expect(game.places[player_1]).to eq(2 + 3)
       end
 
+      it 'allows current player back to square one after they move 12 places' do
+        # player 1's turn
+        game.wrong_answer
+
+        # player 2's turn
+        game.roll(1)
+        game.was_correctly_answered
+
+        # player 1's turn. They have moved 2, 3, 5 and 3 places. At the 12th space, they cycle back to go, advancing 1.
+        game.roll(5)
+        game.roll(3)
+
+        places = game.places
+        player_1 = 0
+        expect(places[player_1]).to eq(1)
+      end
+
       it 'allows them to get out of the penalty box when they answer the question correctly' do
         # player 1's turn
         game.was_correctly_answered
