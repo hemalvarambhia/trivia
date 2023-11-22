@@ -270,10 +270,7 @@ describe "How to play Trivia" do
       game = silent_game_involving(['Player 1', 'Player 2'])
       # player 1's turn
       # player 1's turn. They have moved 2, 3, 3 and 3 places. At the 12th space, they cycle back to go, advancing 1.
-      game.roll(2)
-      game.roll(3)
-      game.roll(3)
-      game.roll(3)
+      [2, 3, 3, 3].each { |number| game.roll(number) }
 
       places = game.places
       player_1 = 0
