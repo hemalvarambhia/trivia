@@ -1,5 +1,9 @@
 source "https://rubygems.org"
 
+source 'https://oss:ECnrX3vg365mE9wWNEheiEWqUvdhUsLj@gem.mutant.dev' do
+  gem 'mutant-license'
+end
+
 # Installing both. Why choose??
 group :test do
   gem "minitest"

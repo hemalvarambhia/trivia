@@ -1,4 +1,9 @@
 GEM
+  remote: https://oss:ECnrX3vg365mE9wWNEheiEWqUvdhUsLj@gem.mutant.dev/
+  specs:
+    mutant-license (0.1.1.2.0148221390119146144327241317534196682215.0)
+
+GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.5.0)
@@ -29,6 +34,7 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
+  mutant-license!
   rspec
   simplecov
 
