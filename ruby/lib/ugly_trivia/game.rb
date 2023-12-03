@@ -54,7 +54,7 @@ module UglyTrivia
 
           puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
           puts "The category is #{current_category}"
-          ask_question
+          ask_question(current_category)
         else
           puts "#{@players[@current_player]} is not getting out of the penalty box"
           @is_getting_out_of_penalty_box = false
@@ -66,14 +66,14 @@ module UglyTrivia
 
         puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
         puts "The category is #{current_category}"
-        ask_question
+        ask_question(current_category)
       end
     end
 
   private
 
-    def ask_question
-      question = pick_question_for(current_category)
+    def ask_question(category)
+      question = pick_question_for(category)
 
       puts question
     end
