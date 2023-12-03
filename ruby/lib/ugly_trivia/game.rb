@@ -76,7 +76,7 @@ module UglyTrivia
           puts 'Answer was correct!!!!'
           award_gold_coin_to_current_player
 
-          winner = did_player_win()
+          winner = did_current_player_win?()
           next_players_turn
 
           winner
@@ -89,7 +89,7 @@ module UglyTrivia
         puts "Answer was corrent!!!!"
         award_gold_coin_to_current_player
 
-        winner = did_player_win
+        winner = did_current_player_win?
         next_players_turn
 
         return winner
@@ -159,7 +159,7 @@ module UglyTrivia
       @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
     end
 
-    def did_player_win
+    def did_current_player_win?
       !(@purses[@current_player] == 6)
     end
 
