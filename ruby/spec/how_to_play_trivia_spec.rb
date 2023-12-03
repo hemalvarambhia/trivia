@@ -372,202 +372,193 @@ describe "How to play Trivia" do
       first_player = 0
       expect(current_player).to eq(first_player)
     end
-  end
 
-  context 'Given a player is in the penalty box' do
-    let(:game) { game_with_commentary_involving(['Player 1', 'Player 2']) }
-
-    before do
-      # Player 1's turn. As they answered incorrectly, they're placed
-      # in the penalty box.
-      game.roll(2)
-      game.wrong_answer
-    end
-
-    context 'when the player rolls an odd number' do
-      before do
-        # player 2's turn
-        game.roll(2)
-        game.was_correctly_answered
-
-        # player 1's turn
-        game.roll(3)
-      end
-
-      it 'allows them to advance a number of spaces' do
-        player_1 = 0
-        expect(game.places[player_1]).to eq(2 + 3)
-      end
-
-      it 'moves player to the penultimate square before go' do
-        # player 1's turn
-        game.wrong_answer
-
-        # player 2's turn
-        game.roll(1)
-        game.was_correctly_answered
-
-        # player 1's turn. They have moved 2, 3, 3 and 3 places. At the 12th space, they cycle back to go, advancing 1.
-        game.roll(3)
-        game.roll(3)
-
-        places = game.places
-        player_1 = 0
-        expect(places[player_1]).to eq(11)
-      end
-
-      it 'allows current player back to square one after they move 12 places' do
-        # player 1's turn
-        game.wrong_answer
-
-        # player 2's turn
-        game.roll(1)
-        game.was_correctly_answered
-
-        # player 1's turn. They have moved 2, 3, 5 and 3 places. At the 12th space, they cycle back to go, advancing 1.
-        game.roll(5)
-        game.roll(3)
-
-        places = game.places
-        player_1 = 0
-        expect(places[player_1]).to eq(1)
-      end
-
-      it 'allows them to get out of the penalty box when they answer the question correctly' do
-        # player 1's turn
-        game.was_correctly_answered
-
-        player_out_of_penalty_box = game.is_getting_out_of_penalty_box
-        expect(player_out_of_penalty_box).to eq(true)
-      end
-
-      it 'takes them out of the penalty box when they are answer the question correctly' do
-        pending('To discuss with domain expert')
-        game.was_correctly_answered
-
-        in_penalty_box = game.in_penalty_box
-        player_1 = 0
-        expect(in_penalty_box[player_1]).to eq(false)
-      end
-
-      it 'still allows them to get out of the penalty box even after they answer the question incorrectly' do
-        # player 1's turn
-        game.wrong_answer
-
-        player_out_of_penalty_box = game.is_getting_out_of_penalty_box
-        expect(player_out_of_penalty_box).to eq(true)
-      end
-    end
-
-    context 'when the player rolls an even number' do
-      before do
-        # Player 2's turn
-        game.roll(2)
-        game.was_correctly_answered
-      end
-
-      it 'keeps the player in the penalty box' do
-        # player 1's turn
-        game.roll(4)
-        game.wrong_answer
-
-        player_out_of_penalty_box = game.is_getting_out_of_penalty_box
-        expect(player_out_of_penalty_box).to eq(false)
-      end
-    end
-
-    context 'and they qualify to leave it' do
-      it "is the next player's turn" do
-        # player 2's turn
-        game.roll(2)
-        game.was_correctly_answered
-
-        # player 1's turn again and they roll an odd number, meaning they
-        # qualify to leave the penalty box
-        game.roll(3)
-        game.was_correctly_answered
-
-        player_2 = 1
-        expect(game.current_player).to eq(player_2)
-      end
-
-      it "awards then a coin when they answer the question correctly" do
-        # player 2's turn
-        game.roll(2)
-        game.was_correctly_answered
-
-        # player 1's turn again and they roll an odd number, meaning they
-        # qualify to leave the penalty box
-        game.roll(3)
-        game.was_correctly_answered
-
-        player_1 = 0
-        expect(game.purses[player_1]).to eq(1)
-        expect(game.commentary).to include('Player 1 now has 1 Gold Coins.')
-      end
-
-      context 'Given the last player is also in the penalty box' do
+    context 'Given a player is in the penalty box' do
+      context 'when the player rolls an odd number' do
         before do
-          game.roll(3)
-          game.wrong_answer
-          # player 2 is now in the penalty box
-        end
+          # player 2's turn
+          game.roll(2)
+          game.was_correctly_answered
 
-        it 'cycles back to the first player' do
           # player 1's turn
           game.roll(3)
-          game.was_correctly_answered
-          # player 1 is now getting out of the penalty box
+        end
+
+        it 'allows them to advance a number of spaces' do
+          player_1 = 0
+          expect(game.places[player_1]).to eq(2 + 3)
+        end
+
+        it 'moves player to the penultimate square before go' do
+          # player 1's turn
+          game.wrong_answer
 
           # player 2's turn
-          game.roll(5)
+          game.roll(1)
           game.was_correctly_answered
-          # player 2 is now getting out of the penalty box
+
+          # player 1's turn. They have moved 2, 3, 3 and 3 places. At the 12th space, they cycle back to go, advancing 1.
+          game.roll(3)
+          game.roll(3)
+
+          places = game.places
+          player_1 = 0
+          expect(places[player_1]).to eq(11)
+        end
+
+        it 'allows current player back to square one after they move 12 places' do
+          # player 1's turn
+          game.wrong_answer
+
+          # player 2's turn
+          game.roll(1)
+          game.was_correctly_answered
+
+          # player 1's turn. They have moved 2, 3, 5 and 3 places. At the 12th space, they cycle back to go, advancing 1.
+          game.roll(5)
+          game.roll(3)
+
+          places = game.places
+          player_1 = 0
+          expect(places[player_1]).to eq(1)
+        end
+
+        it 'allows them to get out of the penalty box when they answer the question correctly' do
+          # player 1's turn
+          game.was_correctly_answered
+
+          player_out_of_penalty_box = game.is_getting_out_of_penalty_box
+          expect(player_out_of_penalty_box).to eq(true)
+        end
+
+        it 'takes them out of the penalty box when they are answer the question correctly' do
+          pending('To discuss with domain expert')
+          game.was_correctly_answered
+
+          in_penalty_box = game.in_penalty_box
+          player_1 = 0
+          expect(in_penalty_box[player_1]).to eq(false)
+        end
+
+        it 'still allows them to get out of the penalty box even after they answer the question incorrectly' do
+          # player 1's turn
+          game.wrong_answer
+
+          player_out_of_penalty_box = game.is_getting_out_of_penalty_box
+          expect(player_out_of_penalty_box).to eq(true)
+        end
+      end
+
+      context 'when the player rolls an even number' do
+        before do
+          # Player 2's turn
+          game.roll(2)
+          game.was_correctly_answered
+        end
+
+        it 'keeps the player in the penalty box' do
+          # player 1's turn
+          game.roll(4)
+          game.wrong_answer
+
+          player_out_of_penalty_box = game.is_getting_out_of_penalty_box
+          expect(player_out_of_penalty_box).to eq(false)
+        end
+      end
+
+      context 'and they qualify to leave it' do
+        it "is the next player's turn" do
+          # player 2's turn
+          game.roll(2)
+          game.was_correctly_answered
+
+          # player 1's turn again and they roll an odd number, meaning they
+          # qualify to leave the penalty box
+          game.roll(3)
+          game.was_correctly_answered
+
+          player_2 = 1
+          expect(game.current_player).to eq(player_2)
+        end
+
+        it "awards then a coin when they answer the question correctly" do
+          # player 2's turn
+          game.roll(2)
+          game.was_correctly_answered
+
+          # player 1's turn again and they roll an odd number, meaning they
+          # qualify to leave the penalty box
+          game.roll(3)
+          game.was_correctly_answered
+
+          player_1 = 0
+          expect(game.purses[player_1]).to eq(1)
+          expect(game.commentary).to include('Player 1 now has 1 Gold Coins.')
+        end
+
+        context 'Given the last player is also in the penalty box' do
+          before do
+            game.roll(3)
+            game.wrong_answer
+            # player 2 is now in the penalty box
+          end
+
+          it 'cycles back to the first player' do
+            # player 1's turn
+            game.roll(3)
+            game.was_correctly_answered
+            # player 1 is now getting out of the penalty box
+
+            # player 2's turn
+            game.roll(5)
+            game.was_correctly_answered
+            # player 2 is now getting out of the penalty box
+
+            player_1 = 0
+            expect(game.current_player).to eq(player_1)
+          end
+        end
+      end
+
+      context 'and they do not qualify to leave it' do
+        it "is the next player's turn" do
+          game.roll(2) # Player 2's turn
+          game.was_correctly_answered
+
+          # Player 1's turn. As they roll an even number, they do not qualify to leave
+          # the penalty box
+          game.roll(2)
+          game.was_correctly_answered
+
+          player_2 = 1
+          expect(game.current_player).to eq(player_2)
+        end
+
+        it "cycles back to the first player when the last player has had their turn" do
+          game.roll(4) # player 2's turn
+          game.was_correctly_answered
+
+          game.roll(2) # player 1's turn
+          game.was_correctly_answered
+
+          game.roll(4) # player 2's turn
+          game.was_correctly_answered
 
           player_1 = 0
           expect(game.current_player).to eq(player_1)
         end
-      end
-    end
 
-    context 'and they do not qualify to leave it' do
-      it "is the next player's turn" do
-        game.roll(2) # Player 2's turn
-        game.was_correctly_answered
+        it 'does not award the player a gold coin when they answer the question correctly' do
+          game.roll(4) # player 2's turn
+          game.was_correctly_answered
 
-        # Player 1's turn. As they roll an even number, they do not qualify to leave
-        # the penalty box
-        game.roll(2)
-        game.was_correctly_answered
+          # Player 1's turn again and they roll an even number. They do not qualify, then,
+          # to leave the penalty box even when they answer the question correctly.
+          game.roll(4)
 
-        player_2 = 1
-        expect(game.current_player).to eq(player_2)
-      end
-
-      it "cycles back to the first player when the last player has had their turn" do
-        game.roll(4) # player 2's turn
-        game.was_correctly_answered
-
-        game.roll(2) # player 1's turn
-        game.was_correctly_answered
-
-        game.roll(4) # player 2's turn
-        game.was_correctly_answered
-
-        player_1 = 0
-        expect(game.current_player).to eq(player_1)
-      end
-
-      it 'does not award the player a gold coin when they answer the question correctly' do
-        game.roll(4) # player 2's turn
-        game.was_correctly_answered
-
-        # Player 1's turn again and they roll an even number. They do not qualify, then,
-        # to leave the penalty box even when they answer the question correctly.
-        game.roll(4)
-
-        player_1 = 0
-        expect { game.was_correctly_answered }.not_to change { game.purses[player_1] }
+          player_1 = 0
+          expect { game.was_correctly_answered }.not_to change { game.purses[player_1] }
+        end
       end
     end
   end
