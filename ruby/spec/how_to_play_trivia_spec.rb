@@ -360,9 +360,8 @@ describe "How to play Trivia" do
 
     it 'places the player in the penalty box' do
       player_1 = 0
-      player_in_penalty_box = game.in_penalty_box[player_1]
       expect(game.commentary).to include('Player 1 was sent to the penalty box')
-      expect(player_in_penalty_box).to eq(true)
+      expect(game.in_penalty_box[player_1]).to eq(true)
     end
 
     it "is the next player's turn" do
@@ -375,9 +374,8 @@ describe "How to play Trivia" do
       game.roll(3)
       game.wrong_answer
 
-      current_player = game.current_player
       first_player = 0
-      expect(current_player).to eq(first_player)
+      expect(game.current_player).to eq(first_player)
     end
 
     context 'Given a player is in the penalty box' do
@@ -408,9 +406,8 @@ describe "How to play Trivia" do
           game.roll(3)
           game.roll(3)
 
-          places = game.places
           player_1 = 0
-          expect(places[player_1]).to eq(11)
+          expect(game.places[player_1]).to eq(11)
         end
 
         it 'allows current player back to square one after they move 12 places' do
@@ -425,9 +422,8 @@ describe "How to play Trivia" do
           game.roll(5)
           game.roll(3)
 
-          places = game.places
           player_1 = 0
-          expect(places[player_1]).to eq(1)
+          expect(game.places[player_1]).to eq(1)
         end
 
         it 'allows them to get out of the penalty box when they answer the question correctly' do
