@@ -247,9 +247,8 @@ describe "How to play Trivia" do
       # player 1's turn. They have moved 2, 3, 3 and 3 places. At the 12th space, they cycle back to go, advancing 1.
       [2, 3, 3, 3].each { |number| game.roll(number) }
 
-      places = game.places
       player_1 = 0
-      expect(places[player_1]).to eq(11)
+      expect(game.places[player_1]).to eq(11)
     end
 
     it 'returns the player to the starting square when they have moved 12 places' do
@@ -270,9 +269,8 @@ describe "How to play Trivia" do
         game.roll(6)
       end
 
-      places = game.places
       player_1 = 0
-      expect(places[player_1]).to eq(0)
+      expect(game.places[player_1]).to eq(0)
     end
 
     {
