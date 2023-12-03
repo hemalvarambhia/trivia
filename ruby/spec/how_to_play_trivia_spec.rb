@@ -227,6 +227,7 @@ describe "How to play Trivia" do
 
   describe 'Rolling the die' do
     it 'does not advance a player when they roll a 0'
+
     it 'advances a player a number of places as shown on the die' do
       game = silent_game_involving(['Player 1', 'Player 2'])
 
