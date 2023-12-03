@@ -555,7 +555,20 @@ describe "How to play Trivia" do
         expect(game.current_player).to eq(player_2)
       end
 
-      it "cycles back to the first player when the last player has had their turn"
+      it "cycles back to the first player when the last player has had their turn" do
+        game.roll(4) # player 2's turn
+        game.was_correctly_answered
+
+        game.roll(2) # player 1's turn
+        game.was_correctly_answered
+
+        game.roll(4) # player 2's turn
+        game.was_correctly_answered
+
+        player_1 = 0
+        expect(game.current_player).to eq(player_1)
+      end
+
       it 'does not award the player a gold coin when they answer the question correctly'
     end
   end
