@@ -584,5 +584,8 @@ describe "How to play Trivia" do
     end
   end
 
-  example 'the first player to have 6 gold coins is declared the winner'
+  example 'the first player to have 6 gold coins is declared the winner' do
+    pending 'Next test to get passing.'
+    expect(game.was_correctly_answered).to eq('Player 1')
+  end
 end
