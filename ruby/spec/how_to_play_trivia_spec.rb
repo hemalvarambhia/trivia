@@ -573,7 +573,18 @@ describe "How to play Trivia" do
         expect(game.current_player).to eq(player_1)
       end
 
-      it 'does not award the player a gold coin when they answer the question correctly'
+      it 'does not award the player a gold coin when they answer the question correctly' do
+        game.roll(4) # player 2's turn
+        game.was_correctly_answered
+
+        # Player 1's turn again and they roll an even number. They do not qualify, then,
+        # to leave the penalty box even when they answer the question correctly.
+        game.roll(4)
+        game.was_correctly_answered
+
+        player_1 = 0
+        expect(game.purses[player_1]).to eq(0)
+      end
     end
   end
 
