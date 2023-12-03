@@ -242,10 +242,8 @@ describe "How to play Trivia" do
     it 'advances a player a number of places as shown on the die' do
       game = silent_game_involving(['Player 1', 'Player 2'])
 
-      game.roll(1)
-
-      places = game.places
-      expect(places[0]).to eq(1)
+      player_1 = 0
+      expect { game.roll(1) }.to change { game.places[player_1] }.by(1)
     end
 
     it 'returns the player to the starting square when they have moved 12 places' do
