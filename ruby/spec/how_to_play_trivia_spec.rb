@@ -548,7 +548,9 @@ describe "How to play Trivia" do
         game.roll(2) # Player 2's turn
         game.was_correctly_answered
 
-        game.roll(2) # Player 1's turn
+        # Player 1's turn. As they roll an even number, they do not qualify to leave
+        # the penalty box
+        game.roll(2)
         game.was_correctly_answered
 
         player_2 = 1
