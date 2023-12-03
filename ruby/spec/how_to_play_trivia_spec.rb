@@ -491,9 +491,12 @@ describe "How to play Trivia" do
 
     context 'and they qualify to leave it' do
       it "is the next player's turn" do
+        # player 2's turn
         game.roll(2)
         game.was_correctly_answered
 
+        # player 1's turn again and they roll an odd number, meaning they
+        # qualify to leave the penalty box
         game.roll(3)
         game.was_correctly_answered
 
@@ -502,9 +505,12 @@ describe "How to play Trivia" do
       end
 
       it "awards then a coin when they answer the question correctly" do
+        # player 2's turn
         game.roll(2)
         game.was_correctly_answered
 
+        # player 1's turn again and they roll an odd number, meaning they
+        # qualify to leave the penalty box
         game.roll(3)
         game.was_correctly_answered
 
