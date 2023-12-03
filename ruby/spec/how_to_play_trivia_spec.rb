@@ -582,7 +582,7 @@ describe "How to play Trivia" do
         game.roll(4)
 
         player_1 = 0
-        expect { game.was_correctly_answered }.not_to change { game.purses[player_1] }.from(0)
+        expect { game.was_correctly_answered }.not_to change { game.purses[player_1] }
       end
     end
   end
