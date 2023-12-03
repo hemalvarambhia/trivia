@@ -303,17 +303,21 @@ describe "How to play Trivia" do
 
   context 'When the player answers their question correctly' do
     let(:game) { game_with_commentary_involving(['Player 1', 'Player 2']) }
-    before do
-      game.roll(1)
-      game.was_correctly_answered
-    end
 
     it 'announces that the answer is correct' do
+      # Player 1's turn
+      game.roll(1)
+      game.was_correctly_answered
+
       # spelling error - correct rather than corrent
       expect(game.commentary).to include('Answer was corrent!!!')
     end
 
     it 'awards that player a gold coin' do
+      # Player 1's turn
+      game.roll(1)
+      game.was_correctly_answered
+
       purses = game.purses
       player_1 = 0
       expect(purses[player_1]).to eq(1)
@@ -321,6 +325,10 @@ describe "How to play Trivia" do
     end
 
     it "is the next players turn's" do
+      # Player 1's turn
+      game.roll(1)
+      game.was_correctly_answered
+
       current_player = game.current_player
       player_2 = 1
       expect(current_player).to eq(player_2)
@@ -328,6 +336,10 @@ describe "How to play Trivia" do
 
     context 'When the last player has their turn' do
       example 'the game returns to the very first player' do
+        # Player 1's turn
+        game.roll(1)
+        game.was_correctly_answered
+
         # player 2's turn
         game.roll(3)
         game.was_correctly_answered
