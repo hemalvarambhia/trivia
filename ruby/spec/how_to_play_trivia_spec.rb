@@ -580,10 +580,9 @@ describe "How to play Trivia" do
         # Player 1's turn again and they roll an even number. They do not qualify, then,
         # to leave the penalty box even when they answer the question correctly.
         game.roll(4)
-        game.was_correctly_answered
 
         player_1 = 0
-        expect(game.purses[player_1]).to eq(0)
+        expect { game.was_correctly_answered }.not_to change { game.purses[player_1] }.from(0)
       end
     end
   end
