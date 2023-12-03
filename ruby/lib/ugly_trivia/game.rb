@@ -76,7 +76,7 @@ module UglyTrivia
           puts 'Answer was correct!!!!'
           award_gold_coin_to_current_player
 
-          winner = did_current_player_win?()
+          winner = did_current_player_win?
           next_players_turn
 
           winner
