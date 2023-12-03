@@ -23,18 +23,6 @@ class UglyTrivia::GameWithCommentary < UglyTrivia::Game
 end
 
 describe "How to play Trivia" do
-  def silent_game_involving(players)
-    UglyTrivia::GameWithNoCommentary.with(players)
-  end
-
-  def game_with_commentary_involving(players)
-    UglyTrivia::GameWithCommentary.with(players)
-  end
-
-  def current_category(game)
-    game.send(:current_category)
-  end
-
   describe 'How many players can play trivia' do
     it 'is not a 1-player game' do
       game = silent_game_involving(['Player 1'])
@@ -600,5 +588,19 @@ describe "How to play Trivia" do
     player_1 = 0
     expect(game.purses[player_1]).to eq(6)
     expect(winner).to eq(false)
+  end
+
+  private
+
+  def silent_game_involving(players)
+    UglyTrivia::GameWithNoCommentary.with(players)
+  end
+
+  def game_with_commentary_involving(players)
+    UglyTrivia::GameWithCommentary.with(players)
+  end
+
+  def current_category(game)
+    game.send(:current_category)
   end
 end
