@@ -70,7 +70,40 @@ module UglyTrivia
       end
     end
 
-  private
+    def was_correctly_answered
+      if @in_penalty_box[@current_player]
+        if @is_getting_out_of_penalty_box
+          puts 'Answer was correct!!!!'
+          award_gold_coin_to_current_player
+
+          winner = did_player_win()
+          next_players_turn
+
+          winner
+        else
+          next_players_turn
+          true
+        end
+      else
+
+        puts "Answer was corrent!!!!"
+        award_gold_coin_to_current_player
+
+        winner = did_player_win
+        next_players_turn
+
+        return winner
+      end
+    end
+
+    def wrong_answer
+      place_current_player_in_penalty_box
+
+      next_players_turn
+      return true
+    end
+
+    private
 
     def ask_question(category)
       question = pick_question_for(category)
@@ -107,43 +140,6 @@ module UglyTrivia
         11 => 'Rock'
       }[@places[@current_player]]
     end
-
-    public
-
-    def was_correctly_answered
-      if @in_penalty_box[@current_player]
-        if @is_getting_out_of_penalty_box
-          puts 'Answer was correct!!!!'
-          award_gold_coin_to_current_player
-
-          winner = did_player_win()
-          next_players_turn
-
-          winner
-        else
-          next_players_turn
-          true
-        end
-      else
-
-        puts "Answer was corrent!!!!"
-        award_gold_coin_to_current_player
-
-        winner = did_player_win
-        next_players_turn
-
-        return winner
-      end
-    end
-
-    def wrong_answer
-  		place_current_player_in_penalty_box
-
-      next_players_turn
-  		return true
-    end
-
-    private
 
     def prepare_questions
       @pop_questions = Array.new(50) { |i| "Pop Question #{i}" }
