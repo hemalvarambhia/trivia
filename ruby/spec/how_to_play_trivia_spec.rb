@@ -393,6 +393,7 @@ describe "How to play Trivia" do
     let(:game) { game_with_commentary_involving(['Player 1', 'Player 2']) }
 
     before do
+      # Player 1's turn
       game.roll(2)
       game.wrong_answer
     end
