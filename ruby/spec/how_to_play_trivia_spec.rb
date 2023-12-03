@@ -585,7 +585,20 @@ describe "How to play Trivia" do
   end
 
   example 'the first player to have 6 gold coins is declared the winner' do
-    pending 'Next test to get passing.'
-    expect(game.was_correctly_answered).to eq('Player 1')
+    game = game_with_commentary_involving(['Player 1', 'Player 2'])
+
+    5.times do
+      game.roll(3)
+      game.was_correctly_answered
+      game.roll(1)
+      game.wrong_answer
+    end
+
+    game.roll(6)
+    winner = game.was_correctly_answered
+
+    player_1 = 0
+    expect(game.purses[player_1]).to eq(6)
+    expect(winner).to eq(false)
   end
 end
