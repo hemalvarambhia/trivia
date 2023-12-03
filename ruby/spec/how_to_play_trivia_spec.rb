@@ -318,9 +318,8 @@ describe "How to play Trivia" do
       game.roll(1)
       game.was_correctly_answered
 
-      purses = game.purses
       player_1 = 0
-      expect(purses[player_1]).to eq(1)
+      expect(game.purses[player_1]).to eq(1)
       expect(game.commentary).to include('Player 1 now has 1 Gold Coins.')
     end
 
@@ -329,9 +328,8 @@ describe "How to play Trivia" do
       game.roll(1)
       game.was_correctly_answered
 
-      current_player = game.current_player
       player_2 = 1
-      expect(current_player).to eq(player_2)
+      expect(game.current_player).to eq(player_2)
     end
 
     context 'When the last player has their turn' do
@@ -344,9 +342,8 @@ describe "How to play Trivia" do
         game.roll(3)
         game.was_correctly_answered
 
-        current_player = game.current_player
         player_1 = 0
-        expect(current_player).to eq(player_1)
+        expect(game.current_player).to eq(player_1)
       end
     end
   end
