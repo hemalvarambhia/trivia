@@ -86,8 +86,6 @@ describe "How to play Trivia" do
       example 'they have moved one place from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
 
-        game.roll(1)
-
         category = game.send(:current_category, 1)
         expect(category).to eq('Science')
       end
@@ -95,17 +93,12 @@ describe "How to play Trivia" do
       example 'they have moved 5 spaces forwards from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
 
-        game.roll(5)
-
         category = game.send(:current_category, 5)
         expect(category).to eq('Science')
       end
 
       it 'they have moved 9 spaces forwards from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
-
-        game.roll(3)
-        game.roll(6)
 
         category = game.send(:current_category, 9)
         expect(category).to eq('Science')
@@ -131,17 +124,12 @@ describe "How to play Trivia" do
       example 'they have moved 4 places from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
 
-        game.roll(4)
-
         category = game.send(:current_category, 4)
         expect(category).to eq('Pop')
       end
 
       example 'they have moved 8 places from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
-
-        game.roll(4)
-        game.roll(4)
 
         category = game.send(:current_category, 8)
         expect(category).to eq('Pop')
@@ -160,8 +148,6 @@ describe "How to play Trivia" do
       example 'they have moved 2 places from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
 
-        game.roll(2)
-
         category = game.send(:current_category, 2)
         expect(category).to eq('Sports')
       end
@@ -169,17 +155,12 @@ describe "How to play Trivia" do
       example 'they have moved 6 places from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
 
-        game.roll(6)
-
         category = game.send(:current_category, 6)
         expect(category).to eq('Sports')
       end
 
       example 'they have moved 10 places from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
-
-        game.roll(6)
-        game.roll(4)
 
         category = game.send(:current_category, 10)
         expect(category).to eq('Sports')
@@ -198,16 +179,11 @@ describe "How to play Trivia" do
       example 'when they have moved 3 places from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
 
-        game.roll(3)
-
         category = game.send(:current_category, 3)
         expect(category).to eq('Rock')
       end
       example 'when they have moved 7 places from the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
-
-        game.roll(5)
-        game.roll(2)
 
         category = game.send(:current_category, 7)
         expect(category).to eq('Rock')
@@ -215,9 +191,6 @@ describe "How to play Trivia" do
 
       example 'when they have moved 11 places from the the start' do
         game = silent_game_involving(['Player 1', 'Player 2'])
-
-        game.roll(6)
-        game.roll(5)
 
         category = game.send(:current_category, 11)
         expect(category).to eq('Rock')
