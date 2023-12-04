@@ -124,7 +124,7 @@ module UglyTrivia
       end
     end
 
-    def current_category(place = nil)
+    def current_category(place)
       {
         0 => 'Pop',
         4 => 'Pop',
