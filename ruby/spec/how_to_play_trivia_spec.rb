@@ -301,7 +301,6 @@ describe "How to play Trivia" do
   end
 
   context 'When the player answers their question correctly' do
-    let(:game) { game_with_commentary_involving(['Player 1', 'Player 2']) }
     let(:game_with_commentary) { game_with_commentary_involving(['Player 1', 'Player 2']) }
 
     it 'announces that the answer is correct' do
@@ -315,35 +314,35 @@ describe "How to play Trivia" do
 
     it 'awards that player a gold coin' do
       # Player 1's turn
-      game.roll(1)
-      game.was_correctly_answered
+      game_with_commentary.roll(1)
+      game_with_commentary.was_correctly_answered
 
       player_1 = 0
-      expect(game.purses[player_1]).to eq(1)
-      expect(game.commentary).to include('Player 1 now has 1 Gold Coins.')
+      expect(game_with_commentary.purses[player_1]).to eq(1)
+      expect(game_with_commentary.commentary).to include('Player 1 now has 1 Gold Coins.')
     end
 
     it "is the next players turn's" do
       # Player 1's turn
-      game.roll(1)
-      game.was_correctly_answered
+      game_with_commentary.roll(1)
+      game_with_commentary.was_correctly_answered
 
       player_2 = 1
-      expect(game.current_player).to eq(player_2)
+      expect(game_with_commentary.current_player).to eq(player_2)
     end
 
     context 'When the last player has their turn' do
       example 'the game returns to the very first player' do
         # Player 1's turn
-        game.roll(1)
-        game.was_correctly_answered
+        game_with_commentary.roll(1)
+        game_with_commentary.was_correctly_answered
 
         # player 2's turn
-        game.roll(3)
-        game.was_correctly_answered
+        game_with_commentary.roll(3)
+        game_with_commentary.was_correctly_answered
 
         player_1 = 0
-        expect(game.current_player).to eq(player_1)
+        expect(game_with_commentary.current_player).to eq(player_1)
       end
     end
   end
