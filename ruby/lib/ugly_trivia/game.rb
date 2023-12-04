@@ -86,7 +86,7 @@ module UglyTrivia
         end
       else
 
-        puts "Answer was corrent!!!!"
+        puts "Answer was correct!!!!"
         award_gold_coin_to_current_player
 
         winner = did_current_player_win?

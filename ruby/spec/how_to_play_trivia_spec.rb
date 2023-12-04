@@ -309,7 +309,7 @@ describe "How to play Trivia" do
       game.was_correctly_answered
 
       # spelling error - correct rather than corrent
-      expect(game.commentary).to include('Answer was corrent!!!')
+      expect(game.commentary).to include('Answer was correct!!!')
     end
 
     it 'awards that player a gold coin' do
