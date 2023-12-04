@@ -138,7 +138,7 @@ module UglyTrivia
         3 => 'Rock',
         7 => 'Rock',
         11 => 'Rock'
-      }[place || @places[@current_player]]
+      }[place]
     end
 
     def prepare_questions
