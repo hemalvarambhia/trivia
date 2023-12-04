@@ -200,7 +200,7 @@ describe "How to play Trivia" do
 
         game.roll(3)
 
-        category = game.send(:current_category)
+        category = game.send(:current_category, 3)
         expect(category).to eq('Rock')
       end
       example 'when they have moved 7 places from the start' do
