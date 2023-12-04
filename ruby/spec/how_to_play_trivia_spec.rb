@@ -302,14 +302,15 @@ describe "How to play Trivia" do
 
   context 'When the player answers their question correctly' do
     let(:game) { game_with_commentary_involving(['Player 1', 'Player 2']) }
+    let(:game_with_commentary) { game_with_commentary_involving(['Player 1', 'Player 2']) }
 
     it 'announces that the answer is correct' do
       # Player 1's turn
-      game.roll(1)
-      game.was_correctly_answered
+      game_with_commentary.roll(1)
+      game_with_commentary.was_correctly_answered
 
       # spelling error - correct rather than corrent
-      expect(game.commentary).to include('Answer was correct!!!')
+      expect(game_with_commentary.commentary).to include('Answer was correct!!!')
     end
 
     it 'awards that player a gold coin' do
