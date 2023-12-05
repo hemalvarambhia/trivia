@@ -104,6 +104,10 @@ module UglyTrivia
     end
 
     def current_category(place)
+      Game.current_category(place)
+    end
+
+    def self.current_category(place)
       {
         0 => 'Pop',
         4 => 'Pop',
