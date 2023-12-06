@@ -96,9 +96,8 @@ describe "How to play Trivia" do
       end
 
       it 'they have moved 9 spaces forwards from the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(9)
 
-        category = game.current_category(9)
         expect(category).to eq('Science')
       end
     end
@@ -113,23 +112,20 @@ describe "How to play Trivia" do
 
     describe 'A player is asked pop questions when:' do
       example 'they are at the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(0)
 
-        category = game.current_category(0)
         expect(category).to eq('Pop')
       end
 
       example 'they have moved 4 places from the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(4)
 
-        category = game.current_category(4)
         expect(category).to eq('Pop')
       end
 
       example 'they have moved 8 places from the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(8)
 
-        category = game.current_category(8)
         expect(category).to eq('Pop')
       end
     end
