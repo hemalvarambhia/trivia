@@ -7,6 +7,7 @@
 - ~~Quieten printing to standard out.~~
 - Current player is implicit in the code and it is difficult, then, to set up the test correctly.
 - `was_correctly_answered` has duplicate code around answer was correct and award gold coins
+- `roll` also has duplicate code.
 ## Penalty Box Diagram
 
 ```mermaid
