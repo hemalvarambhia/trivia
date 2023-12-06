@@ -140,23 +140,20 @@ describe "How to play Trivia" do
 
     describe 'A player is asked a sports question when:' do
       example 'they have moved 2 places from the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(2)
 
-        category = game.current_category(2)
         expect(category).to eq('Sports')
       end
 
       example 'they have moved 6 places from the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(6)
 
-        category = game.current_category(6)
         expect(category).to eq('Sports')
       end
 
       example 'they have moved 10 places from the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(10)
 
-        category = game.current_category(10)
         expect(category).to eq('Sports')
       end
     end
@@ -171,22 +168,19 @@ describe "How to play Trivia" do
 
     describe 'A player is asked a rock question when:' do
       example 'when they have moved 3 places from the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(3)
 
-        category = game.current_category(3)
         expect(category).to eq('Rock')
       end
       example 'when they have moved 7 places from the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(7)
 
-        category = game.current_category(7)
         expect(category).to eq('Rock')
       end
 
       example 'when they have moved 11 places from the the start' do
-        game = silent_game_involving(['Player 1', 'Player 2'])
+        category = UglyTrivia::Game.current_category(11)
 
-        category = game.current_category(11)
         expect(category).to eq('Rock')
       end
     end
