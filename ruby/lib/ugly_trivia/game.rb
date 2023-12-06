@@ -53,8 +53,8 @@ module UglyTrivia
           advance_current_player(roll)
 
           puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
-          puts "The category is #{current_category(@places[@current_player])}"
-          ask_question(current_category(@places[@current_player]))
+          puts "The category is #{Game.current_category(@places[@current_player])}"
+          ask_question(Game.current_category(@places[@current_player]))
         else
           puts "#{@players[@current_player]} is not getting out of the penalty box"
           @is_getting_out_of_penalty_box = false
@@ -65,8 +65,8 @@ module UglyTrivia
         advance_current_player(roll)
 
         puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
-        puts "The category is #{current_category(@places[@current_player])}"
-        ask_question(current_category(@places[@current_player]))
+        puts "The category is #{Game.current_category(@places[@current_player])}"
+        ask_question(Game.current_category(@places[@current_player]))
       end
     end
 
@@ -101,10 +101,6 @@ module UglyTrivia
 
       next_players_turn
       return true
-    end
-
-    def current_category(place)
-      Game.current_category(place)
     end
 
     def self.current_category(place)
