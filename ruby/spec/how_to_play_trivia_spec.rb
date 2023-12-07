@@ -364,6 +364,10 @@ describe "How to play Trivia" do
           expect(game.places[player_1]).to eq(2 + 3)
         end
 
+        it "reports the player's current place on the board" do
+          expect(game.commentary).to include("Player 1's new location is 5")
+        end
+
         it 'moves player to the penultimate square before go' do
           # player 1's turn
           game.wrong_answer
