@@ -196,7 +196,13 @@ describe "How to play Trivia" do
       expect { game.roll(1) }.to change { game.places[player_1] }.by(1)
     end
 
-    it "reports the player's current place on the board"
+    it "reports the player's current place on the board" do
+      game = game_with_commentary_involving(['Player 1', 'Player 2'])
+
+      game.roll(5)
+
+      expect(game.commentary).to include("Player 1's new location is 5")
+    end
 
     it 'does not change who the current player is' do
       game = silent_game_involving(['Player 1', 'Player 2'])
