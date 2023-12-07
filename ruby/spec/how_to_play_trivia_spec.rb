@@ -443,6 +443,8 @@ describe "How to play Trivia" do
           player_out_of_penalty_box = game.is_getting_out_of_penalty_box
           expect(player_out_of_penalty_box).to eq(false)
         end
+
+        it 'reports that the player is not leaving the penalty box'
       end
 
       context 'and they qualify to leave it' do
