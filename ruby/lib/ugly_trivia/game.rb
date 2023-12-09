@@ -152,8 +152,8 @@ module UglyTrivia
     end
 
     def advance_current_player(player = nil, number_of_places)
-      @places[@current_player] = @places[@current_player] + number_of_places
-      @places[@current_player] = @places[@current_player] - 12 if @places[@current_player] > 11
+      @places[player] = @places[player] + number_of_places
+      @places[player] = @places[player] - 12 if @places[player] > 11
     end
 
     def did_current_player_win?
