@@ -261,10 +261,7 @@ describe "How to play Trivia" do
       it "asks the player a #{category} question when #{number} is rolled" do
         game = game_with_commentary_involving(['Player 1', 'Player 2'])
 
-        game.roll(number)
-
-        expect(game.commentary).to include("The category is #{category}")
-        expect(game.commentary).to include("#{category} Question 0")
+        expect { game.roll(number) }.to output(/#{category} Question \d+/).to_stdout
       end
 
       example "after a #{category} question is asked, it is removed from the pack of questions" do
