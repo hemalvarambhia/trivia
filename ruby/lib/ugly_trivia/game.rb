@@ -151,7 +151,7 @@ module UglyTrivia
       @in_penalty_box[@current_player] = true
     end
 
-    def advance_current_player(player = nil, number_of_places)
+    def advance_current_player(player, number_of_places)
       @places[player] = @places[player] + number_of_places
       @places[player] = @places[player] - 12 if @places[player] > 11
     end
