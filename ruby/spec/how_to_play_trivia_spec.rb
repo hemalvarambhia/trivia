@@ -258,6 +258,12 @@ describe "How to play Trivia" do
       3 => 'Rock',
       4 => 'Pop'
     }.each do |number, category|
+      it "reports the current category of question that will be asked e.g. #{category} when #{number} is rolled" do
+        game = game_with_commentary_involving(['Player 1', 'Player 2'])
+
+        expect { game.roll(number) }.to output(/The category is #{category}/).to_stdout
+      end
+
       it "asks the player a #{category} question when #{number} is rolled" do
         game = game_with_commentary_involving(['Player 1', 'Player 2'])
 
