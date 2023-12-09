@@ -231,6 +231,16 @@ describe "How to play Trivia" do
       expect { game.roll(1) }. to change { game.places[player_1] }.from(11).to(0)
     end
 
+    it 'moves the player to the next square from the start when they have moved more than 12 places' do
+      game = silent_game_involving(['Player 1', 'Player 2'])
+
+      game.roll(6)
+      game.roll(5)
+
+      player_1 = 0
+      expect { game.roll(3) }. to change { game.places[player_1] }.from(11).to(2)
+    end
+
     example 'a player can cycle around the board multiple times, every 12 places' do
       game = silent_game_involving(['Player 1', 'Player 2'])
 
