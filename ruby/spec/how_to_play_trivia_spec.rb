@@ -454,7 +454,13 @@ describe "How to play Trivia" do
           expect(player_out_of_penalty_box).to eq(false)
         end
 
-        it 'reports that the player is not leaving the penalty box'
+        it 'reports that the player is not leaving the penalty box' do
+          # player 1's turn
+          game.roll(6)
+          game.wrong_answer
+
+          expect(game.commentary).to include('Player 1 is not getting out of the penalty box')
+        end
       end
 
       context 'and they qualify to leave it' do
