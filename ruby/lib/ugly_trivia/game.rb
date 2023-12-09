@@ -54,7 +54,6 @@ module UglyTrivia
           @is_getting_out_of_penalty_box = false
           return
         end
-      else
       end
 
       advance(@current_player, roll)
