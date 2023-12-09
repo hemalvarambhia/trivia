@@ -197,11 +197,9 @@ describe "How to play Trivia" do
     end
 
     it "reports the player's current place on the board" do
-      game = game_with_commentary_involving(['Player 1', 'Player 2'])
+      game = UglyTrivia::Game.with(['Player 1', 'Player 2'])
 
-      game.roll(5)
-
-      expect(game.commentary).to include("Player 1's new location is 5")
+      expect { game.roll(5) }.to output(/Player 1's new location is 5/).to_stdout
     end
 
     it 'does not change who the current player is' do
