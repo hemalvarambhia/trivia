@@ -463,6 +463,8 @@ describe "How to play Trivia" do
 
           expect(game.commentary).to include('Player 1 is not getting out of the penalty box')
         end
+
+        it 'does not ask the player a question'
       end
 
       context 'and they qualify to leave it' do
