@@ -378,7 +378,9 @@ describe "How to play Trivia" do
           expect(game.commentary).to include("Player 1's new location is 5")
         end
 
-        it 'answers a question from the category applicable to the place'
+        it 'asks a question from the category applicable to the place' do
+          expect(game.commentary).to include('The category is Science','Science Question 0')
+        end
 
         it 'moves player to the penultimate square before go' do
           # player 1's turn
