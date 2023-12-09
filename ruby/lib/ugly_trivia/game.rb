@@ -53,8 +53,6 @@ module UglyTrivia
 
           advance(@current_player, roll)
           puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
-          puts "The category is #{Game.current_category(@places[@current_player])}"
-          ask_question(Game.current_category(@places[@current_player]))
         else
           puts "#{@players[@current_player]} is not getting out of the penalty box"
           @is_getting_out_of_penalty_box = false
@@ -63,9 +61,9 @@ module UglyTrivia
       else
         advance(@current_player, roll)
         puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
-        puts "The category is #{Game.current_category(@places[@current_player])}"
-        ask_question(Game.current_category(@places[@current_player]))
       end
+      puts "The category is #{Game.current_category(@places[@current_player])}"
+      ask_question(Game.current_category(@places[@current_player]))
     end
 
     def was_correctly_answered
