@@ -50,16 +50,15 @@ module UglyTrivia
           @is_getting_out_of_penalty_box = true
 
           puts "#{@players[@current_player]} is getting out of the penalty box"
-
-          advance(@current_player, roll)
         else
           puts "#{@players[@current_player]} is not getting out of the penalty box"
           @is_getting_out_of_penalty_box = false
           return
         end
       else
-        advance(@current_player, roll)
       end
+
+      advance(@current_player, roll)
       puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
       puts "The category is #{Game.current_category(@places[@current_player])}"
       ask_question(Game.current_category(@places[@current_player]))
