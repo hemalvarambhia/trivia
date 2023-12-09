@@ -19,6 +19,7 @@ class UglyTrivia::GameWithCommentary < UglyTrivia::Game
 
   def puts(message)
     @commentary.puts(message)
+    $stdout.puts(message)
   end
 end
 
@@ -197,7 +198,7 @@ describe "How to play Trivia" do
     end
 
     it "reports the player's current place on the board" do
-      game = UglyTrivia::Game.with(['Player 1', 'Player 2'])
+      game = game_with_commentary_involving(['Player 1', 'Player 2'])
 
       expect { game.roll(5) }.to output(/Player 1's new location is 5/).to_stdout
     end
