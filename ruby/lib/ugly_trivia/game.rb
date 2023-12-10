@@ -78,9 +78,9 @@ module UglyTrivia
 
       end
 
-      winner = did_current_player_win?
+      no_winner = did_current_player_win?
       next_players_turn
-      return winner
+      return no_winner
     end
 
     def wrong_answer
