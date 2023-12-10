@@ -64,9 +64,7 @@ module UglyTrivia
 
     def was_correctly_answered
       if @in_penalty_box[@current_player]
-        if @is_getting_out_of_penalty_box
-
-        else
+        unless @is_getting_out_of_penalty_box
           next_players_turn
           return true
         end
