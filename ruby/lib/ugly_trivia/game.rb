@@ -70,8 +70,7 @@ module UglyTrivia
 
           winner = did_current_player_win?
           next_players_turn
-
-          winner
+          return winner
         else
           next_players_turn
           true
@@ -83,7 +82,6 @@ module UglyTrivia
 
         winner = did_current_player_win?
         next_players_turn
-
         return winner
       end
     end
