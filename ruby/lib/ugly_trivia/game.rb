@@ -149,8 +149,8 @@ module UglyTrivia
     end
 
     def award_gold_coin_to_current_player(player)
-      @purses[@current_player] += 1
-      puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
+      @purses[player] += 1
+      puts "#{@players[player]} now has #{@purses[player]} Gold Coins."
     end
   end
 end
