@@ -73,7 +73,7 @@ module UglyTrivia
           return winner
         else
           next_players_turn
-          true
+          return true
         end
       else
 
