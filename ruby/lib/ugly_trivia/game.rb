@@ -67,10 +67,6 @@ module UglyTrivia
         if @is_getting_out_of_penalty_box
           puts 'Answer was correct!!!!'
           award_gold_coin_to_current_player
-
-          winner = did_current_player_win?
-          next_players_turn
-          return winner
         else
           next_players_turn
           return true
@@ -80,10 +76,11 @@ module UglyTrivia
         puts "Answer was correct!!!!"
         award_gold_coin_to_current_player
 
-        winner = did_current_player_win?
-        next_players_turn
-        return winner
       end
+
+      winner = did_current_player_win?
+      next_players_turn
+      return winner
     end
 
     def wrong_answer
