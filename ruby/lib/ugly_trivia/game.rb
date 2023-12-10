@@ -148,7 +148,7 @@ module UglyTrivia
       @current_player = 0 if @current_player == @players.length
     end
 
-    def award_gold_coin_to_current_player
+    def award_gold_coin_to_current_player(player = nil)
       @purses[@current_player] += 1
       puts "#{@players[@current_player]} now has #{@purses[@current_player]} Gold Coins."
     end
