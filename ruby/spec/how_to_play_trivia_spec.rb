@@ -517,11 +517,11 @@ describe "How to play Trivia" do
     end
 
     game.roll(6)
-    winner = game.was_correctly_answered
+    no_winner = game.was_correctly_answered
 
     player_1 = 0
     expect(game.purses[player_1]).to eq(6)
-    expect(winner).to eq(false)
+    expect(no_winner).to eq(false)
   end
 
   private
