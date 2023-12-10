@@ -224,7 +224,13 @@ describe "How to play Trivia" do
       expect(game_with_commentary.commentary).to include('Player 1 now has 1 Gold Coins.')
     end
 
-    it 'declares no winner when either player has fewer than six gold coins'
+    it 'declares no winner when either player has fewer than six gold coins' do
+      # Player 1's turn
+      game_with_commentary.roll(1)
+      no_winner = game_with_commentary.was_correctly_answered
+
+      expect(no_winner).to eq(true)
+    end
 
     it "is the next players turn's" do
       # Player 1's turn
