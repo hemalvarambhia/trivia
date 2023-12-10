@@ -405,6 +405,17 @@ describe "How to play Trivia" do
           expect(game.current_player).to eq(player_2)
         end
 
+        it 'announces that the question was answered correctly' do
+          game.roll(1)
+          game.was_correctly_answered
+
+          # player 1's turn again and they roll an odd number, meaning they
+          # qualify to leave the penalty box
+          game.roll(1)
+          game.was_correctly_answered
+          expect(game.commentary).to include('Answer was correct!!!')
+        end
+
         it "awards then a coin when they answer the question correctly" do
           # player 2's turn
           game.roll(2)
