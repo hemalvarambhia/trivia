@@ -71,7 +71,7 @@ module UglyTrivia
       end
 
       puts "Answer was correct!!!!"
-      award_gold_coin_to_current_player
+      award_gold_coin_to_current_player(@current_player)
       no_winner = did_current_player_win?
       next_players_turn
       return no_winner
