@@ -139,6 +139,11 @@ module UglyTrivia
       @places[player] = (@places[player] + number_of_places) % 12
     end
 
+    def award_gold_coin_to(player)
+      @purses[player] += 1
+      puts "#{@players[player]} now has #{@purses[player]} Gold Coins."
+    end
+
     def did_current_player_win?
       !(@purses[@current_player] == 6)
     end
@@ -146,11 +151,6 @@ module UglyTrivia
     def next_players_turn
       @current_player += 1
       @current_player = 0 if @current_player == @players.length
-    end
-
-    def award_gold_coin_to(player)
-      @purses[player] += 1
-      puts "#{@players[player]} now has #{@purses[player]} Gold Coins."
     end
   end
 end
