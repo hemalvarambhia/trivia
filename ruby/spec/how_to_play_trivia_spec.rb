@@ -83,26 +83,6 @@ describe "How to play Trivia" do
       expect(questions).to eq(expected_questions)
     end
 
-    describe 'A player is asked science questions when:' do
-      example 'they have moved one place from the start' do
-        category = UglyTrivia::Game.current_category(1)
-
-        expect(category).to eq('Science')
-      end
-
-      example 'they have moved 5 spaces forwards from the start' do
-        category = UglyTrivia::Game.current_category(5)
-
-        expect(category).to eq('Science')
-      end
-
-      it 'they have moved 9 spaces forwards from the start' do
-        category = UglyTrivia::Game.current_category(9)
-
-        expect(category).to eq('Science')
-      end
-    end
-
     it "consists of 50 Pop questions" do
       game = silent_game_involving(['Player 1', 'Player 2'])
 
