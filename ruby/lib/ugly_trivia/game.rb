@@ -71,7 +71,7 @@ module UglyTrivia
       end
 
       puts "Answer was correct!!!!"
-      award_gold_coin_to_current_player(@current_player)
+      award_gold_coin_to(@current_player)
       no_winner = did_current_player_win?
       next_players_turn
       return no_winner
@@ -148,7 +148,7 @@ module UglyTrivia
       @current_player = 0 if @current_player == @players.length
     end
 
-    def award_gold_coin_to_current_player(player)
+    def award_gold_coin_to(player)
       @purses[player] += 1
       puts "#{@players[player]} now has #{@purses[player]} Gold Coins."
     end
