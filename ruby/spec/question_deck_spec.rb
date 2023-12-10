@@ -61,4 +61,23 @@ describe 'Deck of Questions' do
       expect(category).to eq('Sports')
     end
   end
+
+  describe 'A player is asked a rock question when:' do
+    example 'when they have moved 3 places from the start' do
+      category = UglyTrivia::Game.current_category(3)
+
+      expect(category).to eq('Rock')
+    end
+    example 'when they have moved 7 places from the start' do
+      category = UglyTrivia::Game.current_category(7)
+
+      expect(category).to eq('Rock')
+    end
+
+    example 'when they have moved 11 places from the the start' do
+      category = UglyTrivia::Game.current_category(11)
+
+      expect(category).to eq('Rock')
+    end
+  end
 end
