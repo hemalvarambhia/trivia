@@ -68,8 +68,6 @@ module UglyTrivia
           next_players_turn
           return true
         end
-      else
-
       end
 
       puts "Answer was correct!!!!"
