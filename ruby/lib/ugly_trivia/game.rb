@@ -78,6 +78,7 @@ module UglyTrivia
     end
 
     def wrong_answer
+      puts 'Question was incorrectly answered'
       place_current_player_in_penalty_box
 
       next_players_turn
@@ -130,7 +131,6 @@ module UglyTrivia
     end
 
     def place_current_player_in_penalty_box
-      puts 'Question was incorrectly answered'
       puts "#{@players[@current_player]} was sent to the penalty box"
       @in_penalty_box[@current_player] = true
     end
