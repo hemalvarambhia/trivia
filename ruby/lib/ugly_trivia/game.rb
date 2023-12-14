@@ -103,12 +103,7 @@ module UglyTrivia
     end
 
     def questions_for(category)
-      {
-        'Pop' => @pop_questions,
-        'Science' => @science_questions,
-        'Sports' => @sports_questions,
-        'Rock' => @rock_questions
-      }[category]
+      @questions[category]
     end
 
     def prepare_questions
@@ -116,6 +111,12 @@ module UglyTrivia
       @science_questions = Array.new(50) { |i| "Science Question #{i}" }
       @sports_questions = Array.new(50) { |i| "Sports Question #{i}" }
       @rock_questions = Array.new(50) { |i| "Rock Question #{i}" }
+      @questions = {
+        'Pop' => @pop_questions,
+        'Science' => @science_questions,
+        'Sports' => @sports_questions,
+        'Rock' => @rock_questions
+      }
     end
 
     def place_in_penalty_box(player)
