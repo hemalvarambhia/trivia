@@ -56,9 +56,10 @@ module UglyTrivia
       end
 
       advance(@current_player, roll)
-      puts "#{@players[@current_player]}'s new location is #{@places[@current_player]}"
-      puts "The category is #{Game.current_category(@places[@current_player])}"
-      ask_question(Game.current_category(@places[@current_player]))
+      place = @places[@current_player]
+      puts "#{@players[@current_player]}'s new location is #{place}"
+      puts "The category is #{Game.current_category(place)}"
+      ask_question(Game.current_category(place))
     end
 
     def was_correctly_answered
