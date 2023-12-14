@@ -144,8 +144,8 @@ module UglyTrivia
       puts "#{@players[player]} now has #{@purses[player]} Gold Coins."
     end
 
-    def did_current_player_win?(player = nil)
-      !(@purses[@current_player] == 6)
+    def did_current_player_win?(player)
+      !(@purses[player] == 6)
     end
 
     def next_players_turn
