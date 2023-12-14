@@ -1,3 +1,4 @@
+require_relative './deck_of_questions'
 module UglyTrivia
   class Game
     attr_reader :places, :purses, :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
@@ -84,20 +85,7 @@ module UglyTrivia
     end
 
     def self.current_category(place)
-      {
-        0 => 'Pop',
-        4 => 'Pop',
-        8 => 'Pop',
-        1 => 'Science',
-        5 => 'Science',
-        9 => 'Science',
-        2 => 'Sports',
-        6 => 'Sports',
-        10 => 'Sports',
-        3 => 'Rock',
-        7 => 'Rock',
-        11 => 'Rock'
-      }[place]
+      DeckOfQuestions.new.categories[place]
     end
 
     private
