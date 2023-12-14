@@ -100,13 +100,17 @@ module UglyTrivia
     def pick_question_for(category)
       case category
       when 'Pop'
-        @pop_questions.shift
+        questions = @pop_questions
+        questions.shift
       when 'Science'
-        @science_questions.shift
+        questions = @science_questions
+        questions.shift
       when 'Sports'
-        @sports_questions.shift
+        questions = @sports_questions
+        questions.shift
       when 'Rock'
-        @rock_questions.shift
+        questions = @rock_questions
+        questions.shift
       end
     end
 
