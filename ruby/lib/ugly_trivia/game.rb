@@ -101,17 +101,14 @@ module UglyTrivia
       case category
       when 'Pop'
         questions = @pop_questions
-        questions.shift
       when 'Science'
         questions = @science_questions
-        questions.shift
       when 'Sports'
         questions = @sports_questions
-        questions.shift
       when 'Rock'
         questions = @rock_questions
-        questions.shift
       end
+      questions.shift
     end
 
     def prepare_questions
