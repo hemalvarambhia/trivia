@@ -103,16 +103,12 @@ module UglyTrivia
     end
 
     def questions_for(category)
-      case category
-      when 'Pop'
-        @pop_questions
-      when 'Science'
-        @science_questions
-      when 'Sports'
-        @sports_questions
-      when 'Rock'
-        @rock_questions
-      end
+      {
+        'Pop' => @pop_questions,
+        'Science' => @science_questions,
+        'Sports' => @sports_questions,
+        'Rock' => @rock_questions
+      }[category]
     end
 
     def prepare_questions
