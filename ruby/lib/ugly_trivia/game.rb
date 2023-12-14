@@ -72,14 +72,14 @@ module UglyTrivia
 
       puts "Answer was correct!!!!"
       award_gold_coin_to(@current_player)
-      no_winner = did_current_player_win?
+      no_winner = did_current_player_win?(@current_player)
       next_players_turn
       return no_winner
     end
 
     def wrong_answer
       puts 'Question was incorrectly answered'
-      place_current_player_in_penalty_box
+      place_current_player_in_penalty_box(@current_player)
 
       next_players_turn
       return true
@@ -130,7 +130,7 @@ module UglyTrivia
       @rock_questions = Array.new(50) { |i| "Rock Question #{i}" }
     end
 
-    def place_current_player_in_penalty_box
+    def place_current_player_in_penalty_box(player = nil)
       puts "#{@players[@current_player]} was sent to the penalty box"
       @in_penalty_box[@current_player] = true
     end
@@ -144,7 +144,7 @@ module UglyTrivia
       puts "#{@players[player]} now has #{@purses[player]} Gold Coins."
     end
 
-    def did_current_player_win?
+    def did_current_player_win?(player = nil)
       !(@purses[@current_player] == 6)
     end
 
