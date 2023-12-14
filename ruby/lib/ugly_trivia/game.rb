@@ -79,7 +79,7 @@ module UglyTrivia
 
     def wrong_answer
       puts 'Question was incorrectly answered'
-      place_current_player_in_penalty_box(@current_player)
+      place_in_penalty_box(@current_player)
 
       next_players_turn
       return true
@@ -130,7 +130,7 @@ module UglyTrivia
       @rock_questions = Array.new(50) { |i| "Rock Question #{i}" }
     end
 
-    def place_current_player_in_penalty_box(player)
+    def place_in_penalty_box(player)
       puts "#{@players[player]} was sent to the penalty box"
       @in_penalty_box[player] = true
     end
