@@ -130,9 +130,9 @@ module UglyTrivia
       @rock_questions = Array.new(50) { |i| "Rock Question #{i}" }
     end
 
-    def place_current_player_in_penalty_box(player = nil)
-      puts "#{@players[@current_player]} was sent to the penalty box"
-      @in_penalty_box[@current_player] = true
+    def place_current_player_in_penalty_box(player)
+      puts "#{@players[player]} was sent to the penalty box"
+      @in_penalty_box[player] = true
     end
 
     def advance(player, number_of_places)
