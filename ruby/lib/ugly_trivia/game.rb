@@ -33,8 +33,6 @@ module UglyTrivia
 
       puts "#{player_name} was added"
       puts "They are player number #{@players.length}"
-
-      true
     end
 
     def how_many_players
