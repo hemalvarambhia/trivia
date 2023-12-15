@@ -2,7 +2,7 @@ require_relative './deck_of_questions'
 module UglyTrivia
   class Game
     attr_reader :places, :purses, :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
-    attr_reader :science_questions, :pop_questions, :sports_questions, :rock_questions
+    attr_reader :pop_questions, :sports_questions, :rock_questions
 
     def self.with(players)
       new.tap do |trivia|
@@ -60,6 +60,10 @@ module UglyTrivia
       puts "#{@players[@current_player]}'s new location is #{place}"
       puts "The category is #{Game.current_category(place)}"
       ask_question(Game.current_category(place))
+    end
+
+    def science_questions
+      @questions['Science']
     end
 
     def was_correctly_answered
