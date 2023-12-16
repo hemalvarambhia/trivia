@@ -4,19 +4,19 @@ require_relative '../lib/ugly_trivia/game'
 describe 'Deck of Questions' do
   describe 'A player is asked science questions when:' do
     example 'they have moved one place from the start' do
-      category = UglyTrivia::Game.current_category(1)
+      category = DeckOfQuestions.new.current_category(1)
 
       expect(category).to eq('Science')
     end
 
     example 'they have moved 5 spaces forwards from the start' do
-      category = UglyTrivia::Game.current_category(5)
+      category = DeckOfQuestions.new.current_category(5)
 
       expect(category).to eq('Science')
     end
 
     it 'they have moved 9 spaces forwards from the start' do
-      category = UglyTrivia::Game.current_category(9)
+      category = DeckOfQuestions.new.current_category(9)
 
       expect(category).to eq('Science')
     end
@@ -24,19 +24,19 @@ describe 'Deck of Questions' do
 
   describe 'A player is asked pop questions when:' do
     example 'they are at the start' do
-      category = UglyTrivia::Game.current_category(0)
+      category = DeckOfQuestions.new.current_category(0)
 
       expect(category).to eq('Pop')
     end
 
     example 'they have moved 4 places from the start' do
-      category = UglyTrivia::Game.current_category(4)
+      category = DeckOfQuestions.new.current_category(4)
 
       expect(category).to eq('Pop')
     end
 
     example 'they have moved 8 places from the start' do
-      category = UglyTrivia::Game.current_category(8)
+      category = DeckOfQuestions.new.current_category(8)
 
       expect(category).to eq('Pop')
     end
