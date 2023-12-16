@@ -22,6 +22,8 @@ class DeckOfQuestions
     categories[place]
   end
 
+  private
+
   def categories
     {
       0 => 'Pop',
