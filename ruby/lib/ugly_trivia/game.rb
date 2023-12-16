@@ -62,19 +62,19 @@ module UglyTrivia
     end
 
     def science_questions
-      @questions['Science']
+      questions_for 'Science'
     end
 
     def pop_questions
-      @questions['Pop']
+      questions_for 'Pop'
     end
 
     def rock_questions
-      @questions['Rock']
+      questions_for 'Rock'
     end
 
     def sports_questions
-      @questions['Sports']
+      questions_for 'Sports'
     end
 
     def was_correctly_answered
