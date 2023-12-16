@@ -107,13 +107,9 @@ module UglyTrivia
     private
 
     def ask_question(category)
-      question = pick_question_for(category)
+      question = @deck_of_questions.pick_question_for category
 
       puts question
-    end
-
-    def pick_question_for(category)
-      @deck_of_questions.pick_question_for category
     end
 
     def place_in_penalty_box(player)
