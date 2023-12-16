@@ -113,8 +113,7 @@ module UglyTrivia
     end
 
     def pick_question_for(category)
-      questions = questions_for(category)
-      questions.shift
+      questions_for(category).shift
     end
 
     def questions_for(category)
