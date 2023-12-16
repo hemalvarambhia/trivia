@@ -132,6 +132,7 @@ module UglyTrivia
         'Sports' => sports_questions,
         'Rock' => rock_questions
       }
+      @deck_of_questions = DeckOfQuestions.new
     end
 
     def place_in_penalty_box(player)
