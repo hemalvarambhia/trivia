@@ -18,6 +18,10 @@ class DeckOfQuestions
     @questions[category]
   end
 
+  def current_category(place)
+    categories[place]
+  end
+
   def categories
     {
       0 => 'Pop',

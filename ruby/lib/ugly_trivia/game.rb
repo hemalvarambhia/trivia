@@ -101,11 +101,11 @@ module UglyTrivia
     end
 
     def self.current_category(place)
-      DeckOfQuestions.new.categories[place]
+      DeckOfQuestions.new.current_category(place)
     end
 
     def current_category(place)
-      @deck_of_questions.categories[place]
+      @deck_of_questions.current_category(place)
     end
 
     private
