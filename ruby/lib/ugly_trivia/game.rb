@@ -57,8 +57,8 @@ module UglyTrivia
       advance(@current_player, roll)
       place = @places[@current_player]
       puts "#{@players[@current_player]}'s new location is #{place}"
-      puts "The category is #{Game.current_category(place)}"
-      ask_question(Game.current_category(place))
+      puts "The category is #{current_category(place)}"
+      ask_question(current_category(place))
     end
 
     def science_questions
@@ -102,6 +102,10 @@ module UglyTrivia
 
     def self.current_category(place)
       DeckOfQuestions.new.categories[place]
+    end
+
+    def current_category(place)
+      @deck_of_questions.categories[place]
     end
 
     private
