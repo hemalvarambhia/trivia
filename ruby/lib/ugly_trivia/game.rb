@@ -117,7 +117,7 @@ module UglyTrivia
     end
 
     def questions_for(category)
-      @questions[category]
+      @deck_of_questions.questions_for category
     end
 
     def prepare_questions
