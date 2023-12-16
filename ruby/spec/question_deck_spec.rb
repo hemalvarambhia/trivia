@@ -4,6 +4,29 @@ require_relative '../lib/ugly_trivia/game'
 describe 'Deck of Questions' do
   subject(:deck_of_questions) { DeckOfQuestions.new }
 
+  describe 'Deck of questions' do
+    it "consists of 50 Science questions" do
+      expected_questions = (0..49).map {|number| "Science Question #{number}"}
+      expect(deck_of_questions.questions_for('Science')).to eq(expected_questions)
+    end
+
+    it "consists of 50 Pop questions" do
+      expected_questions = (0..49).map {|number| "Pop Question #{number}"}
+      expect(deck_of_questions.questions_for('Pop')).to eq(expected_questions)
+    end
+
+    it 'consists of 50 Sports questions' do
+
+      expected_questions = (0..49).map {|number| "Sports Question #{number}"}
+      expect(deck_of_questions.questions_for('Sports')).to eq(expected_questions)
+    end
+
+    it 'consists of 50 Rock questions' do
+      expected_questions = (0..49).map {|number| "Rock Question #{number}"}
+      expect(deck_of_questions.questions_for('Rock')).to eq(expected_questions)
+    end
+  end
+
   describe 'A player is asked science questions when:' do
     example 'they have moved one place from the start' do
       category = deck_of_questions.current_category(1)

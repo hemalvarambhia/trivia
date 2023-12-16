@@ -74,40 +74,6 @@ describe "How to play Trivia" do
     end
   end
 
-  describe 'Deck of questions' do
-    it "consists of 50 Science questions" do
-      game = silent_game_involving(['Player 1', 'Player 2'])
-
-      questions = game.science_questions
-      expected_questions = (0..49).map {|number| "Science Question #{number}"}
-      expect(questions).to eq(expected_questions)
-    end
-
-    it "consists of 50 Pop questions" do
-      game = silent_game_involving(['Player 1', 'Player 2'])
-
-      questions = game.pop_questions
-      expected_questions = (0..49).map {|number| "Pop Question #{number}"}
-      expect(questions).to eq(expected_questions)
-    end
-
-    it 'consists of 50 Sports questions' do
-      game = silent_game_involving(['Player 1', 'Player 2'])
-
-      questions = game.sports_questions
-      expected_questions = (0..49).map {|number| "Sports Question #{number}"}
-      expect(questions).to eq(expected_questions)
-    end
-
-    it 'consists of 50 Rock questions' do
-      game = silent_game_involving(['Player 1', 'Player 2'])
-
-      questions = game.rock_questions
-      expected_questions = (0..49).map {|number| "Rock Question #{number}"}
-      expect(questions).to eq(expected_questions)
-    end
-  end
-
   describe 'Rolling the die' do
     it 'does not advance a player when they roll a 0'
 
