@@ -62,19 +62,19 @@ module UglyTrivia
     end
 
     def science_questions
-      questions_for 'Science'
+      @deck_of_questions.questions_for 'Science'
     end
 
     def pop_questions
-      questions_for 'Pop'
+      @deck_of_questions.questions_for 'Pop'
     end
 
     def rock_questions
-      questions_for 'Rock'
+      @deck_of_questions.questions_for 'Rock'
     end
 
     def sports_questions
-      questions_for 'Sports'
+      @deck_of_questions.questions_for 'Sports'
     end
 
     def was_correctly_answered
@@ -114,10 +114,6 @@ module UglyTrivia
 
     def pick_question_for(category)
       @deck_of_questions.pick_question_for category
-    end
-
-    def questions_for(category)
-      @deck_of_questions.questions_for category
     end
 
     def place_in_penalty_box(player)
