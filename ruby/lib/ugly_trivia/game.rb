@@ -2,7 +2,6 @@ require_relative './deck_of_questions'
 module UglyTrivia
   class Game
     attr_reader :places, :purses, :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
-    attr_reader :sports_questions, :rock_questions
 
     def self.with(players)
       new.tap do |trivia|
@@ -70,6 +69,14 @@ module UglyTrivia
       @questions['Pop']
     end
 
+    def rock_questions
+      @questions['Rock']
+    end
+
+    def sports_questions
+      @questions['Sports']
+    end
+
     def was_correctly_answered
       if @in_penalty_box[@current_player]
         unless @is_getting_out_of_penalty_box
@@ -117,13 +124,13 @@ module UglyTrivia
     def prepare_questions
       pop_questions = Array.new(50) { |i| "Pop Question #{i}" }
       science_questions = Array.new(50) { |i| "Science Question #{i}" }
-      @sports_questions = Array.new(50) { |i| "Sports Question #{i}" }
-      @rock_questions = Array.new(50) { |i| "Rock Question #{i}" }
+      sports_questions = Array.new(50) { |i| "Sports Question #{i}" }
+      rock_questions = Array.new(50) { |i| "Rock Question #{i}" }
       @questions = {
         'Pop' => pop_questions,
         'Science' => science_questions,
-        'Sports' => @sports_questions,
-        'Rock' => @rock_questions
+        'Sports' => sports_questions,
+        'Rock' => rock_questions
       }
     end
 
