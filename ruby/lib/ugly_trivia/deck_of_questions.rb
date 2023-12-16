@@ -1,6 +1,21 @@
 class DeckOfQuestions
 
   def initialize
+    @categories = {
+      0 => 'Pop',
+      4 => 'Pop',
+      8 => 'Pop',
+      1 => 'Science',
+      5 => 'Science',
+      9 => 'Science',
+      2 => 'Sports',
+      6 => 'Sports',
+      10 => 'Sports',
+      3 => 'Rock',
+      7 => 'Rock',
+      11 => 'Rock'
+    }
+
     @questions = {
       'Pop' => Array.new(50) { |i| "Pop Question #{i}" },
       'Science' => Array.new(50) { |i| "Science Question #{i}" },
@@ -25,19 +40,6 @@ class DeckOfQuestions
   private
 
   def categories
-    {
-      0 => 'Pop',
-      4 => 'Pop',
-      8 => 'Pop',
-      1 => 'Science',
-      5 => 'Science',
-      9 => 'Science',
-      2 => 'Sports',
-      6 => 'Sports',
-      10 => 'Sports',
-      3 => 'Rock',
-      7 => 'Rock',
-      11 => 'Rock'
-    }
+    @categories
   end
 end
