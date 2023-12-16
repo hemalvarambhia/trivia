@@ -122,15 +122,11 @@ module UglyTrivia
     end
 
     def prepare_questions
-      pop_questions = Array.new(50) { |i| "Pop Question #{i}" }
-      science_questions = Array.new(50) { |i| "Science Question #{i}" }
-      sports_questions = Array.new(50) { |i| "Sports Question #{i}" }
-      rock_questions = Array.new(50) { |i| "Rock Question #{i}" }
       @questions = {
-        'Pop' => pop_questions,
-        'Science' => science_questions,
-        'Sports' => sports_questions,
-        'Rock' => rock_questions
+        'Pop' => Array.new(50) { |i| "Pop Question #{i}" },
+        'Science' => Array.new(50) { |i| "Science Question #{i}" },
+        'Sports' => Array.new(50) { |i| "Sports Question #{i}" },
+        'Rock' => Array.new(50) { |i| "Rock Question #{i}" }
       }
       @deck_of_questions = DeckOfQuestions.new
     end

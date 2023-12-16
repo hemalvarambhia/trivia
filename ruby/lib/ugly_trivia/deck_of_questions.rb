@@ -13,6 +13,15 @@ class DeckOfQuestions
     }
   end
 
+  def pick_question_for(category)
+    questions = questions_for(category)
+    questions.shift
+  end
+
+  def questions_for(category)
+    @questions[category]
+  end
+
   def categories
     {
       0 => 'Pop',
