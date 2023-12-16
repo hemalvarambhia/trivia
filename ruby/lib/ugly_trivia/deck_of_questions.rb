@@ -1,7 +1,7 @@
 class DeckOfQuestions
 
   def initialize
-    @categories = {
+    @categories_per_place = {
       0 => 'Pop',
       4 => 'Pop',
       8 => 'Pop',
@@ -34,9 +34,9 @@ class DeckOfQuestions
   end
 
   def current_category(place)
-    categories[place]
+    categories_per_place[place]
   end
 
   private
-  attr_reader :categories
+  attr_reader :categories_per_place
 end
