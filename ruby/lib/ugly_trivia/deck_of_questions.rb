@@ -38,8 +38,5 @@ class DeckOfQuestions
   end
 
   private
-
-  def categories
-    @categories
-  end
+  attr_reader :categories
 end
