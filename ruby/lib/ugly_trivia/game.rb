@@ -18,7 +18,7 @@ module UglyTrivia
       @current_player = 0
       @is_getting_out_of_penalty_box = false
 
-      prepare_questions
+      @deck_of_questions = DeckOfQuestions.new
     end
 
     def is_playable?
@@ -118,10 +118,6 @@ module UglyTrivia
 
     def questions_for(category)
       @deck_of_questions.questions_for category
-    end
-
-    def prepare_questions
-      @deck_of_questions = DeckOfQuestions.new
     end
 
     def place_in_penalty_box(player)
