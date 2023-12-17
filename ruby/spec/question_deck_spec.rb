@@ -105,4 +105,11 @@ describe 'Deck of Questions' do
       expect(category).to eq('Rock')
     end
   end
+
+  example "picking a question removes it from the deck" do
+    question = deck_of_questions.pick_question_for 'Science'
+
+    questions_for_category = deck_of_questions.questions_for('Science')
+    expect(questions_for_category).not_to include(question)
+  end
 end
