@@ -111,7 +111,7 @@ describe 'Deck of Questions' do
 
     questions_for_category = deck_of_questions.questions_for('Science')
     expect(question).to eq('Science Question 0')
-    expect(questions_for_category).not_to include(question)
+    expect(questions_for_category).not_to include('Science Question 0')
   end
 
   it 'takes questions from the deck until there are none left' do
