@@ -110,6 +110,7 @@ describe 'Deck of Questions' do
     question = deck_of_questions.pick_question_for 'Science'
 
     questions_for_category = deck_of_questions.questions_for('Science')
+    expect(question).to eq('Science Question 0')
     expect(questions_for_category).not_to include(question)
   end
 
