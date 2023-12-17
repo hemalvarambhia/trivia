@@ -113,5 +113,9 @@ describe 'Deck of Questions' do
     expect(questions_for_category).not_to include(question)
   end
 
-  it 'takes questions from the deck until there are none left'
+  it 'takes questions from the deck until there are none left' do
+    50.times { deck_of_questions.pick_question_for('Pop') }
+
+    expect(deck_of_questions.questions_for('Pop')).to be_empty
+  end
 end
