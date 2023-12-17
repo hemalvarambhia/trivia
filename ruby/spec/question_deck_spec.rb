@@ -106,7 +106,7 @@ describe 'Deck of Questions' do
     end
   end
 
-  example "picking a question removes it from the deck" do
+  example "picking a question from the deck removes it" do
     question = deck_of_questions.pick_question_for 'Science'
 
     questions_for_category = deck_of_questions.questions_for('Science')
