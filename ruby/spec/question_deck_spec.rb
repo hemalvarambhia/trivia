@@ -2,7 +2,7 @@ require 'spec_helper'
 require_relative '../lib/ugly_trivia/game'
 
 describe 'Deck of Questions' do
-  subject(:deck_of_questions) { DeckOfQuestions.new }
+  subject(:deck_of_questions) { UglyTrivia::DeckOfQuestions.new }
 
   describe 'Deck of questions' do
     it "consists of 50 Science questions" do

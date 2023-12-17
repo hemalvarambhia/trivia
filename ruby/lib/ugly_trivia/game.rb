@@ -18,7 +18,7 @@ module UglyTrivia
       @current_player = 0
       @is_getting_out_of_penalty_box = false
 
-      @deck_of_questions = DeckOfQuestions.new
+      @deck_of_questions = UglyTrivia::DeckOfQuestions.new
     end
 
     def is_playable?
