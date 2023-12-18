@@ -106,26 +106,28 @@ describe 'Deck of Questions' do
     end
   end
 
-  example "picking a question from the deck removes it" do
-    question = deck_of_questions.pick_question_for 'Science'
+  ['Science'].each do |category|
+    example "picking a question from the deck removes it" do
+      question = deck_of_questions.pick_question_for category
 
-    questions_for_category = deck_of_questions.questions_for('Science')
-    expect(question).to eq('Science Question 0')
-    expect(questions_for_category).not_to include('Science Question 0')
-  end
+      questions_for_category = deck_of_questions.questions_for(category)
+      expect(question).to eq("#{category} Question 0")
+      expect(questions_for_category).not_to include("#{category} Question 0")
+    end
 
-  it 'takes questions from the deck until there are none left' do
-    50.times { deck_of_questions.pick_question_for('Science') }
+    it 'takes questions from the deck until there are none left' do
+      50.times { deck_of_questions.pick_question_for(category) }
 
-    expect(deck_of_questions.questions_for('Science')).to be_empty
-  end
+      expect(deck_of_questions.questions_for(category)).to be_empty
+    end
 
-  it 'takes no question for a category from the deck when there are none left' do
-    50.times { deck_of_questions.pick_question_for('Science') }
+    it 'takes no question for a category from the deck when there are none left' do
+      50.times { deck_of_questions.pick_question_for(category) }
 
-    question = deck_of_questions.pick_question_for('Science')
+      question = deck_of_questions.pick_question_for(category)
 
-    expect(question).to be_nil
+      expect(question).to be_nil
+    end
   end
 
   example "picking several questions in succession from the deck removes them" do
