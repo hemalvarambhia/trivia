@@ -34,10 +34,7 @@ module UglyTrivia
     end
 
     def current_category(place)
-      categories_per_place[place]
+      @categories_per_place[place]
     end
-
-    private
-    attr_reader :categories_per_place
   end
 end
