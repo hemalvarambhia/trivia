@@ -52,6 +52,10 @@ describe "How to play Trivia" do
     end
 
     context 'Trivia game involving three players' do
+      example 'all players start at the beginning'
+      example 'all players start with no coins in their purse'
+      example 'all players do not start in the penalty'
+
       it 'has no one in the penalty box at the beginning' do
         game = silent_game_involving(['Player 1', 'Player 2', 'Player 3'])
 
