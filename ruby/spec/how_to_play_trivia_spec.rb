@@ -64,8 +64,6 @@ describe "How to play Trivia" do
         expect(game.purses).to all(eq(0))
       end
 
-      example 'all players do not start in the penalty'
-
       it 'has no one in the penalty box at the beginning' do
         game = silent_game_involving(['Player 1', 'Player 2', 'Player 3'])
 
