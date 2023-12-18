@@ -114,13 +114,6 @@ describe 'Deck of Questions' do
     expect(questions_for_category).not_to include('Science Question 0')
   end
 
-  example "picking several questions in succession from the deck removes them" do
-    3.times { deck_of_questions.pick_question_for 'Science' }
-
-    questions_for_category = deck_of_questions.questions_for('Science')
-    expect(questions_for_category).not_to include('Science Question 0', 'Science Question 1', 'Science Question 2')
-  end
-
   it 'takes questions from the deck until there are none left' do
     50.times { deck_of_questions.pick_question_for('Pop') }
 
@@ -133,5 +126,12 @@ describe 'Deck of Questions' do
     question = deck_of_questions.pick_question_for('Rock')
 
     expect(question).to be_nil
+  end
+
+  example "picking several questions in succession from the deck removes them" do
+    3.times { deck_of_questions.pick_question_for 'Science' }
+
+    questions_for_category = deck_of_questions.questions_for('Science')
+    expect(questions_for_category).not_to include('Science Question 0', 'Science Question 1', 'Science Question 2')
   end
 end
