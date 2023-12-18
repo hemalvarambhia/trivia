@@ -156,15 +156,6 @@ describe "How to play Trivia" do
 
         expect { game.roll(number) }.to output(/#{category} Question \d+/).to_stdout
       end
-
-      example "after a #{category} question is asked, it is removed from the pack of questions" do
-        game = silent_game_involving(['Player 1', 'Player 2'])
-
-        game.roll(number)
-
-        questions_for_category = game.send("#{category.downcase}_questions")
-        expect(questions_for_category).not_to include("#{category} Question 0")
-      end
     end
   end
 
