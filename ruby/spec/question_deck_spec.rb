@@ -106,8 +106,8 @@ describe 'Deck of Questions' do
     end
   end
 
-  ['Science'].each do |category|
-    example "picking a question from the deck removes it" do
+  ['Science', 'Pop', 'Rock'].each do |category|
+    example "picking a #{category} question from the deck removes it" do
       question = deck_of_questions.pick_question_for category
 
       questions_for_category = deck_of_questions.questions_for(category)
@@ -115,13 +115,13 @@ describe 'Deck of Questions' do
       expect(questions_for_category).not_to include("#{category} Question 0")
     end
 
-    it 'takes questions from the deck until there are none left' do
+    it "takes #{category} questions from the deck until there are none left" do
       50.times { deck_of_questions.pick_question_for(category) }
 
       expect(deck_of_questions.questions_for(category)).to be_empty
     end
 
-    it 'takes no question for a category from the deck when there are none left' do
+    it "takes no question for #{category} from the deck when there are none left" do
       50.times { deck_of_questions.pick_question_for(category) }
 
       question = deck_of_questions.pick_question_for(category)
