@@ -61,22 +61,6 @@ module UglyTrivia
       ask_question(current_category(place))
     end
 
-    def science_questions
-      @deck_of_questions.questions_for 'Science'
-    end
-
-    def pop_questions
-      @deck_of_questions.questions_for 'Pop'
-    end
-
-    def rock_questions
-      @deck_of_questions.questions_for 'Rock'
-    end
-
-    def sports_questions
-      @deck_of_questions.questions_for 'Sports'
-    end
-
     def was_correctly_answered
       if @in_penalty_box[@current_player]
         unless @is_getting_out_of_penalty_box
