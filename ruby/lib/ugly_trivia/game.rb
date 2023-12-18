@@ -1,4 +1,5 @@
 require_relative './deck_of_questions'
+require_relative './player'
 module UglyTrivia
   class Game
     attr_reader :places, :purses, :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
@@ -11,6 +12,7 @@ module UglyTrivia
 
     def  initialize
       @players = []
+      @trivia_players = []
       @places = Array.new(6, 0)
       @purses = Array.new(6, 0)
       @in_penalty_box = Array.new(6, nil)
@@ -27,6 +29,7 @@ module UglyTrivia
 
     def add(player_name)
       @players.push player_name
+      @trivia_players << Player.new(name: player_name)
       @places[how_many_players] = 0
       @purses[how_many_players] = 0
       @in_penalty_box[how_many_players] = false
