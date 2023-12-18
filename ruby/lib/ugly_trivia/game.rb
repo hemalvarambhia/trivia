@@ -40,15 +40,15 @@ module UglyTrivia
     end
 
     def roll(roll)
-      puts "#{@players[@current_player]} is the current player"
+      puts "#{name_of(@current_player)} is the current player"
       puts "They have rolled a #{roll}"
 
       if @in_penalty_box[@current_player]
         if roll.odd?
           @is_getting_out_of_penalty_box = true
-          puts "#{@players[@current_player]} is getting out of the penalty box"
+          puts "#{name_of(@current_player)} is getting out of the penalty box"
         else
-          puts "#{@players[@current_player]} is not getting out of the penalty box"
+          puts "#{name_of(@current_player)} is not getting out of the penalty box"
           @is_getting_out_of_penalty_box = false
           return
         end
@@ -56,7 +56,7 @@ module UglyTrivia
 
       advance(@current_player, roll)
       place = @places[@current_player]
-      puts "#{@players[@current_player]}'s new location is #{place}"
+      puts "#{name_of(@current_player)}'s new location is #{place}"
       puts "The category is #{current_category(place)}"
       ask_question(current_category(place))
     end
@@ -96,8 +96,12 @@ module UglyTrivia
       puts question
     end
 
+    def name_of(player)
+      @players[player]
+    end
+
     def place_in_penalty_box(player)
-      puts "#{@players[player]} was sent to the penalty box"
+      puts "#{name_of(player)} was sent to the penalty box"
       @in_penalty_box[player] = true
     end
 
@@ -107,7 +111,7 @@ module UglyTrivia
 
     def award_gold_coin_to(player)
       @purses[player] += 1
-      puts "#{@players[player]} now has #{@purses[player]} Gold Coins."
+      puts "#{name_of(player)} now has #{@purses[player]} Gold Coins."
     end
 
     def has_not_won?(player)
