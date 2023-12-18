@@ -115,15 +115,15 @@ describe 'Deck of Questions' do
   end
 
   it 'takes questions from the deck until there are none left' do
-    50.times { deck_of_questions.pick_question_for('Pop') }
+    50.times { deck_of_questions.pick_question_for('Science') }
 
-    expect(deck_of_questions.questions_for('Pop')).to be_empty
+    expect(deck_of_questions.questions_for('Science')).to be_empty
   end
 
   it 'takes no question for a category from the deck when there are none left' do
-    50.times { deck_of_questions.pick_question_for('Rock') }
+    50.times { deck_of_questions.pick_question_for('Science') }
 
-    question = deck_of_questions.pick_question_for('Rock')
+    question = deck_of_questions.pick_question_for('Science')
 
     expect(question).to be_nil
   end
