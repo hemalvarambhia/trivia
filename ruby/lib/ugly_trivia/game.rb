@@ -118,11 +118,15 @@ module UglyTrivia
 
     def award_gold_coin_to_and_display_message(player)
       @purses[player] += 1
-      display "#{name_of(player)} now has #{@purses[player]} Gold Coins."
+      display "#{name_of(player)} now has #{gold_coins_won_by(player)} Gold Coins."
+    end
+
+    def gold_coins_won_by(player)
+      @purses[player]
     end
 
     def has_not_won?(player)
-      !(@purses[player] == 6)
+      !(gold_coins_won_by(player) == 6)
     end
 
     def next_players_turn
