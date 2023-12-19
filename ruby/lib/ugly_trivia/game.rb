@@ -122,6 +122,7 @@ module UglyTrivia
     end
 
     def award_gold_coin_to(player)
+      @trivia_players[player].award_coin
       @purses[player] += 1
     end
 
