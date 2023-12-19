@@ -61,7 +61,7 @@ module UglyTrivia
       place = location_of(@current_player)
       puts "#{name_of(@current_player)}'s new location is #{place}"
       puts "The category is #{current_category(place)}"
-      ask_question(current_category(place))
+      ask_question_and_display_message(current_category(place))
     end
 
     def was_correctly_answered
@@ -73,7 +73,7 @@ module UglyTrivia
       end
 
       puts "Answer was correct!!!!"
-      award_gold_coin_to(@current_player)
+      award_gold_coin_to_and_display_message(@current_player)
       no_winner = has_not_won?(@current_player)
       next_players_turn
       return no_winner
@@ -81,7 +81,7 @@ module UglyTrivia
 
     def wrong_answer
       puts 'Question was incorrectly answered'
-      place_in_penalty_box(@current_player)
+      place_in_penalty_box_and_display_message(@current_player)
 
       next_players_turn
       return true
@@ -93,7 +93,7 @@ module UglyTrivia
 
     private
 
-    def ask_question(category)
+    def ask_question_and_display_message(category)
       question = @deck_of_questions.pick_question_for category
 
       puts question
@@ -107,7 +107,7 @@ module UglyTrivia
       @places[player]
     end
 
-    def place_in_penalty_box(player)
+    def place_in_penalty_box_and_display_message(player)
       @in_penalty_box[player] = true
       puts "#{name_of(player)} was sent to the penalty box"
     end
@@ -116,7 +116,7 @@ module UglyTrivia
       @places[player] = (@places[player] + number_of_places) % 12
     end
 
-    def award_gold_coin_to(player)
+    def award_gold_coin_to_and_display_message(player)
       @purses[player] += 1
       puts "#{name_of(player)} now has #{@purses[player]} Gold Coins."
     end
