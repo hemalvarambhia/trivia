@@ -103,13 +103,13 @@ module UglyTrivia
       @trivia_players[player].name
     end
 
+    def location_of(player)
+      @places[player]
+    end
+
     def place_in_penalty_box(player)
       puts "#{name_of(player)} was sent to the penalty box"
       @in_penalty_box[player] = true
-    end
-
-    def location_of(player)
-      @places[player]
     end
 
     def advance(player, number_of_places)
