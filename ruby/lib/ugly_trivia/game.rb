@@ -2,7 +2,7 @@ require_relative './deck_of_questions'
 require_relative './player'
 module UglyTrivia
   class Game
-    attr_reader :places, :purses, :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
+    attr_reader :places, :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
 
     def self.with(players)
       new.tap do |trivia|
