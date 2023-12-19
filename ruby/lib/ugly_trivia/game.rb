@@ -123,12 +123,12 @@ module UglyTrivia
       display "#{name_of(player)} now has #{gold_coins_won_by(player)} Gold Coins."
     end
 
-    def gold_coins_won_by(player)
-      @trivia_players[player].gold_coins
-    end
-
     def has_not_won?(player)
       !(gold_coins_won_by(player) == 6)
+    end
+
+    def gold_coins_won_by(player)
+      @trivia_players[player].gold_coins
     end
 
     def next_players_turn
