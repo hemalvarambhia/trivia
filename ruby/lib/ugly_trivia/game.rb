@@ -91,6 +91,10 @@ module UglyTrivia
       @deck_of_questions.current_category(place)
     end
 
+    def purses
+      @trivia_players.map { |player| player.gold_coins }
+    end
+
     private
 
     def ask_question_and_display_message(category)
