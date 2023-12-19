@@ -1,6 +1,6 @@
 module UglyTrivia
   class Player
-    attr_reader :name
+    attr_reader :name, :gold_coins
 
     def initialize(name:)
       @name = name

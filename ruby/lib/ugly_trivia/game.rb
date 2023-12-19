@@ -128,6 +128,7 @@ module UglyTrivia
 
     def gold_coins_won_by(player)
       @purses[player]
+      @trivia_players[player].gold_coins
     end
 
     def has_not_won?(player)
