@@ -58,7 +58,7 @@ module UglyTrivia
       end
 
       advance(@current_player, roll)
-      place = @places[@current_player]
+      place = location_of(@current_player)
       puts "#{name_of(@current_player)}'s new location is #{place}"
       puts "The category is #{current_category(place)}"
       ask_question(current_category(place))
@@ -106,6 +106,10 @@ module UglyTrivia
     def place_in_penalty_box(player)
       puts "#{name_of(player)} was sent to the penalty box"
       @in_penalty_box[player] = true
+    end
+
+    def location_of(player)
+      @places[player]
     end
 
     def advance(player, number_of_places)
