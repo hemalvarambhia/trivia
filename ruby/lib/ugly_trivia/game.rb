@@ -44,7 +44,7 @@ module UglyTrivia
 
     def roll(roll)
       puts "#{name_of(@current_player)} is the current player"
-      puts "They have rolled a #{roll}"
+      display "They have rolled a #{roll}"
 
       if @in_penalty_box[@current_player]
         if roll.odd?
