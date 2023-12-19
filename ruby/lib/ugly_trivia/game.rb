@@ -59,8 +59,8 @@ module UglyTrivia
 
       advance(@current_player, roll)
       place = location_of(@current_player)
-      puts "#{name_of(@current_player)}'s new location is #{place}"
-      puts "The category is #{current_category(place)}"
+      display "#{name_of(@current_player)}'s new location is #{place}"
+      display "The category is #{current_category(place)}"
       ask_question_and_display_message(current_category(place))
     end
 
@@ -72,7 +72,7 @@ module UglyTrivia
         end
       end
 
-      puts "Answer was correct!!!!"
+      display "Answer was correct!!!!"
       award_gold_coin_to_and_display_message(@current_player)
       no_winner = has_not_won?(@current_player)
       next_players_turn
@@ -80,7 +80,7 @@ module UglyTrivia
     end
 
     def wrong_answer
-      puts 'Question was incorrectly answered'
+      display 'Question was incorrectly answered'
       place_in_penalty_box_and_display_message(@current_player)
 
       next_players_turn
@@ -96,7 +96,7 @@ module UglyTrivia
     def ask_question_and_display_message(category)
       question = @deck_of_questions.pick_question_for category
 
-      puts question
+      display question
     end
 
     def name_of(player)
@@ -109,7 +109,7 @@ module UglyTrivia
 
     def place_in_penalty_box_and_display_message(player)
       @in_penalty_box[player] = true
-      puts "#{name_of(player)} was sent to the penalty box"
+      display "#{name_of(player)} was sent to the penalty box"
     end
 
     def advance(player, number_of_places)
@@ -118,7 +118,7 @@ module UglyTrivia
 
     def award_gold_coin_to_and_display_message(player)
       @purses[player] += 1
-      puts "#{name_of(player)} now has #{@purses[player]} Gold Coins."
+      display "#{name_of(player)} now has #{@purses[player]} Gold Coins."
     end
 
     def has_not_won?(player)
@@ -128,6 +128,10 @@ module UglyTrivia
     def next_players_turn
       @current_player += 1
       @current_player = 0 if @current_player == @players.length
+    end
+
+    def display(message)
+      puts message
     end
   end
 end
