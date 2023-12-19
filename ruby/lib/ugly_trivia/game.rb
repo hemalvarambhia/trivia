@@ -14,7 +14,6 @@ module UglyTrivia
       @players = []
       @trivia_players = []
       @places = Array.new(6, 0)
-      @purses = Array.new(6, 0)
       @in_penalty_box = Array.new(6, nil)
 
       @current_player = 0
@@ -31,7 +30,6 @@ module UglyTrivia
       @players.push player_name
       @trivia_players << Player.new(name: player_name)
       @places[how_many_players] = 0
-      @purses[how_many_players] = 0
       @in_penalty_box[how_many_players] = false
 
       puts "#{player_name} was added"
@@ -127,11 +125,9 @@ module UglyTrivia
 
     def award_gold_coin_to(player)
       @trivia_players[player].award_coin
-      @purses[player] += 1
     end
 
     def gold_coins_won_by(player)
-      @purses[player]
       @trivia_players[player].gold_coins
     end
 
