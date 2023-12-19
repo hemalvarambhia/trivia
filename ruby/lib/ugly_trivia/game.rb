@@ -100,7 +100,7 @@ module UglyTrivia
     end
 
     def name_of(player)
-      @players[player]
+      @trivia_players[player].name
     end
 
     def place_in_penalty_box(player)
