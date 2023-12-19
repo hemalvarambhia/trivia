@@ -117,8 +117,12 @@ module UglyTrivia
     end
 
     def award_gold_coin_to_and_display_message(player)
-      @purses[player] += 1
+      award_gold_coin_to(player)
       display "#{name_of(player)} now has #{gold_coins_won_by(player)} Gold Coins."
+    end
+
+    def award_gold_coin_to(player)
+      @purses[player] += 1
     end
 
     def gold_coins_won_by(player)
