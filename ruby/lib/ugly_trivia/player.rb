@@ -5,6 +5,15 @@ module UglyTrivia
     def initialize(name:)
       @name = name
       @gold_coins = 0
+      @place = 0
+    end
+
+    def advance(number_of_places)
+      @place = (@place + number_of_places) % 12
+    end
+
+    def location
+      @place
     end
 
     def award_coin
