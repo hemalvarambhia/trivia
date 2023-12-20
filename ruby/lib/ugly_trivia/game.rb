@@ -90,7 +90,7 @@ module UglyTrivia
     end
 
     def purses
-      @trivia_players.map { |player| player.gold_coins }
+      @trivia_players.map(&:gold_coins)
     end
 
     private
