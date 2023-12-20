@@ -93,6 +93,10 @@ module UglyTrivia
       @trivia_players.map(&:gold_coins)
     end
 
+    def places
+      @trivia_players.map(&:location)
+    end
+
     private
 
     def ask_question_and_display_message(category)
