@@ -124,7 +124,11 @@ module UglyTrivia
     end
 
     def has_not_won?(player)
-      !(gold_coins_won_by(player) == 6)
+      !won?(player)
+    end
+
+    def won?(player)
+      gold_coins_won_by(player) == 6
     end
 
     def gold_coins_won_by(player)
