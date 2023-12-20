@@ -115,6 +115,7 @@ module UglyTrivia
     end
 
     def advance(player, number_of_places)
+      @trivia_players[player].advance(number_of_places)
       @places[player] = (@places[player] + number_of_places) % 12
     end
 
