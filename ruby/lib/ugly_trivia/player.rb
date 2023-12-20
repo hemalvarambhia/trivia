@@ -10,5 +10,9 @@ module UglyTrivia
     def award_coin
       @gold_coins += 1
     end
+
+    def won?
+      @gold_coins == 6
+    end
   end
 end

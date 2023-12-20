@@ -128,7 +128,7 @@ module UglyTrivia
     end
 
     def won?(player)
-      gold_coins_won_by(player) == 6
+      @trivia_players[player].won?
     end
 
     def gold_coins_won_by(player)
