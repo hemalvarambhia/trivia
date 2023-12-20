@@ -110,7 +110,7 @@ module UglyTrivia
     end
 
     def location_of(player)
-      @places[player]
+      @trivia_players[player].location
     end
 
     def place_in_penalty_box_and_display_message(player)
