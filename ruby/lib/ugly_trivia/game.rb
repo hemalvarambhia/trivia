@@ -2,7 +2,7 @@ require_relative './deck_of_questions'
 require_relative './player'
 module UglyTrivia
   class Game
-    attr_reader :places, :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
+    attr_reader :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
 
     def self.with(players)
       new.tap do |trivia|
@@ -120,7 +120,6 @@ module UglyTrivia
 
     def advance(player, number_of_places)
       @trivia_players[player].advance(number_of_places)
-      @places[player] = (@places[player] + number_of_places) % 12
     end
 
     def award_gold_coin_to_and_display_message(player)
