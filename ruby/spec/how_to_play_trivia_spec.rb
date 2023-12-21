@@ -19,7 +19,6 @@ class UglyTrivia::GameWithCommentary < UglyTrivia::Game
 
   def puts(message)
     @commentary.puts(message)
-    $stdout.puts(message)
   end
 end
 
@@ -108,7 +107,9 @@ describe "How to play Trivia" do
     it "reports the player's current place on the board" do
       game = game_with_commentary_involving(['Player 1', 'Player 2'])
 
-      expect { game.roll(5) }.to output(/Player 1's new location is 5/).to_stdout
+      game.roll(5)
+
+      expect(game.commentary).to include("Player 1's new location is 5")
     end
 
     it 'does not change who the current player is' do
@@ -169,13 +170,17 @@ describe "How to play Trivia" do
       it "reports the current category of question that will be asked e.g. #{category} when #{number} is rolled" do
         game = game_with_commentary_involving(['Player 1', 'Player 2'])
 
-        expect { game.roll(number) }.to output(/The category is #{category}/).to_stdout
+        game.roll(number)
+
+        expect(game.commentary).to include("The category is #{category}")
       end
 
       it "asks the player a #{category} question when #{number} is rolled" do
         game = game_with_commentary_involving(['Player 1', 'Player 2'])
 
-        expect { game.roll(number) }.to output(/#{category} Question \d+/).to_stdout
+        game.roll(number)
+
+        expect(game.commentary).to include("#{category} Question 0")
       end
     end
   end
