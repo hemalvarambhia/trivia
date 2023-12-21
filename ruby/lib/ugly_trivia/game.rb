@@ -35,7 +35,7 @@ module UglyTrivia
     end
 
     def how_many_players
-      @players.length
+      @trivia_players.count
     end
 
     def roll(roll)
