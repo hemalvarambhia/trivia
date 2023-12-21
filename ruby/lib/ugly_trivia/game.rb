@@ -39,7 +39,7 @@ module UglyTrivia
     end
 
     def roll(roll)
-      puts "#{name_of(@current_player)} is the current player"
+      display "#{name_of(@current_player)} is the current player"
       display "They have rolled a #{roll}"
 
       if @in_penalty_box[@current_player]
