@@ -88,7 +88,13 @@ describe "How to play Trivia" do
   describe 'Rolling the die' do
     it 'does not advance a player when they roll a 0'
 
-    it 'reports who is the current player'
+    it 'reports who is the current player' do
+      game = game_with_commentary_involving(['Player 1', 'Player 2'])
+
+      game.roll(6)
+
+      expect(game.commentary).to include(match(/Player \d is the current player/))
+    end
 
     it 'reports the number the current player rolled' do
       game = game_with_commentary_involving(['Player 1', 'Player 2'])
