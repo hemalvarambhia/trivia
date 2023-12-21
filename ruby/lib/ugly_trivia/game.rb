@@ -61,7 +61,7 @@ module UglyTrivia
     end
 
     def was_correctly_answered
-      if @in_penalty_box[@current_player]
+      if in_penalty_box? @current_player
         unless @is_getting_out_of_penalty_box
           next_players_turn
           return true
@@ -114,6 +114,10 @@ module UglyTrivia
     def place_in_penalty_box_and_display_message(player)
       @in_penalty_box[player] = true
       display "#{name_of(player)} was sent to the penalty box"
+    end
+
+    def in_penalty_box?(player)
+      @in_penalty_box[player]
     end
 
     def advance(player, number_of_places)
