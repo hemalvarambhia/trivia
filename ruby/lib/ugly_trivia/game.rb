@@ -13,9 +13,7 @@ module UglyTrivia
     def  initialize
       @players = []
       @trivia_players = []
-      @places = Array.new(6, 0)
       @in_penalty_box = Array.new(6, nil)
-
       @current_player = 0
       @is_getting_out_of_penalty_box = false
 
@@ -30,7 +28,6 @@ module UglyTrivia
     def add(player_name)
       @players.push player_name
       @trivia_players << Player.new(name: player_name)
-      @places[how_many_players] = 0
       @in_penalty_box[how_many_players] = false
 
       puts "#{player_name} was added"
