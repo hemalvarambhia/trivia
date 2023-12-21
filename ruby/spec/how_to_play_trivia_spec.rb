@@ -14,7 +14,7 @@ class UglyTrivia::GameWithCommentary < UglyTrivia::Game
   end
 
   def commentary
-    @commentary.string
+    @commentary.string.split("\n")
   end
 
   def puts(message)
@@ -194,7 +194,7 @@ describe "How to play Trivia" do
       game_with_commentary.was_correctly_answered
 
       # spelling error - correct rather than corrent
-      expect(game_with_commentary.commentary).to include('Answer was correct!!!')
+      expect(game_with_commentary.commentary).to include('Answer was correct!!!!')
     end
 
     it 'awards that player a gold coin' do
@@ -404,7 +404,7 @@ describe "How to play Trivia" do
           # qualify to leave the penalty box
           game.roll(1)
           game.was_correctly_answered
-          expect(game.commentary).to include('Answer was correct!!!')
+          expect(game.commentary).to include('Answer was correct!!!!')
         end
 
         it "awards then a coin when they answer the question correctly" do
