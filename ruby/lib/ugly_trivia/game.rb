@@ -112,8 +112,12 @@ module UglyTrivia
     end
 
     def place_in_penalty_box_and_display_message(player)
-      @in_penalty_box[player] = true
+      place_in_penalty_box(player)
       display "#{name_of(player)} was sent to the penalty box"
+    end
+
+    def place_in_penalty_box(player)
+      @in_penalty_box[player] = true
     end
 
     def in_penalty_box?(player)
