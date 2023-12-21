@@ -22,6 +22,7 @@ module UglyTrivia
       @deck_of_questions = UglyTrivia::DeckOfQuestions.new
     end
 
+    # SMELL: this method has no clients.
     def is_playable?
       how_many_players >= 2
     end
