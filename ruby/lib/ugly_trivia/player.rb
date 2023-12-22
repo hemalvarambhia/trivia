@@ -6,6 +6,7 @@ module UglyTrivia
       @name = name
       @gold_coins = 0
       @place = 0
+      @in_penalty_box = false
     end
 
     def advance(number_of_places)
@@ -22,6 +23,10 @@ module UglyTrivia
 
     def won?
       @gold_coins == 6
+    end
+
+    def place_in_penalty_box
+      @in_penalty_box = true
     end
   end
 end

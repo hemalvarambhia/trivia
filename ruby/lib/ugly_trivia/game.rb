@@ -117,6 +117,7 @@ module UglyTrivia
     end
 
     def place_in_penalty_box(player)
+      @trivia_players[player].place_in_penalty_box
       @in_penalty_box[player] = true
     end
 
