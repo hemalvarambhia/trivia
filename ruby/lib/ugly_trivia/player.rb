@@ -28,5 +28,9 @@ module UglyTrivia
     def place_in_penalty_box
       @in_penalty_box = true
     end
+
+    def in_penalty_box?
+      @in_penalty_box
+    end
   end
 end

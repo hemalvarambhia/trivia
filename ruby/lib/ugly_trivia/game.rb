@@ -122,6 +122,7 @@ module UglyTrivia
     end
 
     def in_penalty_box?(player)
+      @trivia_players[player].in_penalty_box?
       @in_penalty_box[player]
     end
 
