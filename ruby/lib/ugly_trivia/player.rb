@@ -32,5 +32,9 @@ module UglyTrivia
     def in_penalty_box?
       @in_penalty_box
     end
+
+    def inspect
+      "#{@name} located at #{@place} with #{@gold_coins} gold coins."
+    end
   end
 end
