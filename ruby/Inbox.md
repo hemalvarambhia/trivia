@@ -6,8 +6,9 @@
   - can add characters to this text, at the end, and the tests still pass (include may be too weak);
 - ~~Quieten printing to standard out.~~
 - Current player is implicit in the code and it is difficult, then, to set up the test correctly.
-- `was_correctly_answered` has duplicate code around answer was correct and award gold coins
-- `roll` also has duplicate code.
+- ~~`was_correctly_answered` has duplicate code around answer was correct and award gold coins.~~
+- ~~`roll` also has duplicate code.~~
+- Had to translate the Player being in the penalty box into the existing array `@in_penalty_box` because it is an array with `nil` default values.
 ## Penalty Box Diagram
 
 ```mermaid
