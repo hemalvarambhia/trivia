@@ -118,12 +118,11 @@ module UglyTrivia
 
     def place_in_penalty_box(player)
       @trivia_players[player].place_in_penalty_box
-      @in_penalty_box[player] = true
+      @in_penalty_box[player] = @trivia_players[player].in_penalty_box?
     end
 
     def in_penalty_box?(player)
       @trivia_players[player].in_penalty_box?
-      @in_penalty_box[player]
     end
 
     def advance(player, number_of_places)
