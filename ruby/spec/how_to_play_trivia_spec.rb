@@ -83,6 +83,8 @@ describe "How to play Trivia" do
         expect(game.in_penalty_box.first).to be_nil
       end
     end
+
+    it 'reports the player who is playing and what player number they are'
   end
 
   describe 'Rolling the die' do
