@@ -129,8 +129,9 @@ module UglyTrivia
     end
 
     def award_gold_coin_and_display_message(player)
-      @trivia_players[player].award_coin
-      number_of_gold_coins = @trivia_players[player].gold_coins
+      trivia_player = @trivia_players[player]
+      trivia_player.award_coin
+      number_of_gold_coins = trivia_player.gold_coins
       display "#{name_of(player)} now has #{number_of_gold_coins} Gold Coins."
     end
 
