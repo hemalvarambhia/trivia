@@ -1,11 +1,12 @@
+require 'game_commentary'
 class UglyTrivia::GameWithCommentary < UglyTrivia::Game
   def initialize
     super
-    @commentary = StringIO.new
+    @commentary = UglyTrivia::GameCommentary.new
   end
 
   def commentary
-    @commentary.string.split("\n")
+    @commentary.commentary
   end
 
   def puts(message)
