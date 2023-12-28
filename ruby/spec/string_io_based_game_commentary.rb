@@ -1,5 +1,5 @@
 module UglyTrivia
-  class GameCommentary
+  class StringIOBasedGameCommentary
     def initialize
       @commentary = StringIO.new
     end
