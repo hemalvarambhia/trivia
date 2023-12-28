@@ -84,7 +84,12 @@ describe "How to play Trivia" do
       end
     end
 
-    it 'reports the player who is playing and what player number they are'
+    it 'reports the player who is playing and what player number they are' do
+      game = game_with_commentary_involving(['Khushboo'])
+
+      expect(game.commentary).to include('Khushboo was added')
+      expect(game.commentary).to include(match(/They are player number \d/))
+    end
   end
 
   describe 'Rolling the die' do
