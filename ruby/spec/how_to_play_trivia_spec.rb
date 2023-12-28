@@ -1,12 +1,7 @@
 require 'spec_helper'
 require_relative '../lib/ugly_trivia/game'
 require_relative './game_with_commentary'
-
-class UglyTrivia::GameWithNoCommentary < UglyTrivia::Game
-  def puts(message)
-    # do nothing
-  end
-end
+require_relative './game_with_no_commentary'
 
 describe "How to play Trivia" do
   describe 'How many players can play trivia' do
