@@ -10,7 +10,7 @@ module UglyTrivia
       end
     end
 
-    def  initialize
+    def initialize
       @trivia_players = []
       @in_penalty_box = Array.new(6, nil)
       @current_player = 0
