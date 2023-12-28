@@ -8,6 +8,8 @@
 - Current player is implicit in the code and it is difficult, then, to set up the test correctly.
 - ~~`was_correctly_answered` has duplicate code around answer was correct and award gold coins.~~
 - ~~`roll` also has duplicate code.~~
+- Why was `@in_penalty_box` instantiated with `nil` defaults?
+- Could `@is_getting_out_of_penalty_box` be removed?
 - Had to translate the Player being in the penalty box into the existing array `@in_penalty_box` because it is an array with `nil` default values.
 ## Penalty Box Diagram
 
