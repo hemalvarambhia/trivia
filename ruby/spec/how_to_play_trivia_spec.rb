@@ -511,5 +511,4 @@ describe "How to play Trivia" do
   def game_with_commentary_involving(players)
     UglyTrivia::GameWithCommentary.with(players)
   end
-
 end
