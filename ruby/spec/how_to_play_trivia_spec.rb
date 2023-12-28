@@ -1,24 +1,10 @@
 require 'spec_helper'
 require_relative '../lib/ugly_trivia/game'
+require_relative './game_with_commentary'
 
 class UglyTrivia::GameWithNoCommentary < UglyTrivia::Game
   def puts(message)
     # do nothing
-  end
-end
-
-class UglyTrivia::GameWithCommentary < UglyTrivia::Game
-  def initialize
-    super
-    @commentary = StringIO.new
-  end
-
-  def commentary
-    @commentary.string.split("\n")
-  end
-
-  def puts(message)
-    @commentary.puts(message)
   end
 end
 
