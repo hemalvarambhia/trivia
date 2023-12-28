@@ -131,7 +131,7 @@ module UglyTrivia
     def award_gold_coin_and_display_message(player)
       trivia_player = @trivia_players[player]
       trivia_player.award_coin
-      display "#{trivia_player.name} now has #{trivia_player.gold_coins} Gold Coins."
+      commentate_gold_coins_won_by(trivia_player)
     end
 
     def won?(player)
@@ -141,6 +141,10 @@ module UglyTrivia
     def next_players_turn
       @current_player += 1
       @current_player = 0 if @current_player == @trivia_players.count
+    end
+
+    def commentate_gold_coins_won_by(trivia_player)
+      display "#{trivia_player.name} now has #{trivia_player.gold_coins} Gold Coins."
     end
 
     def display(message)
