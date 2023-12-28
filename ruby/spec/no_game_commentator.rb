@@ -1,5 +1,5 @@
 module UglyTrivia
-  class NoGameCommentary
+  class NoGameCommentator
     def commentary
       []
     end

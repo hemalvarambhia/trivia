@@ -9,10 +9,10 @@ classDiagram
         +puts(message)
         +commentary()
     }
-    class StringIOBasedGameCommentary {
+    class StringIOBasedGameCommentator {
         
     }
-    class NoGameCommentary {
+    class NoGameCommentator {
 
     }
 
@@ -34,8 +34,8 @@ classDiagram
     }
 Game *-- DeckOfQuestions
 Game "1" -- "1..*" Player
-GameCommentary <|-- StringIOBasedGameCommentary
-GameCommentary <|-- NoGameCommentary    
-GameWithCommentary *-- StringIOBasedGameCommentary  
-GameWithNoCommentary *-- NoGameCommentary
+GameCommentary <|-- StringIOBasedGameCommentator
+GameCommentary <|-- NoGameCommentator
+GameWithCommentary *-- StringIOBasedGameCommentator  
+GameWithNoCommentary *-- NoGameCommentator
 ```
