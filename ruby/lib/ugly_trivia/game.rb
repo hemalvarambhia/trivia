@@ -141,7 +141,7 @@ module UglyTrivia
 
     def next_players_turn
       @current_player += 1
-      @current_player = 0 if @current_player == @players.length
+      @current_player = 0 if @current_player == @trivia_players.count
     end
 
     def display(message)
