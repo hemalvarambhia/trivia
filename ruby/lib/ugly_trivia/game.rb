@@ -132,7 +132,7 @@ module UglyTrivia
       trivia_player = @trivia_players[player]
       trivia_player.award_coin
       number_of_gold_coins = trivia_player.gold_coins
-      display "#{name_of(player)} now has #{number_of_gold_coins} Gold Coins."
+      display "#{trivia_player.name} now has #{number_of_gold_coins} Gold Coins."
     end
 
     def won?(player)
