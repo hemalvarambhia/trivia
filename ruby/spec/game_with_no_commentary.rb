@@ -3,8 +3,8 @@ require 'no_game_commentary'
 class UglyTrivia::GameWithNoCommentary < UglyTrivia::Game
   extend Forwardable
   def_delegators :@commentary, :puts, :commentary
-  def initialize
+  def initialize(commentary: UglyTrivia::NoGameCommentary.new)
     super()
-    @commentary = UglyTrivia::NoGameCommentary.new
+    @commentary = commentary
   end
 end
