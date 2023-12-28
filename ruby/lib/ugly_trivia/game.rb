@@ -30,8 +30,8 @@ module UglyTrivia
       @trivia_players << Player.new(name: player_name)
       @in_penalty_box[how_many_players] = false
 
-      puts "#{player_name} was added"
-      puts "They are player number #{@players.length}"
+      display "#{player_name} was added"
+      display "They are player number #{@players.length}"
     end
 
     def how_many_players
