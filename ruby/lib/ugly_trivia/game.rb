@@ -113,7 +113,7 @@ module UglyTrivia
     def place_in_penalty_box_and_display_message(player)
       place_in_penalty_box(player)
       trivia_player = @trivia_players[player]
-      display "#{trivia_player.name} was sent to the penalty box"
+      commentate_sent_to_penalty_box(trivia_player)
     end
 
     def place_in_penalty_box(player)
@@ -142,6 +142,10 @@ module UglyTrivia
     def next_players_turn
       @current_player += 1
       @current_player = 0 if @current_player == @trivia_players.count
+    end
+
+    def commentate_sent_to_penalty_box(trivia_player)
+      display "#{trivia_player.name} was sent to the penalty box"
     end
 
     def commentate_gold_coins_won_by(trivia_player)
