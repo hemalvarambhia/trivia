@@ -29,7 +29,7 @@ module UglyTrivia
       @trivia_players << trivial_player
       @in_penalty_box[how_many_players] = trivial_player.in_penalty_box?
 
-      display "#{player_name} was added"
+      display "#{trivial_player.name} was added"
       display "They are player number #{@trivia_players.count}"
     end
 
