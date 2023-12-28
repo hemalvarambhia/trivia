@@ -11,7 +11,6 @@ module UglyTrivia
     end
 
     def  initialize
-      @players = []
       @trivia_players = []
       @in_penalty_box = Array.new(6, nil)
       @current_player = 0
@@ -26,7 +25,6 @@ module UglyTrivia
     end
 
     def add(player_name)
-      @players.push player_name
       @trivia_players << Player.new(name: player_name)
       @in_penalty_box[how_many_players] = false
 
