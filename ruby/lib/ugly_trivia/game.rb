@@ -31,7 +31,7 @@ module UglyTrivia
       @in_penalty_box[how_many_players] = false
 
       display "#{player_name} was added"
-      display "They are player number #{@players.length}"
+      display "They are player number #{@trivia_players.count}"
     end
 
     def how_many_players
