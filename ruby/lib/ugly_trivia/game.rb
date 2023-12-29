@@ -75,7 +75,7 @@ module UglyTrivia
     end
 
     def wrong_answer
-      display 'Question was incorrectly answered'
+      commentate_question_incorrectly_answered
       place_in_penalty_box_and_display_message(@current_player)
 
       next_players_turn
@@ -142,6 +142,10 @@ module UglyTrivia
     def next_players_turn
       @current_player += 1
       @current_player = 0 if @current_player == @trivia_players.count
+    end
+
+    def commentate_question_incorrectly_answered
+      display 'Question was incorrectly answered'
     end
 
     def commentate_sent_to_penalty_box(trivia_player)
