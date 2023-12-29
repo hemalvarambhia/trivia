@@ -67,7 +67,7 @@ module UglyTrivia
         end
       end
 
-      display "Answer was correct!!!!"
+      commentate_answer_was_correct
       award_gold_coin_and_display_message(@current_player)
       no_winner = !won?(@current_player)
       next_players_turn
@@ -142,6 +142,10 @@ module UglyTrivia
     def next_players_turn
       @current_player += 1
       @current_player = 0 if @current_player == @trivia_players.count
+    end
+
+    def commentate_answer_was_correct
+      display "Answer was correct!!!!"
     end
 
     def commentate_question_incorrectly_answered
