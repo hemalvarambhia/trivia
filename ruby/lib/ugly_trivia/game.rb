@@ -54,10 +54,9 @@ module UglyTrivia
 
       advance(@current_player, roll)
       trivia_player = @trivia_players[@current_player]
-      place = trivia_player.location
-      display "#{name_of(@current_player)}'s new location is #{place}"
-      display "The category is #{current_category(place)}"
-      ask_question_and_display_message(current_category(place))
+      display "#{trivia_player.name}'s new location is #{trivia_player.location}"
+      display "The category is #{current_category(trivia_player.location)}"
+      ask_question_and_display_message(current_category(trivia_player.location))
     end
 
     def was_correctly_answered
