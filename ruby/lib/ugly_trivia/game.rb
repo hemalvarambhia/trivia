@@ -142,8 +142,9 @@ module UglyTrivia
     end
 
     def ask_question_to(trivia_player)
-      display "The category is #{current_category(trivia_player.location)}"
-      question = @deck_of_questions.pick_question_for current_category(trivia_player.location)
+      category = current_category(trivia_player.location)
+      display "The category is #{category}"
+      question = @deck_of_questions.pick_question_for category
 
       display question
     end
