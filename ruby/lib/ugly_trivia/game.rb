@@ -95,12 +95,6 @@ module UglyTrivia
 
     private
 
-    def ask_question_and_display_message(category)
-      question = @deck_of_questions.pick_question_for category
-
-      display question
-    end
-
     def name_of(player)
       @trivia_players[player].name
     end
@@ -150,6 +144,12 @@ module UglyTrivia
     def ask_question_to(trivia_player)
       display "The category is #{current_category(trivia_player.location)}"
       ask_question_and_display_message(current_category(trivia_player.location))
+    end
+
+    def ask_question_and_display_message(category)
+      question = @deck_of_questions.pick_question_for category
+
+      display question
     end
 
     def commentate_answer_was_correct
