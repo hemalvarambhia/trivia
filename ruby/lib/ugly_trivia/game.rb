@@ -53,8 +53,8 @@ module UglyTrivia
       end
 
       advance(@current_player, roll)
-      place = location_of(@current_player)
-      place = @trivia_players[@current_player].location
+      trivia_player = @trivia_players[@current_player]
+      place = trivia_player.location
       display "#{name_of(@current_player)}'s new location is #{place}"
       display "The category is #{current_category(place)}"
       ask_question_and_display_message(current_category(place))
