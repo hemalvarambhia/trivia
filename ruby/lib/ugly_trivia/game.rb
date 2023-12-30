@@ -55,8 +55,7 @@ module UglyTrivia
       advance(@current_player, roll)
       trivia_player = @trivia_players[@current_player]
       commentate_on_players_location(trivia_player)
-      display "The category is #{current_category(trivia_player.location)}"
-      ask_question_and_display_message(current_category(trivia_player.location))
+      ask_question_to(trivia_player)
     end
 
     def was_correctly_answered
@@ -146,6 +145,11 @@ module UglyTrivia
 
     def commentate_on_players_location(trivia_player)
       display "#{trivia_player.name}'s new location is #{trivia_player.location}"
+    end
+
+    def ask_question_to(trivia_player)
+      display "The category is #{current_category(trivia_player.location)}"
+      ask_question_and_display_message(current_category(trivia_player.location))
     end
 
     def commentate_answer_was_correct
