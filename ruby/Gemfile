@@ -4,3 +4,6 @@ source "https://rubygems.org"
 
 gem "minitest"
 gem "rspec"
+source 'https://oss:ECnrX3vg365mE9wWNEheiEWqUvdhUsLj@gem.mutant.dev' do
+  gem 'mutant-license'
+end
