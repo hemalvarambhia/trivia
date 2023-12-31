@@ -11,8 +11,8 @@ game.add 'Chet'
 game.add 'Pat'
 game.add 'Sue'
 
+random = Random.new(7777)
 begin
-  random = Random.new(0)
   game.roll(random.rand(5) + 1)
   
   if random.rand(9) == 7
