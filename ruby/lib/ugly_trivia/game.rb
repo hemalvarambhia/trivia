@@ -38,9 +38,9 @@ module UglyTrivia
     end
 
     def roll(roll)
-      display "#{name_of(@current_player)} is the current player"
-      display "They have rolled a #{roll}"
       trivia_player = current_trivia_player
+      display "#{trivia_player.name} is the current player"
+      display "They have rolled a #{roll}"
       if trivia_player.in_penalty_box?
         if roll.odd?
           @is_getting_out_of_penalty_box = true
