@@ -41,7 +41,7 @@ module UglyTrivia
       display "#{name_of(@current_player)} is the current player"
       display "They have rolled a #{roll}"
 
-      if @trivia_players[@current_player].in_penalty_box?
+      if current_trivia_player.in_penalty_box?
         if roll.odd?
           @is_getting_out_of_penalty_box = true
           puts "#{name_of(@current_player)} is getting out of the penalty box"
@@ -52,14 +52,13 @@ module UglyTrivia
         end
       end
 
-      trivia_player = @trivia_players[@current_player]
+      trivia_player = current_trivia_player
       trivia_player.advance(roll)
       commentate_on_players_location(trivia_player)
       ask_question_to(trivia_player)
     end
 
     def was_correctly_answered
-      current_trivia_player = @trivia_players[@current_player]
       if current_trivia_player.in_penalty_box?
         unless @is_getting_out_of_penalty_box
           next_players_turn
@@ -95,6 +94,10 @@ module UglyTrivia
     end
 
     private
+
+    def current_trivia_player
+      @trivia_players[@current_player]
+    end
 
     def name_of(player)
       @trivia_players[player].name
