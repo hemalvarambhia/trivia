@@ -118,10 +118,6 @@ module UglyTrivia
       @trivia_players[player].in_penalty_box?
     end
 
-    def advance(player, number_of_places, trivia_player = @trivia_players[player])
-      trivia_player.advance(number_of_places)
-    end
-
     def award_gold_coin_and_display_message(trivia_player)
       trivia_player.award_coin
       commentate_gold_coins_won_by(trivia_player)
