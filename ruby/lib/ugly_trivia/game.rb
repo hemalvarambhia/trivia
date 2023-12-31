@@ -59,7 +59,8 @@ module UglyTrivia
     end
 
     def was_correctly_answered
-      if @trivia_players[@current_player].in_penalty_box?
+      current_trivia_player = @trivia_players[@current_player]
+      if current_trivia_player.in_penalty_box?
         unless @is_getting_out_of_penalty_box
           next_players_turn
           return true
@@ -67,8 +68,8 @@ module UglyTrivia
       end
 
       commentate_answer_was_correct
-      award_gold_coin_and_display_message(@trivia_players[@current_player])
-      no_winner = !@trivia_players[@current_player].won?
+      award_gold_coin_and_display_message(current_trivia_player)
+      no_winner = !current_trivia_player.won?
       next_players_turn
       return no_winner
     end
