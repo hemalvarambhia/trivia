@@ -114,7 +114,7 @@ module UglyTrivia
       @in_penalty_box[player] = @trivia_players[player].in_penalty_box?
     end
 
-    def in_penalty_box?(player = nil, trivia_player)
+    def in_penalty_box?(trivia_player)
       trivia_player.in_penalty_box?
     end
 
