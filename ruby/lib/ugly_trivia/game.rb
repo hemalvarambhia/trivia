@@ -98,6 +98,11 @@ module UglyTrivia
       @trivia_players[@current_player]
     end
 
+    def next_players_turn
+      @current_player += 1
+      @current_player = 0 if @current_player == @trivia_players.count
+    end
+
     def place_in_penalty_box_and_display_message(player)
       place_in_penalty_box(player)
       trivia_player = @trivia_players[player]
@@ -112,11 +117,6 @@ module UglyTrivia
     def award_gold_coin_and_display_message(trivia_player)
       trivia_player.award_coin
       commentate_gold_coins_won_by(trivia_player)
-    end
-
-    def next_players_turn
-      @current_player += 1
-      @current_player = 0 if @current_player == @trivia_players.count
     end
 
     def commentate_on_players_location(trivia_player)
