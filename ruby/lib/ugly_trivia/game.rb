@@ -68,7 +68,7 @@ module UglyTrivia
 
       commentate_answer_was_correct
       award_gold_coin_and_display_message(@trivia_players[@current_player])
-      no_winner = !won?(@current_player)
+      no_winner = !won?(@current_player, @trivia_players[@current_player])
       next_players_turn
       return no_winner
     end
