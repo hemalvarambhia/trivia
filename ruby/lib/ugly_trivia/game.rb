@@ -44,9 +44,9 @@ module UglyTrivia
       if trivia_player.in_penalty_box?
         if roll.odd?
           @is_getting_out_of_penalty_box = true
-          puts "#{name_of(@current_player)} is getting out of the penalty box"
+          puts "#{trivia_player.name} is getting out of the penalty box"
         else
-          puts "#{name_of(@current_player)} is not getting out of the penalty box"
+          puts "#{trivia_player.name} is not getting out of the penalty box"
           @is_getting_out_of_penalty_box = false
           return
         end
