@@ -127,6 +127,7 @@ module UglyTrivia
       commentate_gold_coins_won_by(trivia_player)
     end
 
+    #@todo migrate away from `player`
     def won?(player, trivia_player = @trivia_players[player])
       trivia_player.won?
     end
