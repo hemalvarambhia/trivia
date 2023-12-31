@@ -98,10 +98,6 @@ module UglyTrivia
       @trivia_players[@current_player]
     end
 
-    def location_of(player)
-      @trivia_players[player].location
-    end
-
     def place_in_penalty_box_and_display_message(player)
       place_in_penalty_box(player)
       trivia_player = @trivia_players[player]
