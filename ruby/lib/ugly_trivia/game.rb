@@ -52,7 +52,7 @@ module UglyTrivia
         end
       end
 
-      advance(@current_player, roll)
+      advance(@current_player, roll, @trivia_players[@current_player])
       trivia_player = @trivia_players[@current_player]
       commentate_on_players_location(trivia_player)
       ask_question_to(trivia_player)
