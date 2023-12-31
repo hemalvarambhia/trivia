@@ -127,7 +127,7 @@ module UglyTrivia
       commentate_gold_coins_won_by(trivia_player)
     end
 
-    def won?(player)
+    def won?(player, trivia_player = @trivia_players[player])
       @trivia_players[player].won?
     end
 
