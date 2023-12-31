@@ -123,7 +123,6 @@ module UglyTrivia
     end
 
     def award_gold_coin_and_display_message(player, trivia_player)
-      trivia_player = @trivia_players[player]
       trivia_player.award_coin
       commentate_gold_coins_won_by(trivia_player)
     end
