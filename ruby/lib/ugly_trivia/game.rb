@@ -128,7 +128,7 @@ module UglyTrivia
     end
 
     #@todo migrate away from `player`
-    def won?(player, trivia_player = @trivia_players[player])
+    def won?(player, trivia_player)
       trivia_player.won?
     end
 
