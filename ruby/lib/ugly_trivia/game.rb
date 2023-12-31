@@ -114,8 +114,8 @@ module UglyTrivia
       @in_penalty_box[player] = @trivia_players[player].in_penalty_box?
     end
 
-    def in_penalty_box?(player)
-      @trivia_players[player].in_penalty_box?
+    def in_penalty_box?(player, trivia_player = @trivia_players[player])
+      trivia_player.in_penalty_box?
     end
 
     def award_gold_coin_and_display_message(trivia_player)
