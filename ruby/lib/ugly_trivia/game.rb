@@ -128,7 +128,7 @@ module UglyTrivia
     end
 
     def won?(player, trivia_player = @trivia_players[player])
-      @trivia_players[player].won?
+      trivia_player.won?
     end
 
     def next_players_turn
