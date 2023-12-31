@@ -98,10 +98,6 @@ module UglyTrivia
       @trivia_players[@current_player]
     end
 
-    def name_of(player)
-      @trivia_players[player].name
-    end
-
     def location_of(player)
       @trivia_players[player].location
     end
