@@ -6,7 +6,6 @@ class UglyTrivia::GameWithNoCommentary < UglyTrivia::Game
                  :puts,
                  :commentary,
                  :moved,
-                 :commentate_on_players_location,
                  :commentate_answer_was_correct,
                  :commentate_question_incorrectly_answered,
                  :commentate_sent_to_penalty_box,

@@ -8,7 +8,6 @@ module UglyTrivia
 
     attr_reader :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
     def_delegators :@commentary,
-                   :commentate_on_players_location,
                    :moved,
                    :commentate_answer_was_correct,
                    :commentate_question_incorrectly_answered,
