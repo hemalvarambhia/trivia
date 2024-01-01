@@ -1,10 +1,13 @@
+require 'forwardable'
 require_relative './std_out_based_game_commentator'
 require_relative './deck_of_questions'
 require_relative './player'
 module UglyTrivia
   class Game
-    attr_reader :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
+    extend Forwardable
 
+    attr_reader :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
+    def_delegators :@commentary, :commentate_gold_coins_won_by, :display
     def self.with(players)
       new.tap do |trivia|
         players.each { |player| trivia.add(player) }
@@ -143,14 +146,6 @@ module UglyTrivia
 
     def commentate_sent_to_penalty_box(trivia_player)
       display "#{trivia_player.name} was sent to the penalty box"
-    end
-
-    def commentate_gold_coins_won_by(trivia_player)
-      @commentary.commentate_gold_coins_won_by trivia_player
-    end
-
-    def display(message)
-      @commentary.display message
     end
   end
 end
