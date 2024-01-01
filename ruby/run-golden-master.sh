@@ -1,3 +1,4 @@
 #!/bin/sh
-bin/trivia_for_testing 7777 > spec/runs/test-run-7777.txt
-diff spec/runs/test-run-7777.txt spec/runs/golden-master.txt
+seed=7777
+bin/trivia_for_testing $seed > spec/runs/test-run-$seed.txt
+diff spec/runs/test-run-$seed.txt spec/runs/golden-master.txt
