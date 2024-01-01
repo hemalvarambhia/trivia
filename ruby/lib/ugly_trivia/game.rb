@@ -9,6 +9,7 @@ module UglyTrivia
     attr_reader :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
     def_delegators :@commentary,
                    :moved,
+                   :answer_was_correct,
                    :commentate_answer_was_correct,
                    :commentate_question_incorrectly_answered,
                    :commentate_gold_coins_won_by,
@@ -76,7 +77,7 @@ module UglyTrivia
         end
       end
 
-      commentate_answer_was_correct
+      answer_was_correct
       award_gold_coin_and_display_message(current_trivia_player)
       no_winner = !current_trivia_player.won?
       next_players_turn

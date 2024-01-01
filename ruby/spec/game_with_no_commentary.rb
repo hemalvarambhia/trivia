@@ -7,6 +7,7 @@ class UglyTrivia::GameWithNoCommentary < UglyTrivia::Game
                  :commentary,
                  :moved,
                  :commentate_answer_was_correct,
+                 :answer_was_correct,
                  :commentate_question_incorrectly_answered,
                  :commentate_sent_to_penalty_box,
                  :commentate_gold_coins_won_by
