@@ -146,7 +146,7 @@ module UglyTrivia
     end
 
     def commentate_gold_coins_won_by(trivia_player)
-      display "#{trivia_player.name} now has #{trivia_player.gold_coins} Gold Coins."
+      @commentary.commentate_gold_coins_won_by trivia_player
     end
 
     def display(message)
