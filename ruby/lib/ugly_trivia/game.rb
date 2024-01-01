@@ -18,6 +18,7 @@ module UglyTrivia
       @is_getting_out_of_penalty_box = false
 
       @deck_of_questions = UglyTrivia::DeckOfQuestions.new
+      @commentary = StdOutBasedGameCommentator.new
     end
 
     # SMELL: this method has no clients.
@@ -149,7 +150,7 @@ module UglyTrivia
     end
 
     def display(message)
-      puts message
+      @commentary.display message
     end
   end
 end
