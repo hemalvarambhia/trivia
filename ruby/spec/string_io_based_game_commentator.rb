@@ -15,6 +15,7 @@ module UglyTrivia
     def commentate_answer_was_correct
       display "Answer was correct!!!!"
     end
+    alias_method :answer_was_correct, :commentate_answer_was_correct
 
     def commentate_question_incorrectly_answered
       display 'Question was incorrectly answered'
