@@ -8,11 +8,11 @@ module UglyTrivia
 
     attr_reader :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
     def_delegators :@commentary,
+                   :commentate_on_players_location,
+                   :commentate_answer_was_correct,
+                   :commentate_question_incorrectly_answered,
                    :commentate_gold_coins_won_by,
                    :commentate_sent_to_penalty_box,
-                   :commentate_question_incorrectly_answered,
-                   :commentate_answer_was_correct,
-                   :commentate_on_players_location,
                    :display
     def self.with(players)
       new.tap do |trivia|
