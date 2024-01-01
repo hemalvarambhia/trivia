@@ -7,7 +7,13 @@ module UglyTrivia
     extend Forwardable
 
     attr_reader :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
-    def_delegators :@commentary, :commentate_gold_coins_won_by, :commentate_sent_to_penalty_box, :display
+    def_delegators :@commentary,
+                   :commentate_gold_coins_won_by,
+                   :commentate_sent_to_penalty_box,
+                   :commentate_question_incorrectly_answered,
+                   :commentate_answer_was_correct,
+                   :commentate_on_players_location,
+                   :display
     def self.with(players)
       new.tap do |trivia|
         players.each { |player| trivia.add(player) }
@@ -124,24 +130,12 @@ module UglyTrivia
       commentate_gold_coins_won_by(trivia_player)
     end
 
-    def commentate_on_players_location(trivia_player)
-      display "#{trivia_player.name}'s new location is #{trivia_player.location}"
-    end
-
     def ask_question_to(trivia_player)
       category = current_category(trivia_player.location)
       question = @deck_of_questions.pick_question_for category
 
       display "The category is #{category}"
       display question
-    end
-
-    def commentate_answer_was_correct
-      display "Answer was correct!!!!"
-    end
-
-    def commentate_question_incorrectly_answered
-      display 'Question was incorrectly answered'
     end
   end
 end
