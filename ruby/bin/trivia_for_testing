@@ -10,7 +10,8 @@ game = UglyTrivia::Game.new
 game.add 'Chet'
 game.add 'Pat'
 game.add 'Sue'
-random = Random.new(7777)
+seed = ARGV.first.to_i || 7777
+random = Random.new(seed)
 begin
   
   game.roll(random.rand(5) + 1)
