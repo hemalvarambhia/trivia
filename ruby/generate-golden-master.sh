@@ -1,6 +1,6 @@
 #!/bin/sh
 
-seeds=(7777 1111 9876)
+seeds=(7777 1111 9876 12345 654321)
 
 for seed in "${seeds[@]}"
 do
