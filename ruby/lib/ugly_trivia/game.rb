@@ -7,7 +7,7 @@ module UglyTrivia
     extend Forwardable
 
     attr_reader :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
-    def_delegators :@commentary, :commentate_gold_coins_won_by, :display
+    def_delegators :@commentary, :commentate_gold_coins_won_by, :commentate_sent_to_penalty_box, :display
     def self.with(players)
       new.tap do |trivia|
         players.each { |player| trivia.add(player) }
@@ -142,10 +142,6 @@ module UglyTrivia
 
     def commentate_question_incorrectly_answered
       display 'Question was incorrectly answered'
-    end
-
-    def commentate_sent_to_penalty_box(trivia_player)
-      display "#{trivia_player.name} was sent to the penalty box"
     end
   end
 end
