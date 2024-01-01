@@ -8,6 +8,8 @@ module UglyTrivia
       display "#{trivia_player.name}'s new location is #{trivia_player.location}"
     end
 
+    alias_method :moved, :commentate_on_players_location
+
     def commentate_answer_was_correct
       display "Answer was correct!!!!"
     end
