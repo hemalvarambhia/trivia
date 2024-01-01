@@ -9,6 +9,7 @@ module UglyTrivia
     attr_reader :current_player, :in_penalty_box, :is_getting_out_of_penalty_box
     def_delegators :@commentary,
                    :commentate_on_players_location,
+                   :moved,
                    :commentate_answer_was_correct,
                    :commentate_question_incorrectly_answered,
                    :commentate_gold_coins_won_by,
@@ -64,7 +65,7 @@ module UglyTrivia
       end
 
       trivia_player.advance(roll)
-      commentate_on_players_location(trivia_player)
+      moved(trivia_player)
       ask_question_to(trivia_player)
     end
 
