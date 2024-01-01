@@ -1,3 +1,4 @@
+require_relative './std_out_based_game_commentator'
 require_relative './deck_of_questions'
 require_relative './player'
 module UglyTrivia
