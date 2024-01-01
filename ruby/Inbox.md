@@ -12,6 +12,7 @@
 - Could `@is_getting_out_of_penalty_box` be removed?
 - Had to translate the Player being in the penalty box into the existing array `@in_penalty_box` because it is an array with `nil` default values.
 - Could Commentator support multiple languages?
+- Commentator feels very event driven (try removing `commentate`)
 ## Penalty Box Diagram
 
 ```mermaid
