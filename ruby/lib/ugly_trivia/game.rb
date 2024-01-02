@@ -13,6 +13,7 @@ module UglyTrivia
                    :question_answered_incorrectly,
                    :commentate_gold_coins_won_by,
                    :commentate_sent_to_penalty_box,
+                   :sent_to_penalty_box,
                    :display
     def self.with(players)
       new.tap do |trivia|
@@ -117,7 +118,7 @@ module UglyTrivia
     def place_in_penalty_box_and_display_message(player)
       place_in_penalty_box(player)
       trivia_player = @trivia_players[player]
-      commentate_sent_to_penalty_box(trivia_player)
+      sent_to_penalty_box(trivia_player)
     end
 
     def place_in_penalty_box(player)
