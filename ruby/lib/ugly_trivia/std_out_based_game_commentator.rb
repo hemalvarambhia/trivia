@@ -15,6 +15,7 @@ module UglyTrivia
     def commentate_sent_to_penalty_box(trivia_player)
       display "#{trivia_player.name} was sent to the penalty box"
     end
+    alias_method :sent_to_penalty_box, :commentate_sent_to_penalty_box
 
     def commentate_gold_coins_won_by(trivia_player)
       display "#{trivia_player.name} now has #{trivia_player.gold_coins} Gold Coins."
