@@ -13,7 +13,6 @@ module UglyTrivia
                    :answer_was_correct,
                    :question_answered_incorrectly,
                    :commentate_gold_coins_won_by,
-                   :commentate_sent_to_penalty_box,
                    :sent_to_penalty_box,
                    :display
     def self.with(players)
