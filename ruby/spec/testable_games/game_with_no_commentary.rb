@@ -1,5 +1,5 @@
 require 'forwardable'
-require_relative './no_game_commentator'
+require 'no_game_commentator'
 class UglyTrivia::GameWithNoCommentary < UglyTrivia::Game
   extend Forwardable
   def_delegators :@commentary,

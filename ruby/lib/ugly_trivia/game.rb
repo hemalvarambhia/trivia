@@ -1,7 +1,8 @@
 require 'forwardable'
-require_relative './std_out_based_game_commentator'
-require_relative './deck_of_questions'
-require_relative './player'
+$LOAD_PATH.unshift(File.expand_path('ugly_trivia', 'lib'))
+require 'std_out_based_game_commentator'
+require 'deck_of_questions'
+require 'player'
 module UglyTrivia
   class Game
     extend Forwardable

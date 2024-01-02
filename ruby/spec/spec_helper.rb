@@ -5,6 +5,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'simplecov'
+$LOAD_PATH.unshift(File.expand_path('testable_games', 'spec'))
 SimpleCov.start do
   enable_coverage :branch
   enable_coverage :line
