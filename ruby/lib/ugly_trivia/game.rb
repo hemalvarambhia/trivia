@@ -13,6 +13,7 @@ module UglyTrivia
                    :answer_was_correct,
                    :question_answered_incorrectly,
                    :commentate_gold_coins_won_by,
+                   :gold_coin_awarded_to,
                    :sent_to_penalty_box,
                    :display
     def self.with(players)
@@ -128,7 +129,7 @@ module UglyTrivia
 
     def award_gold_coin_and_display_message(trivia_player)
       trivia_player.award_coin
-      commentate_gold_coins_won_by(trivia_player)
+      gold_coin_awarded_to(trivia_player)
     end
 
     def ask_question_to(trivia_player)
