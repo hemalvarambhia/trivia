@@ -10,6 +10,7 @@ module UglyTrivia
     def_delegators :@commentary,
                    :moved,
                    :answer_was_correct,
+                   :question_answered_incorrectly,
                    :commentate_question_incorrectly_answered,
                    :commentate_gold_coins_won_by,
                    :commentate_sent_to_penalty_box,
@@ -84,7 +85,7 @@ module UglyTrivia
     end
 
     def wrong_answer
-      commentate_question_incorrectly_answered
+      question_answered_incorrectly
       place_in_penalty_box_and_display_message(@current_player)
 
       next_players_turn
