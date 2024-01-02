@@ -16,10 +16,9 @@ module UglyTrivia
       display "Answer was correct!!!!"
     end
 
-    def commentate_question_incorrectly_answered
+    def question_answered_incorrectly
       display 'Question was incorrectly answered'
     end
-    alias_method :question_answered_incorrectly, :commentate_question_incorrectly_answered
 
     def commentate_sent_to_penalty_box(trivia_player)
       display "#{trivia_player.name} was sent to the penalty box"
