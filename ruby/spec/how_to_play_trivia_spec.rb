@@ -1,7 +1,7 @@
 require 'spec_helper'
 require_relative '../lib/ugly_trivia/game'
-require_relative './game_with_commentary'
-require_relative './game_with_no_commentary'
+require_relative './testable_games/game_with_commentary'
+require_relative './testable_games/game_with_no_commentary'
 
 describe "How to play Trivia" do
   describe 'How many players can play trivia' do
