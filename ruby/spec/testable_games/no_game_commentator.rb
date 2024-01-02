@@ -23,6 +23,7 @@ module UglyTrivia
     def commentate_gold_coins_won_by(trivia_player)
       display "#{trivia_player.name} now has #{trivia_player.gold_coins} Gold Coins."
     end
+    alias_method :gold_coin_awarded_to, :commentate_gold_coins_won_by
 
     def display(message)
       puts message
