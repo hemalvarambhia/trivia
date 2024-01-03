@@ -12,7 +12,6 @@ module UglyTrivia
                    :moved,
                    :answer_was_correct,
                    :question_answered_incorrectly,
-                   :commentate_gold_coins_won_by,
                    :gold_coin_awarded_to,
                    :sent_to_penalty_box,
                    :display
