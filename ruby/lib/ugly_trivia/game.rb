@@ -77,7 +77,7 @@ module UglyTrivia
       end
 
       answer_was_correct
-      award_gold_coin_and_display_message(current_trivia_player)
+      award_gold_coin_to(current_trivia_player)
       no_winner = !current_trivia_player.won?
       next_players_turn
       return no_winner
@@ -135,7 +135,7 @@ module UglyTrivia
       @in_penalty_box[player] = @trivia_players[player].in_penalty_box?
     end
 
-    def award_gold_coin_and_display_message(trivia_player)
+    def award_gold_coin_to(trivia_player)
       trivia_player.award_coin
       gold_coin_awarded_to(trivia_player)
     end
