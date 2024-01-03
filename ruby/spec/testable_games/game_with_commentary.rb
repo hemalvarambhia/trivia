@@ -9,7 +9,8 @@ class UglyTrivia::GameWithCommentary < UglyTrivia::Game
                  :answer_was_correct,
                  :question_answered_incorrectly,
                  :commentate_sent_to_penalty_box,
-                 :commentate_gold_coins_won_by
+                 :commentate_gold_coins_won_by,
+                 :gold_coin_awarded_to
   def initialize(commentary: UglyTrivia::StringIOBasedGameCommentator.new)
     super()
     @commentary = commentary
