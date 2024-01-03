@@ -47,11 +47,7 @@ describe "How to play Trivia" do
       it 'has no one in the penalty box at the beginning' do
         game = silent_game_involving(['Player 1', 'Player 2', 'Player 3'])
 
-        expect(game.in_penalty_box[1..3]).to all eq(false)
-        # This part feels odd.
-        expect(game.in_penalty_box.first).to be_nil
-        expect(game.in_penalty_box[-2]).to be_nil
-        expect(game.in_penalty_box[-1]).to be_nil
+        expect(game.in_penalty_box).to all eq(false)
       end
     end
 
@@ -60,8 +56,7 @@ describe "How to play Trivia" do
         players = (1..6).map {|number| "Player #{number}"}
         game = silent_game_involving(players)
 
-        expect(game.in_penalty_box[1..-1]).to all eq(false)
-        expect(game.in_penalty_box.first).to be_nil
+        expect(game.in_penalty_box).to all eq(false)
       end
     end
 
