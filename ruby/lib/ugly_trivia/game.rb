@@ -23,7 +23,6 @@ module UglyTrivia
 
     def initialize
       @trivia_players = []
-      @in_penalty_box = Array.new(6, false)
       @current_player = 0
       @is_getting_out_of_penalty_box = false
 
@@ -39,7 +38,6 @@ module UglyTrivia
     def add(player_name)
       trivial_player = Player.new(name: player_name)
       @trivia_players << trivial_player
-      @in_penalty_box[how_many_players] = trivial_player.in_penalty_box?
 
       player_added(trivial_player)
     end
