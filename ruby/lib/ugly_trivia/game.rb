@@ -102,6 +102,10 @@ module UglyTrivia
       @trivia_players.map(&:location)
     end
 
+    def in_penalty_box
+      @trivia_players.map(&:in_penalty_box?)
+    end
+
     private
 
     def die_rolled(roll, trivia_player)
@@ -131,7 +135,6 @@ module UglyTrivia
 
     def place_in_penalty_box(player)
       @trivia_players[player].place_in_penalty_box
-      @in_penalty_box[player] = @trivia_players[player].in_penalty_box?
     end
 
     def award_gold_coin_to(trivia_player)
