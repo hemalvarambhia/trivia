@@ -107,11 +107,6 @@ module UglyTrivia
 
     private
 
-    def die_rolled(roll, trivia_player)
-      display "#{trivia_player.name} is the current player"
-      display "They have rolled a #{roll}"
-    end
-
     def player_added(trivial_player)
       display "#{trivial_player.name} was added"
       display "They are player number #{@trivia_players.count}"
