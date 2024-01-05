@@ -122,13 +122,9 @@ module UglyTrivia
     end
 
     def place_in_penalty_box_and_display_message(player)
-      place_in_penalty_box(player)
+      @trivia_players[player].place_in_penalty_box
       trivia_player = @trivia_players[player]
       sent_to_penalty_box(trivia_player)
-    end
-
-    def place_in_penalty_box(player)
-      @trivia_players[player].place_in_penalty_box
     end
 
     def award_gold_coin_to(trivia_player)
