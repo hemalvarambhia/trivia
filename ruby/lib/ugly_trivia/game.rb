@@ -83,7 +83,7 @@ module UglyTrivia
 
     def wrong_answer
       question_answered_incorrectly
-      place_in_penalty_box_and_display_message(@current_player)
+      send_to_penalty_box(@current_player)
 
       next_players_turn
       return true
@@ -121,7 +121,7 @@ module UglyTrivia
       @current_player = 0 if @current_player == @trivia_players.count
     end
 
-    def place_in_penalty_box_and_display_message(player)
+    def send_to_penalty_box(player)
       trivia_player = @trivia_players[player]
       trivia_player.place_in_penalty_box
       sent_to_penalty_box(trivia_player)
