@@ -40,7 +40,7 @@ module UglyTrivia
       trivial_player = Player.new(name: player_name)
       @trivia_players << trivial_player
 
-      player_added(trivial_player)
+      player_added(trivial_player, @trivia_players.count)
     end
 
     def how_many_players
@@ -109,7 +109,7 @@ module UglyTrivia
 
     def player_added(trivial_player, number = @trivia_players.count)
       display "#{trivial_player.name} was added"
-      display "They are player number #{@trivia_players.count}"
+      display "They are player number #{number}"
     end
 
     def current_trivia_player
