@@ -1,5 +1,11 @@
 module UglyTrivia
   class StdOutBasedGameCommentator
+
+    def die_rolled(roll, trivia_player)
+      display "#{trivia_player.name} is the current player"
+      display "They have rolled a #{roll}"
+    end
+
     def moved(trivia_player)
       display "#{trivia_player.name}'s new location is #{trivia_player.location}"
     end
