@@ -5,6 +5,7 @@ class UglyTrivia::GameWithCommentary < UglyTrivia::Game
   def_delegators :@commentary,
                  :puts,
                  :commentary,
+                 :die_rolled,
                  :moved,
                  :answer_was_correct,
                  :question_answered_incorrectly,
