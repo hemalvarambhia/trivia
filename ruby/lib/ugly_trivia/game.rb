@@ -122,8 +122,8 @@ module UglyTrivia
     end
 
     def place_in_penalty_box_and_display_message(player)
-      @trivia_players[player].place_in_penalty_box
       trivia_player = @trivia_players[player]
+      trivia_player.place_in_penalty_box
       sent_to_penalty_box(trivia_player)
     end
 
