@@ -9,7 +9,7 @@ module UglyTrivia
       @in_penalty_box = false
     end
 
-    def advance(number_of_places)
+    def move(number_of_places)
       @place = (@place + number_of_places) % 12
     end
 

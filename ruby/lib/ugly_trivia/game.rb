@@ -61,7 +61,7 @@ module UglyTrivia
         end
       end
 
-      trivia_player.advance(roll)
+      trivia_player.move(roll)
       moved(trivia_player)
       ask_question_to(trivia_player)
     end
