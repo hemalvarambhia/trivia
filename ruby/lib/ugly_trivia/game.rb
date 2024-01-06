@@ -22,13 +22,13 @@ module UglyTrivia
       end
     end
 
-    def initialize
+    def initialize(commentary: StdOutBasedGameCommentator.new)
       @trivia_players = []
       @current_player = 0
       @is_getting_out_of_penalty_box = false
 
       @deck_of_questions = UglyTrivia::DeckOfQuestions.new
-      @commentary = StdOutBasedGameCommentator.new
+      @commentary = commentary
     end
 
     # SMELL: this method has no clients.
@@ -61,8 +61,7 @@ module UglyTrivia
         end
       end
 
-      trivia_player.move(roll)
-      moved(trivia_player)
+      move(trivia_player, roll)
       ask_question_to(trivia_player)
     end
 
@@ -119,6 +118,11 @@ module UglyTrivia
     def next_players_turn
       @current_player += 1
       @current_player = 0 if @current_player == @trivia_players.count
+    end
+
+    def move(trivia_player, number_of_places)
+      trivia_player.move(number_of_places)
+      moved(trivia_player)
     end
 
     def send_to_penalty_box(player)
