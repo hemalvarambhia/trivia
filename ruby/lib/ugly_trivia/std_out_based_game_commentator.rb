@@ -1,5 +1,7 @@
+require 'game_event_listener'
 module UglyTrivia
   class StdOutBasedGameCommentator
+    include GameEventListener
 
     def player_added(trivial_player, number)
       display "#{trivial_player.name} was added"
