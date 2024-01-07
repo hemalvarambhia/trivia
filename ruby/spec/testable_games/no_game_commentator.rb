@@ -8,5 +8,9 @@ module UglyTrivia
     def display(message)
       # no op
     end
+
+    def puts(message)
+      # no op
+    end
   end
 end

@@ -12,6 +12,10 @@ module UglyTrivia
     end
 
     def display(message)
+      puts message
+    end
+
+    def puts(message)
       @commentary.puts(message)
     end
   end
