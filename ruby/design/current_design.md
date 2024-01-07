@@ -2,22 +2,9 @@
 
 ```mermaid
 classDiagram
-    Game <|-- GameWithCommentary
-    Game <|-- GameWithNoCommentary
-
-    class StringIOBasedGameCommentator {
-        +display(message)
-        +commentary()
-    }
-    class NoGameCommentator {
-        +display(message)
-        +commentary()
-    }
-
-    class StdOutBasedGameCommentator {
-        +display(message)
-        +commentary()
-    }
+    Game *-- DeckOfQuestions
+    Game *-- GameEventListener
+    Game "1" -- "1..*" Player
 
     class DeckOfQuestions {
         +pick_question_for(category)
@@ -46,14 +33,27 @@ classDiagram
         +sent_to_penalty_box(Player)
     }
 
-Game *-- DeckOfQuestions
-Game *-- GameEventListener
-Game "1" -- "1..*" Player
+       Game <|-- GameWithCommentary
+       Game <|-- GameWithNoCommentary
+
+
+    class StringIOBasedGameCommentator {
+        +display(message)
+        +commentary()
+    }
+    class NoGameCommentator {
+        +display(message)
+        +commentary()
+    }
+
+    class StdOutBasedGameCommentator {
+        +display(message)
+        +commentary()
+    }
+
 GameEventListener <|-- StringIOBasedGameCommentator
 GameEventListener <|-- NoGameCommentator
 GameEventListener <|-- StdOutBasedGameCommentator
 GameWithCommentary *-- StringIOBasedGameCommentator  
 GameWithNoCommentary *-- NoGameCommentator
-
- 
 ```
