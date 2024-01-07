@@ -1,6 +1,11 @@
 module UglyTrivia
   class StdOutBasedGameCommentator
 
+    def player_added(trivial_player, number)
+      display "#{trivial_player.name} was added"
+      display "They are player number #{number}"
+    end
+
     def die_rolled(face_landed_on, trivia_player)
       display "#{trivia_player.name} is the current player"
       display "They have rolled a #{face_landed_on}"
