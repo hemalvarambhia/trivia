@@ -106,7 +106,7 @@ module UglyTrivia
 
     private
 
-    def player_added(trivial_player, number = @trivia_players.count)
+    def player_added(trivial_player, number)
       display "#{trivial_player.name} was added"
       display "They are player number #{number}"
     end
