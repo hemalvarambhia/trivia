@@ -29,6 +29,5 @@ module UglyTrivia
     def gold_coin_awarded_to(trivia_player)
       display "#{trivia_player.name} now has #{trivia_player.gold_coins} Gold Coins."
     end
-
   end
 end
