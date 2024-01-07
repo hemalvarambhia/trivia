@@ -5,15 +5,18 @@ classDiagram
     Game <|-- GameWithCommentary
     Game <|-- GameWithNoCommentary
 
-    class GameCommentary {
-        +puts(message)
+    class StringIOBasedGameCommentator {
+        +display(message)
         +commentary()
     }
-    class StringIOBasedGameCommentator {
-        
-    }
     class NoGameCommentator {
+        +display(message)
+        +commentary()
+    }
 
+    class StdOutBasedGameCommentator {
+        +display(message)
+        +commentary()
     }
 
     class DeckOfQuestions {
@@ -32,10 +35,25 @@ classDiagram
         +gold_coins()
         +won?()
     }
+
+    class GameEventListener {
+        +player_added(Player, number)
+        +die_rolled(Player, number_landed_on)
+        +moved(Player)
+        +answer_was_correct()
+        +gold_coin_awarded_to(Player)
+        +question_was_answered_incorrectly()
+        +sent_to_penalty_box(Player)
+    }
+
 Game *-- DeckOfQuestions
+Game *-- GameEventListener
 Game "1" -- "1..*" Player
-GameCommentary <|-- StringIOBasedGameCommentator
-GameCommentary <|-- NoGameCommentator
+GameEventListener <|-- StringIOBasedGameCommentator
+GameEventListener <|-- NoGameCommentator
+GameEventListener <|-- StdOutBasedGameCommentator
 GameWithCommentary *-- StringIOBasedGameCommentator  
 GameWithNoCommentary *-- NoGameCommentator
+
+ 
 ```
