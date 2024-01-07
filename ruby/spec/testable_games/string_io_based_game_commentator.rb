@@ -1,5 +1,8 @@
+require 'game_event_listener'
 module UglyTrivia
   class StringIOBasedGameCommentator
+    include GameEventListener
+
     def initialize
       @commentary = StringIO.new
     end
