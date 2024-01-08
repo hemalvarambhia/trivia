@@ -53,11 +53,9 @@ module UglyTrivia
       die_rolled(roll, trivia_player)
       if trivia_player.in_penalty_box?
         if roll.odd?
-          @is_getting_out_of_penalty_box = true
-          puts "#{trivia_player.name} is getting out of the penalty box"
+          is_getting_out_of_penalty_box!(trivia_player)
         else
-          puts "#{trivia_player.name} is not getting out of the penalty box"
-          @is_getting_out_of_penalty_box = false
+          is_staying_in_penalty_box!(trivia_player)
           return
         end
       end
@@ -106,6 +104,16 @@ module UglyTrivia
     end
 
     private
+
+    def is_staying_in_penalty_box!(trivia_player)
+      puts "#{trivia_player.name} is not getting out of the penalty box"
+      @is_getting_out_of_penalty_box = false
+    end
+
+    def is_getting_out_of_penalty_box!(trivia_player)
+      @is_getting_out_of_penalty_box = true
+      puts "#{trivia_player.name} is getting out of the penalty box"
+    end
 
     def player_added(trivial_player, number)
       display "#{trivial_player.name} was added"
