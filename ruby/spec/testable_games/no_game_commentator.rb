@@ -5,6 +5,7 @@ module UglyTrivia
     def commentary
       []
     end
+
     def display(message)
       # no op
     end
