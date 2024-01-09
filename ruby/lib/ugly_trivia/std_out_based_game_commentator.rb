@@ -3,8 +3,12 @@ module UglyTrivia
   class StdOutBasedGameCommentator
     include GameEventListener
 
+    def initialize
+      @commentary = $stdout
+    end
+
     def display(message)
-      puts message
+      @commentary.puts message
     end
   end
 end
