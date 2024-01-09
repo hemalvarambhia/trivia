@@ -107,7 +107,7 @@ module UglyTrivia
 
     def is_staying_in_penalty_box!(trivia_player)
       @is_getting_out_of_penalty_box = false
-      puts "#{trivia_player.name} is not getting out of the penalty box"
+      display "#{trivia_player.name} is not getting out of the penalty box"
     end
 
     def is_getting_out_of_penalty_box!(trivia_player)
