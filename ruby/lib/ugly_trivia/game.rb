@@ -115,11 +115,6 @@ module UglyTrivia
       puts "#{trivia_player.name} is getting out of the penalty box"
     end
 
-    def player_added(trivial_player, number)
-      display "#{trivial_player.name} was added"
-      display "They are player number #{number}"
-    end
-
     def current_trivia_player
       @trivia_players[@current_player]
     end
