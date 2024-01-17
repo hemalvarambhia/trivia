@@ -4,7 +4,7 @@ require_relative '../lib/ugly_trivia/game'
 describe 'Deck of Questions' do
   subject(:deck_of_questions) { UglyTrivia::DeckOfQuestions.new }
 
-  describe 'Deck of questions' do
+  describe 'Deck of questions by default' do
     it "consists of 50 Science questions" do
       expected_questions = (0..49).map {|number| "Science Question #{number}"}
       expect(deck_of_questions.questions_for('Science')).to eq(expected_questions)
