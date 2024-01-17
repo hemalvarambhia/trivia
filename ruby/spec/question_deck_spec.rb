@@ -107,7 +107,7 @@ describe 'Deck of Questions' do
   end
 
   ['Science', 'Pop', 'Rock'].each do |category|
-    example "picking a #{category} question from the deck removes it" do
+    example "picking a #{category} question from the deck removes it so it isn't asked again" do
       question = deck_of_questions.pick_question_for category
 
       questions_for_category = deck_of_questions.questions_for(category)
