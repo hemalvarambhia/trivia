@@ -1,3 +1,4 @@
+require 'game_board'
 module UglyTrivia
   class DeckOfQuestions
 
@@ -13,6 +14,7 @@ module UglyTrivia
         2 => 'Sports', 6 => 'Sports', 10 => 'Sports',
         3 => 'Rock', 7 => 'Rock', 11 => 'Rock'
       }
+      @game_board = GameBoard.new
 
       @questions = questions_by_category
     end
@@ -26,7 +28,7 @@ module UglyTrivia
     end
 
     def current_category(place)
-      @categories_per_place[place]
+      @game_board.current_category(place)
     end
   end
 end
