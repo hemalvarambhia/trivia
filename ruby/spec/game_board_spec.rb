@@ -1,22 +1,23 @@
 require_relative '../lib/ugly_trivia/game_board'
 describe 'Game board' do
   subject(:deck_of_questions) { UglyTrivia::GameBoard.new }
+  subject(:game_board) { UglyTrivia::GameBoard.new }
 
   describe 'A player is asked science questions when:' do
     example 'they have moved one place from the start' do
-      category = deck_of_questions.current_category(1)
+      category = game_board.current_category(1)
 
       expect(category).to eq('Science')
     end
 
     example 'they have moved 5 spaces forwards from the start' do
-      category = deck_of_questions.current_category(5)
+      category = game_board.current_category(5)
 
       expect(category).to eq('Science')
     end
 
     it 'they have moved 9 spaces forwards from the start' do
-      category = deck_of_questions.current_category(9)
+      category =game_board.current_category(9)
 
       expect(category).to eq('Science')
     end
@@ -24,19 +25,19 @@ describe 'Game board' do
 
   describe 'A player is asked pop questions when:' do
     example 'they are at the start' do
-      category = deck_of_questions.current_category(0)
+      category = game_board.current_category(0)
 
       expect(category).to eq('Pop')
     end
 
     example 'they have moved 4 places from the start' do
-      category = deck_of_questions.current_category(4)
+      category = game_board.current_category(4)
 
       expect(category).to eq('Pop')
     end
 
     example 'they have moved 8 places from the start' do
-      category = deck_of_questions.current_category(8)
+      category = game_board.current_category(8)
 
       expect(category).to eq('Pop')
     end
@@ -44,19 +45,19 @@ describe 'Game board' do
 
   describe 'A player is asked a sports question when:' do
     example 'they have moved 2 places from the start' do
-      category = deck_of_questions.current_category(2)
+      category = game_board.current_category(2)
 
       expect(category).to eq('Sports')
     end
 
     example 'they have moved 6 places from the start' do
-      category = deck_of_questions.current_category(6)
+      category = game_board.current_category(6)
 
       expect(category).to eq('Sports')
     end
 
     example 'they have moved 10 places from the start' do
-      category = deck_of_questions.current_category(10)
+      category = game_board.current_category(10)
 
       expect(category).to eq('Sports')
     end
