@@ -1,5 +1,6 @@
 require 'forwardable'
 $LOAD_PATH.unshift(File.expand_path('ugly_trivia', 'lib'))
+require 'game_board'
 require 'std_out_based_game_commentator'
 require 'deck_of_questions'
 require 'player'
@@ -29,6 +30,7 @@ module UglyTrivia
       @is_getting_out_of_penalty_box = false
 
       @deck_of_questions = UglyTrivia::DeckOfQuestions.new
+      @game_board = GameBoard.new
       @commentary = commentary
     end
 
@@ -88,7 +90,7 @@ module UglyTrivia
     end
 
     def current_category(place)
-      @deck_of_questions.current_category(place)
+      @game_board.current_category(place)
     end
 
     def purses
