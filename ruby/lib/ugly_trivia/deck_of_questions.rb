@@ -8,12 +8,6 @@ module UglyTrivia
           'Sports' => Array.new(50) { |i| "Sports Question #{i}" },
           'Rock' => Array.new(50) { |i| "Rock Question #{i}" }
         })
-      @categories_per_place = {
-        0 => 'Pop', 4 => 'Pop', 8 => 'Pop',
-        1 => 'Science', 5 => 'Science', 9 => 'Science',
-        2 => 'Sports', 6 => 'Sports', 10 => 'Sports',
-        3 => 'Rock', 7 => 'Rock', 11 => 'Rock'
-      }
       @game_board = GameBoard.new
 
       @questions = questions_by_category
