@@ -24,12 +24,15 @@ module UglyTrivia
       end
     end
 
-    def initialize(commentary: StdOutBasedGameCommentator.new)
+    def initialize(
+      deck_of_questions: UglyTrivia::DeckOfQuestions.new,
+      commentary: StdOutBasedGameCommentator.new
+    )
       @trivia_players = []
       @current_player = 0
       @is_getting_out_of_penalty_box = false
 
-      @deck_of_questions = UglyTrivia::DeckOfQuestions.new
+      @deck_of_questions = deck_of_questions
       @game_board = GameBoard.new
       @commentary = commentary
     end
