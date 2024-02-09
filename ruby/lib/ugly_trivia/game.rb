@@ -24,10 +24,7 @@ module UglyTrivia
       end
     end
 
-    def initialize(
-      deck_of_questions:,
-      commentary:
-    )
+    def initialize(deck_of_questions:, commentary:)
       @trivia_players = []
       @current_player = 0
       @is_getting_out_of_penalty_box = false
