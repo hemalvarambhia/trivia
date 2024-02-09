@@ -7,7 +7,8 @@ not_a_winner = false
 
 game =
   UglyTrivia::Game.new(
-    deck_of_questions: UglyTrivia::DeckOfQuestions.new
+    deck_of_questions: UglyTrivia::DeckOfQuestions.new,
+    commentary: UglyTrivia::StdOutBasedGameCommentator.new
   )
 
 game.add 'Chet'
