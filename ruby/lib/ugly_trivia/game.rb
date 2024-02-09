@@ -24,13 +24,13 @@ module UglyTrivia
       end
     end
 
-    def initialize(deck_of_questions:, commentary:)
+    def initialize(game_board: GameBoard.new, deck_of_questions:, commentary:)
       @trivia_players = []
       @current_player = 0
       @is_getting_out_of_penalty_box = false
 
       @deck_of_questions = deck_of_questions
-      @game_board = GameBoard.new
+      @game_board = game_board
       @commentary = commentary
     end
 
