@@ -1,4 +1,3 @@
-require 'game_board'
 module UglyTrivia
   class DeckOfQuestions
 
@@ -8,8 +7,6 @@ module UglyTrivia
           'Sports' => Array.new(50) { |i| "Sports Question #{i}" },
           'Rock' => Array.new(50) { |i| "Rock Question #{i}" }
         })
-      @game_board = GameBoard.new
-
       @questions = questions_by_category
     end
 
@@ -19,10 +16,6 @@ module UglyTrivia
 
     def questions_for(category)
       @questions[category]
-    end
-
-    def current_category(place)
-      @game_board.current_category(place)
     end
   end
 end
