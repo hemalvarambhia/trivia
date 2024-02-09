@@ -25,8 +25,8 @@ module UglyTrivia
     end
 
     def initialize(
-      deck_of_questions: UglyTrivia::DeckOfQuestions.new,
-      commentary: StdOutBasedGameCommentator.new
+      deck_of_questions:,
+      commentary:
     )
       @trivia_players = []
       @current_player = 0
