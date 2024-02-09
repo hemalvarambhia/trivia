@@ -4,7 +4,10 @@ class UglyTrivia::GameWithCommentary < UglyTrivia::Game
   extend Forwardable
   def_delegators :@commentary,
                  :commentary
-  def initialize(commentary: UglyTrivia::StringIOBasedGameCommentator.new)
+  def initialize(
+    deck_of_questions: UglyTrivia::DeckOfQuestions.new,
+    commentary: UglyTrivia::StringIOBasedGameCommentator.new
+  )
     super
   end
 end
