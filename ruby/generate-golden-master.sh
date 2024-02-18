@@ -3,7 +3,7 @@
 seeds=()
 
 # Generate 100 random seeds and store them in the array
-for ((i=0; i<=400; i++)); do
+for ((i=0; i<=500; i++)); do
     number=$((7777 + (i * 100)))
     seeds+=($number)
 done
