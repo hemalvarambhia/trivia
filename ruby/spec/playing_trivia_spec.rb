@@ -14,7 +14,7 @@ describe 'How to play Trivia' do
       game_with_two_players.add('Benton')
 
       expect(game_with_two_players.how_many_players).to eq 2
-      expect(game_with_two_players.is_playable?).to eq true
+      expect(game_with_two_players.is_playable?).to be true
     end
 
     specify 'A game consisting of more than two players (3) is allowed' do
