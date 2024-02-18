@@ -7,7 +7,16 @@ describe 'How to play Trivia' do
       expect(game_with_no_players.how_many_players).to eq 0
       expect(game_with_no_players.is_playable?).to be false
     end
-    specify 'A game consisting of two players is not allowed'
+
+    specify 'A game consisting of two players is not allowed' do
+      game_with_two_players = UglyTrivia::Game.new
+      game_with_two_players.add('Khushboo')
+      game_with_two_players.add('Benton')
+
+      expect(game_with_two_players.how_many_players).to eq 2
+      expect(game_with_two_players.is_playable?).to eq true
+    end
+
     specify 'A game consisting of more than two players (3) is allowed'
     specify 'A game consisting of six players is allowed'
     specify 'A game consisting of more than six players is allowed'
