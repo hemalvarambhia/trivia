@@ -17,7 +17,7 @@ describe 'How to play Trivia' do
       expect(game_with_two_players.is_playable?).to be true
     end
 
-    specify 'A game consisting of more than two players (3) is allowed' do
+    specify 'A game consisting of more than two players (e.g. 3) is allowed' do
       game_with_more_than_two_players = UglyTrivia::Game.new
       game_with_more_than_two_players.add('Jane')
       game_with_more_than_two_players.add('James')
@@ -45,7 +45,7 @@ describe 'How to play Trivia' do
       expect(game_with_more_than_six_players.is_playable?).to be true
     end
 
-    specify 'A game consisting of more than six players is allowed'
+    specify 'A game consisting of more than six players (e.g. 7) is allowed'
   end
 
   describe 'Rolling the dice' do
