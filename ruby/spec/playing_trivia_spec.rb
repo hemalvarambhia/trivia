@@ -8,9 +8,9 @@ describe 'How to play Trivia' do
   end
 
   describe 'Rolling the dice' do
-    specify 'Moves nowhere when a zero is rolled'
+    specify 'Moves the current player nowhere when a zero is rolled'
     specify 'Moves the current player a number of places as shown on the face of the die'
     specify 'Does not move any other player from their current place'
-    specify 'Rolling a negative number on the die moves the current player backwards by that number'
+    specify 'Rolling a negative number moves the current player backwards by that number'
   end
 end
