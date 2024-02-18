@@ -8,7 +8,7 @@ describe 'How to play Trivia' do
       expect(game_with_no_players.is_playable?).to be false
     end
 
-    specify 'A game consisting of two players is not allowed' do
+    specify 'A game consisting of two players is allowed' do
       game_with_two_players = UglyTrivia::Game.new
       game_with_two_players.add('Khushboo')
       game_with_two_players.add('Benton')
