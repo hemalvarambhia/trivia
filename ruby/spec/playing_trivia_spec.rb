@@ -29,12 +29,17 @@ describe 'How to play Trivia' do
 
     specify 'A game consisting of six players is allowed' do
       game_with_more_than_six_players = UglyTrivia::Game.new
-      game_with_more_than_six_players.add('Marlon')
-      game_with_more_than_six_players.add('Maxine')
-      game_with_more_than_six_players.add('José')
-      game_with_more_than_six_players.add('Maria')
-      game_with_more_than_six_players.add('Rajiv')
-      game_with_more_than_six_players.add('Karina')
+      players = [
+        'Marlon',
+        'Maxine',
+        'José',
+        'Maria',
+        'Rajiv',
+        'Karina'
+      ]
+      players.each do |player|
+        game_with_more_than_six_players.add(player)
+      end
 
       expect(game_with_more_than_six_players.how_many_players).to eq 6
       expect(game_with_more_than_six_players.is_playable?).to be true
