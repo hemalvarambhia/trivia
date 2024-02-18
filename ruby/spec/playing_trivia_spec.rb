@@ -1,6 +1,12 @@
+require_relative '../lib/ugly_trivia/game'
 describe 'How to play Trivia' do
   describe 'Number of players allowed' do
-    specify 'A game consisting of no players is not allowed'
+    specify 'A game consisting of no players is not allowed' do
+      game_with_no_players = UglyTrivia::Game.new
+
+      expect(game_with_no_players.how_many_players).to eq 0
+      expect(game_with_no_players.is_playable?).to be false
+    end
     specify 'A game consisting of two players is not allowed'
     specify 'A game consisting of more than two players (3) is allowed'
     specify 'A game consisting of six players is allowed'
