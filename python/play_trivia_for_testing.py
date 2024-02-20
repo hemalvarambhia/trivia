@@ -12,7 +12,8 @@ if __name__ == '__main__':
     game.add('Chet')
     game.add('Pat')
     game.add('Sue')
-    random_number = Random(7777)
+    seed = 7777
+    random_number = Random(seed)
 
     while True:
         game.roll(random_number.randrange(5) + 1)
