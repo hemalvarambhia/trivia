@@ -1,8 +1,13 @@
 #!/usr/bin/env python
+import argparse
 from random import randrange
 from random import Random
 
 from trivia import Game
+
+parser = argparse.ArgumentParser(description='Play a game of Trivia.')
+parser.add_argument('--seed', metavar='seed', type=int, nargs='+',
+                    help='a seed to start the game')
 
 if __name__ == '__main__':
     not_a_winner = False
@@ -12,7 +17,7 @@ if __name__ == '__main__':
     game.add('Chet')
     game.add('Pat')
     game.add('Sue')
-    seed = 7777
+    seed = parser.parse_args().seed[0]
     random_number = Random(seed)
 
     while True:
