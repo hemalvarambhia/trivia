@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from random import randrange
+from random import Random
 
 from trivia import Game
 
@@ -11,11 +12,12 @@ if __name__ == '__main__':
     game.add('Chet')
     game.add('Pat')
     game.add('Sue')
+    random_number = Random(7777)
 
     while True:
-        game.roll(randrange(5) + 1)
+        game.roll(random_number.randrange(5) + 1)
 
-        if randrange(9) == 7:
+        if random_number.randrange(9) == 7:
             not_a_winner = game.wrong_answer()
         else:
             not_a_winner = game.was_correctly_answered()
