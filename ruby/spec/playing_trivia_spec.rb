@@ -9,7 +9,7 @@ describe 'How to play Trivia' do
     end
 
     specify 'A game consisting of two players is allowed' do
-      players = ['Khushboo', 'Benton']
+      players = ['Player 1', 'Player 2']
       game_with_two_players = game_with(players)
 
       expect(game_with_two_players.how_many_players).to eq 2
@@ -17,7 +17,7 @@ describe 'How to play Trivia' do
     end
 
     specify 'A game consisting of more than two players (e.g. 3) is allowed' do
-      players = ['Jane', 'James', 'Jennifer']
+      players = ['Player 1', 'Player 2', 'Player 3']
       game_with_more_than_two_players = game_with(players)
 
       expect(game_with_more_than_two_players.how_many_players).to eq 3
