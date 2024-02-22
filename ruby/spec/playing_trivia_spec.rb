@@ -70,8 +70,8 @@ describe 'How to play Trivia' do
   private
 
   def game_with(players)
-    game = UglyTrivia::Game.new
-    players.each { |player| game.add player }
-    game
+    UglyTrivia::Game.new.tap do |game|
+      players.each { |player| game.add player }
+    end
   end
 end
