@@ -25,14 +25,7 @@ describe 'How to play Trivia' do
     end
 
     specify 'A game consisting of six players is allowed' do
-      players = [
-        'Marlon',
-        'Maxine',
-        'José',
-        'Maria',
-        'Rajiv',
-        'Karina'
-      ]
+      players = (1..6).map { |number| "Player #{number}"}
       game_with_six_players = game_with(players)
 
       expect(game_with_six_players.how_many_players).to eq 6
