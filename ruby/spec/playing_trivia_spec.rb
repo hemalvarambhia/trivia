@@ -10,8 +10,8 @@ describe 'How to play Trivia' do
 
     specify 'A game consisting of two players is allowed' do
       game_with_two_players = UglyTrivia::Game.new
-      game_with_two_players.add('Khushboo')
-      game_with_two_players.add('Benton')
+      players = ['Khushboo', 'Benton']
+      players.each { |player| game_with_two_players.add player }
 
       expect(game_with_two_players.how_many_players).to eq 2
       expect(game_with_two_players.is_playable?).to be true
