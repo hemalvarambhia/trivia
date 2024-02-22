@@ -18,8 +18,7 @@ describe 'How to play Trivia' do
 
     specify 'A game consisting of more than two players (e.g. 3) is allowed' do
       players = ['Jane', 'James', 'Jennifer']
-      game_with_more_than_two_players = UglyTrivia::Game.new
-      players.each { |player| game_with_more_than_two_players.add player }
+      game_with_more_than_two_players = game_with(players)
 
       expect(game_with_more_than_two_players.how_many_players).to eq 3
       expect(game_with_more_than_two_players.is_playable?).to be true
@@ -34,8 +33,7 @@ describe 'How to play Trivia' do
         'Rajiv',
         'Karina'
       ]
-      game_with_six_players = UglyTrivia::Game.new
-      players.each { |player| game_with_six_players.add player }
+      game_with_six_players = game_with(players)
 
       expect(game_with_six_players.how_many_players).to eq 6
       expect(game_with_six_players.is_playable?).to be true
@@ -43,8 +41,7 @@ describe 'How to play Trivia' do
 
     specify 'A game consisting of more than six players (e.g. 7) is allowed' do
       players = (1..7).map {|number| "Player #{number}" }
-      game_with_more_than_six_players = UglyTrivia::Game.new
-      players.each { |player| game_with_more_than_six_players.add player }
+      game_with_more_than_six_players = game_with(players)
 
       expect(game_with_more_than_six_players.how_many_players).to eq 7
       expect(game_with_more_than_six_players.is_playable?).to be true
