@@ -2,7 +2,7 @@ require_relative '../lib/ugly_trivia/game'
 describe 'How to play Trivia' do
   describe 'Number of players allowed' do
     specify 'A game consisting of no players is not allowed' do
-      game_with_no_players = UglyTrivia::Game.new
+      game_with_no_players = game_with([])
 
       expect(game_with_no_players.how_many_players).to eq 0
       expect(game_with_no_players.is_playable?).to be false
