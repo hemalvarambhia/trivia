@@ -45,7 +45,16 @@ describe 'How to play Trivia' do
       expect(game_with_six_players.is_playable?).to be true
     end
 
-    specify 'A game consisting of more than six players (e.g. 7) is allowed'
+    specify 'A game consisting of more than six players (e.g. 7) is allowed' do
+      game_with_more_than_six_players = UglyTrivia::Game.new
+      players = (1..7).map {|number| "Player #{number}" }
+      players.each do |player|
+        game_with_more_than_six_players.add(player)
+      end
+
+      expect(game_with_more_than_six_players.how_many_players).to eq 7
+      expect(game_with_more_than_six_players.is_playable?).to be true
+    end
   end
 
   describe 'Rolling the dice' do
