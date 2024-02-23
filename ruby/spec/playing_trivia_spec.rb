@@ -28,7 +28,7 @@ end
 describe 'How to play Trivia' do
   describe 'Number of players allowed' do
     specify 'A game consisting of no players is not allowed' do
-      game_with_no_players = game_with([])
+      game_with_no_players = silent_game_with([])
 
       expect(game_with_no_players.how_many_players).to eq 0
       expect(game_with_no_players.is_playable?).to be false
@@ -36,7 +36,7 @@ describe 'How to play Trivia' do
 
     specify 'A game consisting of two players is allowed' do
       players = ['Player 1', 'Player 2']
-      game_with_two_players = game_with(players)
+      game_with_two_players = silent_game_with(players)
 
       expect(game_with_two_players.how_many_players).to eq 2
       expect(game_with_two_players.is_playable?).to be true
@@ -44,7 +44,7 @@ describe 'How to play Trivia' do
 
     specify 'A game consisting of more than two players (e.g. 3) is allowed' do
       players = ['Player 1', 'Player 2', 'Player 3']
-      game_with_more_than_two_players = game_with(players)
+      game_with_more_than_two_players = silent_game_with(players)
 
       expect(game_with_more_than_two_players.how_many_players).to eq 3
       expect(game_with_more_than_two_players.is_playable?).to be true
@@ -52,7 +52,7 @@ describe 'How to play Trivia' do
 
     specify 'A game consisting of six players is allowed' do
       players = (1..6).map { |number| "Player #{number}"}
-      game_with_six_players = game_with(players)
+      game_with_six_players = silent_game_with(players)
 
       expect(game_with_six_players.how_many_players).to eq 6
       expect(game_with_six_players.is_playable?).to be true
@@ -60,7 +60,7 @@ describe 'How to play Trivia' do
 
     specify 'A game consisting of more than six players (e.g. 7) is allowed' do
       players = (1..7).map {|number| "Player #{number}" }
-      game_with_more_than_six_players = game_with(players)
+      game_with_more_than_six_players = silent_game_with(players)
 
       expect(game_with_more_than_six_players.how_many_players).to eq 7
       expect(game_with_more_than_six_players.is_playable?).to be true
@@ -95,7 +95,7 @@ describe 'How to play Trivia' do
 
   private
 
-  def game_with(players)
+  def silent_game_with(players)
     UglyTrivia::SilentGame.new.tap do |game|
       players.each { |player| game.add player }
     end
