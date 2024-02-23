@@ -1,4 +1,13 @@
 require_relative '../lib/ugly_trivia/game'
+
+module UglyTrivia
+  class SilentGame < UglyTrivia::Game
+    def puts(_)
+      # no op
+    end
+  end
+end
+
 describe 'How to play Trivia' do
   describe 'Number of players allowed' do
     specify 'A game consisting of no players is not allowed' do
@@ -60,7 +69,7 @@ describe 'How to play Trivia' do
   private
 
   def game_with(players)
-    UglyTrivia::Game.new.tap do |game|
+    UglyTrivia::SilentGame.new.tap do |game|
       players.each { |player| game.add player }
     end
   end
