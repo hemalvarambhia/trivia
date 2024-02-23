@@ -8,6 +8,23 @@ module UglyTrivia
   end
 end
 
+module UglyTrivia
+  class GameWithCommentary < Game
+    def initialize
+      super
+      @commentary = StringIO.new
+    end
+
+    def puts(message)
+      @commentary.puts message
+    end
+
+    def commentary
+      @commentary.string.split("\n")
+    end
+  end
+end
+
 describe 'How to play Trivia' do
   describe 'Number of players allowed' do
     specify 'A game consisting of no players is not allowed' do
@@ -51,7 +68,17 @@ describe 'How to play Trivia' do
   end
 
   describe 'Rolling the dice' do
-    specify 'Reports who the current player is'
+    specify 'Reports who the current player is' do
+      game = UglyTrivia::GameWithCommentary.new.tap do |game|
+        game.add 'Player 1'
+        game.add 'Player 2'
+      end
+
+      game.roll 5
+
+      expect(game.commentary).to include("Player 1 is the current player")
+    end
+
     specify 'Reports the number the current player rolled'
 
     specify 'Moves the current player nowhere when a zero is rolled'
