@@ -15,9 +15,13 @@ class NumberOfPlayersTest(unittest.TestCase):
         self.assertEqual(False, game.is_playable())
         self.assertEqual(1, game.how_many_players)
 
-    @unittest.skip('Not yet implemented')
     def test_that_a_trivia_game_with_two_players_is_playable(self):
-        pass
+        game = Game()
+        game.add('Player 1')
+        game.add('Player 2')
+
+        self.assertEqual(True, game.is_playable())
+        self.assertEqual(2, game.how_many_players)
 
 
 if __name__ == '__main__':
