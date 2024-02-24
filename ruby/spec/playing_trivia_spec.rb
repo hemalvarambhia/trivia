@@ -91,7 +91,14 @@ describe 'How to play Trivia' do
         current_player = 0 # 'Player 1' is the current player
         expect { game.roll 1 }.to change { game.places[current_player] }.from(0).to 1
       end
-      specify 'Does not move any other player from their current place'
+
+      specify 'Does not move any other player from their current place' do
+        game = game_with_commentary_and_players(['Player 1', 'Player 2'])
+
+        not_current_player = 1
+        expect { game.roll 5 }.not_to change { game.places[not_current_player] }.from(0)
+      end
+
       specify 'Rolling a negative number moves the current player backwards by that number'
       specify 'The player can roll any number outside the 1 to 6 range'
       specify "Reports the current player's new location"
