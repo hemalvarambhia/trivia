@@ -3,7 +3,7 @@ import argparse
 from random import randrange
 from random import Random
 
-from trivia import Game
+from ugly_trivia.trivia import Game
 
 parser = argparse.ArgumentParser(description='Play a game of Trivia.')
 parser.add_argument('--seed', metavar='seed', type=int, nargs='+',
