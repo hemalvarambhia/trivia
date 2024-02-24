@@ -68,23 +68,13 @@ describe 'How to play Trivia' do
   end
 
   describe 'Rolling the dice' do
-    specify 'Reports who the current player is' do
+    specify 'Reports who the current player is and the number they rolled' do
       game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
       game.roll 5
 
       expect(game.commentary).to include("Player 1 is the current player")
-    end
-
-    specify 'Reports the number the current player rolled' do
-      game = UglyTrivia::GameWithCommentary.new.tap do |game|
-        game.add 'Player 1'
-        game.add 'Player 2'
-      end
-
-      game.roll 3
-
-      expect(game.commentary).to include("They have rolled a 3")
+      expect(game.commentary).to include("They have rolled a 5")
     end
 
     specify 'Moves the current player nowhere when a zero is rolled'
