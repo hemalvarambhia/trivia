@@ -84,7 +84,7 @@ describe 'How to play Trivia' do
       expect { game.roll 0 }.not_to change { game.places[current_player] }
     end
 
-    context 'Given the player has rolled an odd number' do
+    context 'Given the current player has rolled an odd number' do
       specify 'Moves the current player a number of places as shown on the face of the die' do
         game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
