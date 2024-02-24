@@ -79,7 +79,16 @@ describe 'How to play Trivia' do
       expect(game.commentary).to include("Player 1 is the current player")
     end
 
-    specify 'Reports the number the current player rolled'
+    specify 'Reports the number the current player rolled' do
+      game = UglyTrivia::GameWithCommentary.new.tap do |game|
+        game.add 'Player 1'
+        game.add 'Player 2'
+      end
+
+      game.roll 3
+
+      expect(game.commentary).to include("They have rolled a 3")
+    end
 
     specify 'Moves the current player nowhere when a zero is rolled'
 
