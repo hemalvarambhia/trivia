@@ -77,7 +77,12 @@ describe 'How to play Trivia' do
       expect(game.commentary).to include("They have rolled a 5")
     end
 
-    specify 'Moves the current player nowhere when a zero is rolled'
+    specify 'Moves the current player nowhere when a zero is rolled' do
+      game = game_with_commentary_and_players(['Player 1', 'Player 2'])
+
+      player_1 = 0
+      expect { game.roll 0 }.not_to change { game.places[player_1] }
+    end
 
     context 'Given the player has rolled an odd number' do
       specify 'Moves the current player a number of places as shown on the face of the die'

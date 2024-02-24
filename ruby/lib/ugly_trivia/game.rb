@@ -1,5 +1,7 @@
 module UglyTrivia
   class Game
+    attr_reader :places
+
     def  initialize
       @players = []
       @places = Array.new(6, 0)
