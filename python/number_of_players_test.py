@@ -1,5 +1,5 @@
 import unittest
-from trivia import Game
+from ugly_trivia.trivia import Game
 
 
 class NumberOfPlayersTest(unittest.TestCase):
