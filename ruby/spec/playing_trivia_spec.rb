@@ -80,15 +80,15 @@ describe 'How to play Trivia' do
     specify 'Moves the current player nowhere when a zero is rolled' do
       game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
-      player_1 = 0
-      expect { game.roll 0 }.not_to change { game.places[player_1] }
+      current_player = 0 # 'Player 1' is the current player
+      expect { game.roll 0 }.not_to change { game.places[current_player] }
     end
 
     context 'Given the player has rolled an odd number' do
       specify 'Moves the current player a number of places as shown on the face of the die' do
         game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
-        current_player = 0 # player 1 is the current player
+        current_player = 0 # 'Player 1' is the current player
         expect { game.roll 1 }.to change { game.places[current_player] }.from(0).to 1
       end
       specify 'Does not move any other player from their current place'
