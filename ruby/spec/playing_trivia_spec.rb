@@ -69,10 +69,7 @@ describe 'How to play Trivia' do
 
   describe 'Rolling the dice' do
     specify 'Reports who the current player is' do
-      game = UglyTrivia::GameWithCommentary.new.tap do |game|
-        game.add 'Player 1'
-        game.add 'Player 2'
-      end
+      game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
       game.roll 5
 
@@ -106,6 +103,12 @@ describe 'How to play Trivia' do
 
   def silent_game_with(players)
     UglyTrivia::SilentGame.new.tap do |game|
+      players.each { |player| game.add player }
+    end
+  end
+
+  def game_with_commentary_and_players(players)
+    UglyTrivia::GameWithCommentary.new.tap do |game|
       players.each { |player| game.add player }
     end
   end
