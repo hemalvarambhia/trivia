@@ -1,23 +1,18 @@
 import unittest
 
-from trivia import Game
-import sys
-
-class GameWithCommentary(Game):
-    pass
+from test.game_with_commentary import GameWithCommentary
 
 
 class TestRollingTheDie(unittest.TestCase):
 
-    @unittest.skip("Not implemented")
     def test_that_rolling_die_reports_who_the_current_player_is(self):
-        game = GameWithCommentary()
-        game.add('Player 1')
-        game.add('Player 2')
+        with GameWithCommentary() as game:
+            game.add('Player 1')
+            game.add('Player 2')
 
-        game.roll(3)
+            game.roll(3)
 
-        self.assertEqual('Player 1 is the current player', game.commentary)
+            self.assertIn('Player 1 is the current player', game.get_output())
 
 
 if __name__ == '__main__':
