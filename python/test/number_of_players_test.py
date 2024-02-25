@@ -9,16 +9,13 @@ class NumberOfPlayersTest(unittest.TestCase):
         self.assertEqual(0, game.how_many_players)
 
     def test_that_a_trivia_game_with_one_player_is_unplayable(self):
-        game = Game()
-        game.add('Player 1')
+        game = self.__game_with(['Player 1'])
 
         self.assertEqual(False, game.is_playable())
         self.assertEqual(1, game.how_many_players)
 
     def test_that_a_trivia_game_with_two_players_is_playable(self):
-        game = Game()
-        game.add('Player 1')
-        game.add('Player 2')
+        game = self.__game_with(['Player 1', 'Player 2'])
 
         self.assertEqual(True, game.is_playable())
         self.assertEqual(2, game.how_many_players)
