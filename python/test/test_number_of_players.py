@@ -1,5 +1,26 @@
 import unittest
 from ugly_trivia.trivia import Game
+import sys
+
+
+class SilentGame(Game):
+    def __init__(self):
+        self._stdout = sys.stdout
+        self._commentary = []
+        super().__init__()
+
+    def __enter__(self):
+        sys.stdout = self
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        sys.stdout = self._stdout
+
+    def write(self, text):
+        pass
+
+    def flush(self):
+        pass  # This method is required but does nothing in this example
 
 
 class TestNumberOfPlayers(unittest.TestCase):
@@ -9,10 +30,11 @@ class TestNumberOfPlayers(unittest.TestCase):
         self.assertEqual(0, game.how_many_players)
 
     def test_that_a_trivia_game_with_one_player_is_unplayable(self):
-        game = self.__game_with(['Player 1'])
+        with SilentGame() as game:
+            game.add('Player 1')
 
-        self.assertEqual(False, game.is_playable())
-        self.assertEqual(1, game.how_many_players)
+            self.assertEqual(False, game.is_playable())
+            self.assertEqual(1, game.how_many_players)
 
     def test_that_a_trivia_game_with_two_players_is_playable(self):
         game = self.__game_with(['Player 1', 'Player 2'])
