@@ -19,9 +19,6 @@ class SilentGame(Game):
     def write(self, text):
         pass
 
-    def flush(self):
-        pass  # This method is required but does nothing in this example
-
 
 class TestNumberOfPlayers(unittest.TestCase):
     def test_that_a_trivia_game_with_no_players_is_unplayable(self):
