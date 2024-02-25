@@ -6,7 +6,6 @@ import sys
 class SilentGame(Game):
     def __init__(self):
         self._stdout = sys.stdout
-        self._commentary = []
         super().__init__()
 
     def __enter__(self):
