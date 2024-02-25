@@ -2,7 +2,7 @@ import unittest
 from ugly_trivia.trivia import Game
 
 
-class NumberOfPlayersTest(unittest.TestCase):
+class TestNumberOfPlayers(unittest.TestCase):
     def test_that_a_trivia_game_with_no_players_is_unplayable(self):
         game = Game()
         self.assertEqual(False, game.is_playable())
