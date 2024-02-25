@@ -32,6 +32,10 @@ class NumberOfPlayersTest(unittest.TestCase):
         self.assertEqual(True, game.is_playable())
         self.assertEqual(5, game.how_many_players)
 
+    @unittest.skip('Not yet implemented')
+    def test_that_six_players_cannot_play_trivia(self):
+        game = self.__game_with(['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6'])
+
     def __game_with(self, players):
         game = Game()
         for player in players:
