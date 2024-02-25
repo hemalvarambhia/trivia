@@ -20,5 +20,5 @@ class GameWithCommentary(Game):
     def flush(self):
         pass  # This method is required but does nothing in this example
 
-    def get_output(self):
+    def commentary(self):
         return self._commentary
