@@ -111,7 +111,15 @@ describe 'How to play Trivia' do
 
         expect { game.roll 15 }.not_to raise_error
       end
-      specify "Reports the current player's new location"
+
+      specify "Reports the current player's new location" do
+        game = game_with_commentary_and_players(['Player 1', 'Player 2'])
+
+        game.roll 5
+
+        expect(game.commentary).to include("Player 1's new location is 5")
+      end
+
       specify "Reports the category of question that will be asked to the current player"
       specify "Asks the current player a question from the category for their current location"
     end
