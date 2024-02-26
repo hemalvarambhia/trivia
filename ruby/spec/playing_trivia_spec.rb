@@ -106,10 +106,12 @@ describe 'How to play Trivia' do
         expect { game.roll -5 }.to change { game.places[current_player] }.by -5
       end
 
-      specify 'The player can roll any number outside the 1 to 6 range' do
-        game = game_with_commentary_and_players(['Player 1', 'Player 2'])
+      [-5, -3, -1, 7, 9, 11, 13, 15, 17].each do |face|
+        specify "The player can roll any number outside the 1 to 6 range e.g. #{face}" do
+          game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
-        expect { game.roll 15 }.not_to raise_error
+          expect { game.roll face }.not_to raise_error
+        end
       end
 
       specify "Reports the current player's new location" do
