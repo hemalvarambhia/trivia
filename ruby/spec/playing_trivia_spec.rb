@@ -114,6 +114,8 @@ describe 'How to play Trivia' do
         end
       end
 
+      specify 'Reports that the current player is getting out of the penalty box'
+
       specify "Reports the current player's new location" do
         game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
