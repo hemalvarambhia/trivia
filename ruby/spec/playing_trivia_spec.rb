@@ -92,7 +92,7 @@ describe 'How to play Trivia' do
       end
     end
 
-    context 'Given the current player has rolled an odd number' do
+    context 'Given the current player is not in the penalty box' do
       specify 'Moves the current player a number of places as shown on the face of the die' do
         game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
