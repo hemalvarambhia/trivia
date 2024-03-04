@@ -84,6 +84,12 @@ describe 'How to play Trivia' do
       expect { game.roll 0 }.not_to change { game.places[current_player] }
     end
 
+    context 'Given the current player is in the penalty box' do
+      specify 'Reports that the current player is getting out of the penalty box'
+      specify 'Reports their new location'
+      specify 'Reports the category of question that will be asked to them'
+    end
+
     context 'Given the current player has rolled an odd number' do
       specify 'Moves the current player a number of places as shown on the face of the die' do
         game = game_with_commentary_and_players(['Player 1', 'Player 2'])
@@ -112,12 +118,6 @@ describe 'How to play Trivia' do
 
           expect { game.roll face }.not_to raise_error
         end
-      end
-
-      context 'Given the current player is in the penalty box' do
-        specify 'Reports that the current player is getting out of the penalty box'
-        specify 'Reports their new location'
-        specify 'Reports the category of question that will be asked to them'
       end
 
       specify "Reports the current player's new location" do
