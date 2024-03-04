@@ -85,9 +85,11 @@ describe 'How to play Trivia' do
     end
 
     context 'Given the current player is in the penalty box' do
-      specify 'Reports that the current player is getting out of the penalty box'
-      specify 'Reports their new location'
-      specify 'Reports the category of question that will be asked to them'
+      context 'Given they have rolled an odd number' do
+        specify 'Reports that the current player is getting out of the penalty box'
+        specify 'Reports their new location'
+        specify 'Reports the category of question that will be asked to them'
+      end
     end
 
     context 'Given the current player has rolled an odd number' do
