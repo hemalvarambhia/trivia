@@ -130,13 +130,13 @@ describe 'How to play Trivia' do
         expect(game.commentary).to include("Player 1's new location is 5")
       end
 
-     specify "Reports the category of question that will be asked to the current player" do
-       game = game_with_commentary_and_players(['Player 1', 'Player 2'])
+      specify "Reports the category of question that will be asked to the current player" do
+        game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
-       game.roll 1
+        game.roll 1
 
-       expect(game.commentary).to include('The category is Science')
-     end
+        expect(game.commentary).to include('The category is Science')
+      end
 
       specify "Asks the current player a question from the category for their current location"
     end
