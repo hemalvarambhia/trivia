@@ -130,20 +130,24 @@ describe 'How to play Trivia' do
         expect(game.commentary).to include("Player 1's new location is 5")
       end
 
-      specify "Reports the category of question that will be asked to the current player at their location" do
-        game = game_with_commentary_and_players(['Player 1', 'Player 2'])
+      describe "Asking questions at the player's current location on the game board" do
+        specify "Reports the category of question that will be asked" do
+          game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
-        game.roll 1
+          game.roll 1
 
-        expect(game.commentary).to include('The category is Science')
-      end
+          expect(game.commentary).to include('The category is Science')
+        end
 
-      specify "Asks the current player a question from the category for their current location" do
-        game = game_with_commentary_and_players(['Player 1', 'Player 2'])
+        specify "Asks the current player a question from the category" do
+          game = game_with_commentary_and_players(['Player 1', 'Player 2'])
 
-        game.roll 1
+          game.roll 1
 
-        expect(game.commentary).to include('Science Question 0')
+          expect(game.commentary).to include('Science Question 0')
+        end
+
+        specify "Removes the question from the pack once it has been asked"
       end
     end
   end
