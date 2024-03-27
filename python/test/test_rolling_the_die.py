@@ -14,9 +14,14 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertIn('Player 1 is the current player', game.commentary())
 
-    @unittest.skip('Next test to get passing')
-    def test_that_rolling_die_reports_the_face_the_die_landed_on(self):
-        pass
+    def test_game_reports_the_face_the_die_landed_on(self):
+        with GameWithCommentary() as game:
+            game.add('Player 1')
+            game.add('Player 2')
+
+            game.roll(4)
+
+            self.assertIn('They have rolled a 4', game.commentary())
 
 if __name__ == '__main__':
     unittest.main()
