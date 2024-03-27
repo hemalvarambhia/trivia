@@ -63,16 +63,16 @@ class TestNumberOfPlayers(unittest.TestCase):
 
     def test_that_six_players_cannot_play_trivia(self):
         self.assertRaises(IndexError, lambda: self.__game_with(
-            ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6']))
+            ['Player A', 'Player B', 'Player C', 'Player D', 'Player E', 'Player F']))
 
     def test_that_more_than_six_players_cannot_play_trivia(self):
         self.assertRaises(IndexError, lambda: self.__game_with(
             ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7']))
 
     def __game_with(self, players):
-        game = Game()
-        for player in players:
-            game.add(player)
+        with SilentGame() as game:
+            for player in players:
+                game.add(player)
 
         return game
 
