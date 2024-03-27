@@ -5,7 +5,7 @@ from test.game_with_commentary import GameWithCommentary
 
 class TestRollingTheDie(unittest.TestCase):
 
-    def test_that_rolling_die_reports_who_the_current_player_is(self):
+    def test_game_reports_who_the_current_player_is(self):
         with GameWithCommentary() as game:
             game.add('Player 1')
             game.add('Player 2')
