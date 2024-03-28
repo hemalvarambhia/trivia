@@ -23,7 +23,6 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertIn('They have rolled a 4', game.commentary())
 
-    @unittest.skip('TODO')
     def test_game_reports_the_players_new_location_on_the_board(self):
         with GameWithCommentary() as game:
             game.add('Player 1')
@@ -31,8 +30,7 @@ class TestRollingTheDie(unittest.TestCase):
 
             game.roll(6)
 
-            # TODO correct the location in the text below to a six.
-            self.assertIn("Player 1's new location is 4", game.commentary())
+            self.assertIn("Player 1's new location is 6", game.commentary())
 
 if __name__ == '__main__':
     unittest.main()
