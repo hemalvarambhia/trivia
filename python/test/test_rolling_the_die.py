@@ -32,5 +32,14 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertIn("Player 1's new location is 6", game.commentary())
 
+    def test_game_reports_the_category_of_question_that_will_be_asked_at_their_location(self):
+        with GameWithCommentary() as game:
+            game.add('Player 1')
+            game.add('Player 2')
+
+            game.roll(6)
+
+            self.assertIn("The category is Sports", game.commentary())
+
 if __name__ == '__main__':
     unittest.main()
