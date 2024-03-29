@@ -62,6 +62,10 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertNotIn("Pop Question 0", game.pop_questions)
 
+    @unittest.skip('Test to write in next session')
+    def test_game_asks_a_pop_question_when_current_player_lands_on_location_four_on_the_board(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
