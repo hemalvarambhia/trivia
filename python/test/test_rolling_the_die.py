@@ -42,5 +42,15 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn("The category is Sports", game.commentary())
             self.assertIn("Sports Question 0", game.commentary())
 
+    def test_game_asks_a_pop_question_when_players_lands_at_the_location_zero_on_the_board(self):
+        with GameWithCommentary() as game:
+            game.add('Player 1')
+            game.add('Player 2')
+
+            game.roll(0)
+
+            self.assertIn("The category is Pop", game.commentary())
+            self.assertIn("Pop Question 0", game.commentary())
+
 if __name__ == '__main__':
     unittest.main()
