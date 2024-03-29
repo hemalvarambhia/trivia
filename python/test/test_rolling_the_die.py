@@ -51,6 +51,17 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertIn("The category is Pop", game.commentary())
             self.assertIn("Pop Question 0", game.commentary())
+            self.assertNotIn("Pop Question 0", game.pop_questions)
+
+    def test_game_removes_pop_question_from_stack_once_it_is_asked(self):
+        with GameWithCommentary() as game:
+            game.add('Player 1')
+            game.add('Player 2')
+
+            game.roll(0)
+
+            self.assertNotIn("Pop Question 0", game.pop_questions)
+
 
 if __name__ == '__main__':
     unittest.main()
