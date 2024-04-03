@@ -34,8 +34,8 @@ class TestRollingTheDie(unittest.TestCase):
 
     def test_game_asks_the_category_of_question_for_their_location_on_the_board_for_example_sports(self):
         with GameWithCommentary() as game:
-            game.add('Player 1')
-            game.add('Player 2')
+            game.add('Irrelevant Player 1')
+            game.add('Irrelevant Player 2')
 
             game.roll(6)
 
@@ -44,8 +44,8 @@ class TestRollingTheDie(unittest.TestCase):
 
     def test_game_asks_a_pop_question_when_players_lands_at_the_location_zero_on_the_board(self):
         with GameWithCommentary() as game:
-            game.add('Player 1')
-            game.add('Player 2')
+            game.add('Irrelevant Player 1')
+            game.add('Irrelevant Player 2')
 
             game.roll(0)
 
@@ -54,8 +54,8 @@ class TestRollingTheDie(unittest.TestCase):
 
     def test_game_removes_pop_question_from_stack_once_it_is_asked(self):
         with GameWithCommentary() as game:
-            game.add('Player 1')
-            game.add('Player 2')
+            game.add('Irrelevant Player 1')
+            game.add('Irrelevant Player 2')
 
             game.roll(0)
 
