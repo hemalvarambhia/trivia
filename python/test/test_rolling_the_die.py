@@ -71,5 +71,10 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn('Pop Question 0', game.commentary())
 
 
+    @unittest.skip('TODO')
+    def test_game_asks_a_pop_question_when_current_player_lands_on_location_eight_on_the_board(self):
+        pass
+
+
 if __name__ == '__main__':
     unittest.main()
