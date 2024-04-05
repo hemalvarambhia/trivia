@@ -85,6 +85,9 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn('The category is Sports', game.commentary())
             self.assertIn('Sports Question 0', game.commentary())
 
+    @unittest.skip('Test list')
+    def test_game_bring_player_back_to_the_start_of_the_board_when_they_are_initially_at_location_eleven(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()
