@@ -63,6 +63,17 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn("The category is Pop", game.commentary())
             self.assertIn('Pop Question 0', game.commentary())
 
+    @parameterized.expand([1, 5, 9])
+    def test_game_asks_science_questions_at_assigned_locations_on_the_board(self, number_on_die):
+        with GameWithCommentary() as game:
+            game.add('Irrelevant Player 1')
+            game.add('Irrelevant Player 2')
+
+            game.roll(number_on_die)
+
+            self.assertIn('The category is Science', game.commentary())
+            self.assertIn('Science Question 0', game.commentary())
+
 
 if __name__ == '__main__':
     unittest.main()
