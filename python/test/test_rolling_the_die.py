@@ -74,6 +74,10 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn('The category is Science', game.commentary())
             self.assertIn('Science Question 0', game.commentary())
 
+    @unittest.skip('Test list')
+    def test_game_asks_sports_questions_at_assigned_locations_on_the_board(self, number_on_die):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
