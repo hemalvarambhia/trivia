@@ -43,16 +43,6 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn("The category is Sports", game.commentary())
             self.assertIn("Sports Question 0", game.commentary())
 
-    def test_game_asks_a_pop_question_when_players_lands_at_the_location_zero_on_the_board(self):
-        with GameWithCommentary() as game:
-            game.add('Irrelevant Player 1')
-            game.add('Irrelevant Player 2')
-
-            game.roll(0)
-
-            self.assertIn("The category is Pop", game.commentary())
-            self.assertIn("Pop Question 0", game.commentary())
-
     def test_game_removes_pop_question_from_stack_once_it_is_asked(self):
         with GameWithCommentary() as game:
             game.add('Irrelevant Player 1')
@@ -62,28 +52,7 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertNotIn("Pop Question 0", game.pop_questions)
 
-    def test_game_asks_a_pop_question_when_current_player_lands_on_location_four_on_the_board(self):
-        with GameWithCommentary() as game:
-            game.add('Irrelevant Player 1')
-            game.add('Irrelevant Player 2')
-
-            game.roll(4)
-            self.assertIn("The category is Pop", game.commentary())
-            self.assertIn('Pop Question 0', game.commentary())
-
-    def test_game_asks_a_pop_question_when_current_player_lands_on_location_eight_on_the_board(self):
-        with GameWithCommentary() as game:
-            game.add('Irrelevant Player 1')
-            game.add('Irrelevant Player 2')
-
-            game.roll(8)
-
-            self.assertIn("The category is Pop", game.commentary())
-            self.assertIn('Pop Question 0', game.commentary())
-
-    @parameterized.expand([
-        0, 4, 8
-    ])
+    @parameterized.expand([0, 4, 8])
     def test_game_asks_pop_questions_at_correct_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
             game.add('Irrelevant Player 1')
