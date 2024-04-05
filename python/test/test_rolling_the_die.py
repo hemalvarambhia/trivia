@@ -70,10 +70,15 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn("The category is Pop", game.commentary())
             self.assertIn('Pop Question 0', game.commentary())
 
-
-    @unittest.skip('TODO')
     def test_game_asks_a_pop_question_when_current_player_lands_on_location_eight_on_the_board(self):
-        pass
+        with GameWithCommentary() as game:
+            game.add('Irrelevant Player 1')
+            game.add('Irrelevant Player 2')
+
+            game.roll(8)
+
+            self.assertIn("The category is Pop", game.commentary())
+            self.assertIn('Pop Question 0', game.commentary())
 
 
 if __name__ == '__main__':
