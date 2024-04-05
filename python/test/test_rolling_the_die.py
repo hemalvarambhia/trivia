@@ -24,7 +24,7 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertIn('They have rolled a 4', game.commentary())
 
-    def test_game_reports_the_players_new_location_on_the_board(self):
+    def test_game_reports_the_current_players_new_location_on_the_board(self):
         with GameWithCommentary() as game:
             game.add('Player 1')
             game.add('Player 2')
@@ -33,7 +33,7 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertIn("Player 1's new location is 6", game.commentary())
 
-    def test_game_asks_the_category_of_question_for_their_location_on_the_board_for_example_sports(self):
+    def test_game_asks_current_player_the_category_of_question_for_their_location_on_the_board(self):
         with GameWithCommentary() as game:
             game.add('Irrelevant Player 1')
             game.add('Irrelevant Player 2')
@@ -44,7 +44,7 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn("Sports Question 0", game.commentary())
 
     @parameterized.expand([0, 4, 8])
-    def test_game_asks_pop_questions_at_correct_locations_on_the_board(self, number_on_die):
+    def test_game_asks_current_player_a_pop_question_at_correct_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
             game.add('Irrelevant Player 1')
             game.add('Irrelevant Player 2')
@@ -64,7 +64,7 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertNotIn("Pop Question 0", game.pop_questions)
 
     @parameterized.expand([1, 5, 9])
-    def test_game_asks_science_questions_at_assigned_locations_on_the_board(self, number_on_die):
+    def test_game_asks_current_player_a_science_question_at_assigned_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
             game.add('Irrelevant Player 1')
             game.add('Irrelevant Player 2')
@@ -75,7 +75,7 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn('Science Question 0', game.commentary())
 
     @parameterized.expand([2, 6, 10])
-    def test_game_asks_sports_questions_at_assigned_locations_on_the_board(self, number_on_die):
+    def test_game_asks_current_player_a_sports_question_at_assigned_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
             game.add('Irrelevant Player 1')
             game.add('Irrelevant Player 2')
@@ -85,7 +85,7 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn('The category is Sports', game.commentary())
             self.assertIn('Sports Question 0', game.commentary())
 
-    def test_game_bring_player_back_to_the_start_of_the_board_when_they_are_initially_at_location_eleven(self):
+    def test_game_returns_current_player_to_the_starting_square_of_the_board_when_they_are_initially_at_square_eleven(self):
         with GameWithCommentary() as game:
             game.add('Player 1')
             game.add('Irrelevant Player 2')
