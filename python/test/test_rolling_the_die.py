@@ -96,5 +96,9 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertIn("Player 1's new location is 0", game.commentary())
 
+    @unittest.skip('Not yet implemented')
+    def test_game_brings_player_to_next_square_after_the_start_with_they_are_initially_at_location_eleven(self):
+        pass
+
 if __name__ == '__main__':
     unittest.main()
