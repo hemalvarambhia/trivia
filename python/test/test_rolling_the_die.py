@@ -85,9 +85,14 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn('The category is Sports', game.commentary())
             self.assertIn('Sports Question 0', game.commentary())
 
-    @unittest.skip('Not yet implemented')
-    def test_game_brings_player_up_to_the_last_location_eleven(self):
-        pass
+    def test_game_brings_player_up_to_the_last_location_eleven_on_the_board(self):
+        with GameWithCommentary() as game:
+            game.add('Player 1')
+            game.add('Irrelevant Player 2')
+            game.roll(5)  # Player 1 location 5
+            game.roll(6)  # Player 1 location 11
+
+            self.assertIn("Player 1's new location is 11", game.commentary())
 
     def test_game_returns_current_player_to_the_starting_square_of_the_board_when_they_are_initially_at_square_eleven(self):
         with GameWithCommentary() as game:
@@ -101,7 +106,7 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn("Player 1's new location is 0", game.commentary())
 
     @unittest.skip('Not yet implemented')
-    def test_game_brings_player_to_next_square_after_the_start_with_they_are_initially_at_location_eleven(self):
+    def test_game_brings_current_player_to_next_square_after_the_start_with_they_are_initially_at_location_eleven(self):
         pass
 
 if __name__ == '__main__':
