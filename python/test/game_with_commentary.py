@@ -1,4 +1,4 @@
-from trivia import Game
+from ugly_trivia.trivia import Game
 import sys
 
 class GameWithCommentary(Game):
