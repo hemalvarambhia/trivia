@@ -85,6 +85,7 @@ class TestRollingTheDie(unittest.TestCase):
             self.assertIn('The category is Sports', game.commentary())
             self.assertIn('Sports Question 0', game.commentary())
 
+    # Clients can make the current player roll twice, as long as
     def test_game_brings_player_up_to_the_last_location_eleven_on_the_board(self):
         with GameWithCommentary() as game:
             game.add('Player 1')
@@ -105,9 +106,16 @@ class TestRollingTheDie(unittest.TestCase):
 
             self.assertIn("Player 1's new location is 0", game.commentary())
 
-    @unittest.skip('Not yet implemented')
     def test_game_brings_current_player_to_next_square_after_the_start_with_they_are_initially_at_location_eleven(self):
-        pass
+        with GameWithCommentary() as game:
+            game.add('Player 1')
+            game.add('Irrelevant Player 2')
+            game.roll(5)  # Player 1 location 5
+            game.roll(6)  # Player 1 location 11
+
+            game.roll(3)  # Player 1 location 2
+
+            self.assertIn("Player 1's new location is 2", game.commentary())
 
 if __name__ == '__main__':
     unittest.main()
