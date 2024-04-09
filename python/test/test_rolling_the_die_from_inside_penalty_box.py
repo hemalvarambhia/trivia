@@ -26,6 +26,10 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
             self.assertIn('Current Player is getting out of the penalty box', game.commentary())
 
+    @unittest.skip('TODO')
+    def test_current_player_moves_a_number_of_steps_forward_when_they_roll_an_odd_number(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
