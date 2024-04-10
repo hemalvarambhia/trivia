@@ -11,7 +11,8 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             game.add('Current Player')
             game.add('Irrelevant Player')
 
-            # Current Player's turn rolls the die and answers incorrectly.
+            # Current Player's turn rolls the die and answers incorrectly, meaning they
+            # are placed inside the penalty box.
             game.roll(5)
             game.wrong_answer()
             # Now it is Irrelevant Player's turn.
