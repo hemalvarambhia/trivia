@@ -21,4 +21,4 @@ class GameWithCommentary(Game):
         pass  # This method is required but does nothing in this example
 
     def commentary(self):
-        return self._commentary
+        return list(filter(lambda item: item != '\n', self._commentary))
