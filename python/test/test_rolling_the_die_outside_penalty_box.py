@@ -22,7 +22,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
             game.roll(4)
 
-            self.assertIn('They have rolled a 4', game.commentary())
+            self.assertEqual('They have rolled a 4', game.commentary()[-4])
 
     def test_game_reports_the_current_players_new_location_on_the_board(self):
         with GameWithCommentary() as game:
