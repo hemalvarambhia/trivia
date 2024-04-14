@@ -25,7 +25,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             # Current Player rolls an odd number.
             game.roll(1)
 
-            self.assertIn('Current Player is getting out of the penalty box', game.commentary())
+            self.assertEqual('Current Player is getting out of the penalty box', game.commentary()[-4])
 
 
     def test_current_player_moves_a_number_of_steps_forward_when_they_roll_an_odd_number(self):
@@ -45,7 +45,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
            # Current Player rolls an odd number.
            game.roll(1)
 
-           self.assertIn("Current Player's new location is 6", game.commentary())
+           self.assertEqual("Current Player's new location is 6", game.commentary()[-3])
 
 
 if __name__ == '__main__':
