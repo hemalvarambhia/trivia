@@ -27,9 +27,25 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
             self.assertIn('Current Player is getting out of the penalty box', game.commentary())
 
-    @unittest.skip('TODO')
+
     def test_current_player_moves_a_number_of_steps_forward_when_they_roll_an_odd_number(self):
-        pass
+       with GameWithCommentary() as game:
+           game.add('Current Player')
+           game.add('Irrelevant Player')
+
+           # Current Player's turn rolls the die and answers incorrectly, meaning they
+           # are placed inside the penalty box.
+           game.roll(5)
+           game.wrong_answer()
+
+           # Irrelevant Player rolls the die and answers correctly.
+           game.roll(1)
+           game.was_correctly_answered()
+
+           # Current Player rolls an odd number.
+           game.roll(1)
+
+           self.assertIn("Current Player's new location is 6", game.commentary())
 
 
 if __name__ == '__main__':
