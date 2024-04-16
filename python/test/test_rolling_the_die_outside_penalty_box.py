@@ -31,7 +31,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
             game.roll(6)
 
-            self.assertIn("Player 1's new location is 6", game.commentary())
+            self.assertEqual("Player 1's new location is 6", game.commentary()[-3])
 
     def test_game_asks_current_player_the_category_of_question_for_their_location_on_the_board(self):
         with GameWithCommentary() as game:
@@ -40,8 +40,8 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
             game.roll(6)
 
-            self.assertIn("The category is Sports", game.commentary())
-            self.assertIn("Sports Question 0", game.commentary())
+            self.assertEqual("The category is Sports", game.commentary()[-2])
+            self.assertEqual("Sports Question 0", game.commentary()[-1])
 
     @parameterized.expand([0, 4, 8])
     def test_game_asks_current_player_a_pop_question_at_correct_locations_on_the_board(self, number_on_die):
