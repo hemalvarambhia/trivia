@@ -62,9 +62,10 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
             self.assertEqual("The category is Science", game.commentary()[-2])
             self.assertEqual("Science Question 1", game.commentary()[-1])
-            
+
     def current_player_rolls_and_answers_correctly(self, game):
-        game.roll(1)
+        irrelevant_die_face = 1
+        game.roll(irrelevant_die_face)
         game.was_correctly_answered()
 
 if __name__ == '__main__':
