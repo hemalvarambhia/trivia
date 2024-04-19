@@ -72,6 +72,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             game.roll(4)
 
             self.assertEqual("Current Player is not getting out of the penalty box", game.commentary()[-1])
+            self.assertEqual(False, game.is_getting_out_of_penalty_box)
 
     def between(self, game, player1, player2):
         game.add(player1)
