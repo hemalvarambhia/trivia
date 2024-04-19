@@ -63,9 +63,20 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             self.assertEqual("The category is Science", game.commentary()[-2])
             self.assertEqual("Science Question 1", game.commentary()[-1])
 
-    @unittest.skip('Test list')
     def test_current_player_cannot_leave_penalty_box_on_rolling_an_even_number(self):
-        pass
+        with GameWithCommentary() as game:
+            game.add('Current Player')
+            game.add('Irrelevant Player')
+            # Current Player's turn rolls the die and answers incorrectly, meaning they
+            # are placed inside the penalty box.
+            game.roll(6)
+            game.wrong_answer()
+
+            self.current_player_rolls_and_answers_correctly(game)
+            # Current Player rolls an even number.
+            game.roll(4)
+
+            self.assertEqual("Current Player is not getting out of the penalty box", game.commentary()[-1])
 
     def current_player_rolls_and_answers_correctly(self, game):
         irrelevant_die_face = 1
