@@ -12,8 +12,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
-            game.roll(5)
-            game.wrong_answer()
+            self.current_player_rolls_and_answered_incorrectly(game)
             # Now it is Irrelevant Player's turn.
 
             # Irrelevant Player rolls the die and answers correctly.
@@ -31,8 +30,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
-            game.roll(5)
-            game.wrong_answer()
+            self.current_player_rolls_and_answered_incorrectly(game)
 
             # Irrelevant Player rolls the die and answers correctly.
             self.current_player_rolls_and_answers_correctly(game)
@@ -78,10 +76,15 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
         game.add(player1)
         game.add(player2)
 
+    def current_player_rolls_and_answered_incorrectly(self, game):
+        game.roll(5)
+        game.wrong_answer()
+
     def current_player_rolls_and_answers_correctly(self, game):
         irrelevant_die_face = 1
         game.roll(irrelevant_die_face)
         game.was_correctly_answered()
+
 
 if __name__ == '__main__':
     unittest.main()
