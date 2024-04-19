@@ -23,6 +23,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             game.roll(1)
 
             self.assertEqual('Current Player is getting out of the penalty box', game.commentary()[-4])
+            self.assertEqual(True, game.is_getting_out_of_penalty_box)
 
     def test_current_player_moves_a_number_of_steps_forward_on_rolling_an_odd_number(self):
         with GameWithCommentary() as game:
