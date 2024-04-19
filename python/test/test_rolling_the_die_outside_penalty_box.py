@@ -8,8 +8,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
     def test_game_reports_who_the_current_player_is(self):
         with GameWithCommentary() as game:
-            game.add('Player 1')
-            game.add('Player 2')
+            self.between(game, 'Player 1', 'Player 2')
 
             game.roll(3)
 
@@ -17,8 +16,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
     def test_game_reports_the_face_the_die_landed_on(self):
         with GameWithCommentary() as game:
-            game.add('Player 1')
-            game.add('Player 2')
+            self.between(game, 'Player 1', 'Player 2')
 
             game.roll(4)
 
@@ -26,8 +24,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
     def test_game_reports_the_current_players_new_location_on_the_board(self):
         with GameWithCommentary() as game:
-            game.add('Player 1')
-            game.add('Player 2')
+            self.between(game, 'Player 1', 'Player 2')
 
             game.roll(6)
 
@@ -35,8 +32,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
     def test_game_asks_current_player_the_category_of_question_for_their_location_on_the_board(self):
         with GameWithCommentary() as game:
-            game.add('Irrelevant Player 1')
-            game.add('Irrelevant Player 2')
+            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
 
             game.roll(6)
 
@@ -46,8 +42,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
     @parameterized.expand([0, 4, 8])
     def test_game_asks_current_player_a_pop_question_at_correct_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
-            game.add('Irrelevant Player 1')
-            game.add('Irrelevant Player 2')
+            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
 
             game.roll(number_on_die)
 
@@ -56,8 +51,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
     def test_game_removes_pop_question_from_stack_once_it_is_asked(self):
         with GameWithCommentary() as game:
-            game.add('Irrelevant Player 1')
-            game.add('Irrelevant Player 2')
+            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
 
             game.roll(0)
 
