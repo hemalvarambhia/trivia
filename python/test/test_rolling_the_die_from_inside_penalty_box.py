@@ -8,8 +8,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
     def test_rolling_an_odd_number_allows_current_player_to_leave_penalty_box(self):
         with GameWithCommentary() as game:
-            game.add('Current Player')
-            game.add('Irrelevant Player')
+            self.between(game, 'Current Player', 'Irrelevant Player')
 
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
@@ -28,8 +27,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
     def test_current_player_moves_a_number_of_steps_forward_on_rolling_an_odd_number(self):
         with GameWithCommentary() as game:
-            game.add('Current Player')
-            game.add('Irrelevant Player')
+            self.between(game, 'Current Player', 'Irrelevant Player')
 
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
@@ -46,8 +44,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
     def test_current_player_is_asked_question_for_the_given_category_on_rolling_an_odd_number(self):
         with GameWithCommentary() as game:
-            game.add('Current Player')
-            game.add('Irrelevant Player')
+            self.between(game, 'Current Player', 'Irrelevant Player')
 
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
@@ -65,8 +62,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
     def test_current_player_cannot_leave_penalty_box_on_rolling_an_even_number(self):
         with GameWithCommentary() as game:
-            game.add('Current Player')
-            game.add('Irrelevant Player')
+            self.between(game, 'Current Player', 'Irrelevant Player')
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
             game.roll(6)
@@ -77,6 +73,10 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             game.roll(4)
 
             self.assertEqual("Current Player is not getting out of the penalty box", game.commentary()[-1])
+
+    def between(self, game, player1, player2):
+        game.add(player1)
+        game.add(player2)
 
     def current_player_rolls_and_answers_correctly(self, game):
         irrelevant_die_face = 1
