@@ -66,8 +66,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
     @parameterized.expand([1, 5, 9])
     def test_game_asks_current_player_a_science_question_at_assigned_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
-            game.add('Irrelevant Player 1')
-            game.add('Irrelevant Player 2')
+            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
 
             game.roll(number_on_die)
 
@@ -77,8 +76,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
     @parameterized.expand([2, 6, 10])
     def test_game_asks_current_player_a_sports_question_at_assigned_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
-            game.add('Irrelevant Player 1')
-            game.add('Irrelevant Player 2')
+            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
 
             game.roll(number_on_die)
 
