@@ -88,8 +88,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
     # Clients can make the current player roll twice, as long as
     def test_game_brings_player_up_to_the_last_location_eleven_on_the_board(self):
         with GameWithCommentary() as game:
-            game.add('Player 1')
-            game.add('Irrelevant Player 2')
+            self.between(game, 'Player 1', 'Irrelevant Player 2')
             game.roll(5)  # Player 1 location 5
             game.roll(6)  # Player 1 location 11
 
@@ -97,8 +96,7 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
     def test_game_returns_current_player_to_the_starting_square_of_the_board_when_they_are_initially_at_square_eleven(self):
         with GameWithCommentary() as game:
-            game.add('Player 1')
-            game.add('Irrelevant Player 2')
+            self.between(game, 'Player 1', 'Irrelevant Player 2')
             game.roll(5) # Player 1 location 5
             game.roll(6) # Player 1 location 11
 
@@ -108,14 +106,17 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
     def test_game_brings_current_player_to_next_square_after_the_start_with_they_are_initially_at_location_eleven(self):
         with GameWithCommentary() as game:
-            game.add('Player 1')
-            game.add('Irrelevant Player 2')
+            self.between(game, 'Player 1', 'Irrelevant Player')
             game.roll(5)  # Player 1 location 5
             game.roll(6)  # Player 1 location 11
 
             game.roll(3)  # Player 1 location 2
 
             self.assertIn("Player 1's new location is 2", game.commentary())
+
+    def between(self, game, player1, player2):
+        game.add(player1)
+        game.add(player2)
 
 if __name__ == '__main__':
     unittest.main()
