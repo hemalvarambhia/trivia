@@ -63,6 +63,10 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             self.assertEqual("The category is Science", game.commentary()[-2])
             self.assertEqual("Science Question 1", game.commentary()[-1])
 
+    @unittest.skip('Test list')
+    def test_current_player_cannot_leave_penalty_box_on_rolling_an_even_number(self):
+        pass
+
     def current_player_rolls_and_answers_correctly(self, game):
         irrelevant_die_face = 1
         game.roll(irrelevant_die_face)
