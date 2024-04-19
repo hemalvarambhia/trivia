@@ -46,6 +46,25 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
             self.assertEqual("Current Player's new location is 6", game.commentary()[-3])
 
+    def test_current_player_is_asked_question_for_the_given_category_when_they_roll_an_odd_number(self):
+        with GameWithCommentary() as game:
+            game.add('Current Player')
+            game.add('Irrelevant Player')
+
+            # Current Player's turn rolls the die and answers incorrectly, meaning they
+            # are placed inside the penalty box.
+            game.roll(4)
+            game.wrong_answer()
+
+            # Irrelevant Player rolls the die and answers correctly.
+            game.roll(1)
+            game.was_correctly_answered()
+
+            # Current Player rolls an odd number.
+            game.roll(5)
+
+            self.assertEqual("The category is Science", game.commentary()[-2])
+            self.assertEqual("Science Question 1", game.commentary()[-1])
 
 if __name__ == '__main__':
     unittest.main()
