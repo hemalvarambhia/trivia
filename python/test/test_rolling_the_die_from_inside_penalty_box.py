@@ -18,8 +18,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             # Now it is Irrelevant Player's turn.
 
             # Irrelevant Player rolls the die and answers correctly.
-            game.roll(1)
-            game.was_correctly_answered()
+            self.current_player_rolls_and_answers_correctly(game)
             # Now it is Current Player's turn.
 
             # Current Player rolls an odd number.
@@ -38,8 +37,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             game.wrong_answer()
 
             # Irrelevant Player rolls the die and answers correctly.
-            game.roll(1)
-            game.was_correctly_answered()
+            self.current_player_rolls_and_answers_correctly(game)
 
             # Current Player rolls an odd number.
             game.roll(1)
@@ -57,14 +55,17 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             game.wrong_answer()
 
             # Irrelevant Player rolls the die and answers correctly.
-            game.roll(1)
-            game.was_correctly_answered()
+            self.current_player_rolls_and_answers_correctly(game)
 
             # Current Player rolls an odd number.
             game.roll(5)
 
             self.assertEqual("The category is Science", game.commentary()[-2])
             self.assertEqual("Science Question 1", game.commentary()[-1])
+            
+    def current_player_rolls_and_answers_correctly(self, game):
+        game.roll(1)
+        game.was_correctly_answered()
 
 if __name__ == '__main__':
     unittest.main()
