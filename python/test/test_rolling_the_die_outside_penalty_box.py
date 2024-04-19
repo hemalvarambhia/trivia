@@ -2,9 +2,10 @@ import unittest
 
 from parameterized import parameterized
 from test.game_with_commentary import GameWithCommentary
+from test.play_trivia_test import PlayTriviaTest
 
 
-class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
+class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
 
     def test_game_reports_who_the_current_player_is(self):
         with GameWithCommentary() as game:
@@ -106,9 +107,6 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
             self.assertIn("Player 1's new location is 2", game.commentary())
 
-    def between(self, game, player1, player2):
-        game.add(player1)
-        game.add(player2)
 
 if __name__ == '__main__':
     unittest.main()

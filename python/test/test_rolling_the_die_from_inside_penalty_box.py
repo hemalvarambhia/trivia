@@ -2,9 +2,10 @@ import unittest
 
 from parameterized import parameterized
 from test.game_with_commentary import GameWithCommentary
+from test.play_trivia_test import PlayTriviaTest
 
 
-class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
+class TestRollingTheDieFromInsidePenaltyBox(PlayTriviaTest):
 
     def test_rolling_an_odd_number_allows_current_player_to_leave_penalty_box(self):
         with GameWithCommentary() as game:
@@ -73,10 +74,6 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
             self.assertEqual("Current Player is not getting out of the penalty box", game.commentary()[-1])
             self.assertEqual(False, game.is_getting_out_of_penalty_box)
-
-    def between(self, game, player1, player2):
-        game.add(player1)
-        game.add(player2)
 
     def current_player_rolls_and_answered_incorrectly(self, game):
         game.roll(5)
