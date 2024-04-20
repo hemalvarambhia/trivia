@@ -24,14 +24,14 @@ class TestNumberOfPlayers(unittest.TestCase):
         game = Game()
 
         self.__assertHasPlayers(0, game)
-        self.assertEqual(False, game.is_playable())
+        self.__assertNotPlayable(game)
 
     def test_that_a_trivia_game_with_one_player_is_unplayable(self):
         with SilentGame() as game:
             game.add('Player 1')
 
             self.__assertHasPlayers(1, game)
-            self.assertEqual(False, game.is_playable())
+            self.__assertNotPlayable(game)
 
     def test_that_a_trivia_game_with_two_players_is_playable(self):
         with SilentGame() as game:
@@ -69,6 +69,9 @@ class TestNumberOfPlayers(unittest.TestCase):
                 game.add(player)
 
         return game
+
+    def __assertNotPlayable(self, game):
+        self.assertEqual(False, game.is_playable())
 
     def __assertIsPlayable(self, game):
         self.assertEqual(True, game.is_playable())
