@@ -9,7 +9,7 @@ class TestRollingTheDieFromInsidePenaltyBox(PlayTriviaTest):
 
     def test_rolling_an_odd_number_allows_current_player_to_leave_penalty_box(self):
         with GameWithCommentary() as game:
-            self.between(game, 'Current Player', 'Irrelevant Player')
+            self.between(game, players=['Current Player', 'Irrelevant Player'])
 
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
