@@ -3,13 +3,9 @@ import sys
 
 class GameWithCommentary(Game):
 
-    @classmethod
-    def between(cls, players):
-        game = Game()
+    def between(self, players):
         for player in players:
-            game.add(player)
-
-        return game
+            self.add(player)
 
     def __init__(self):
         self._stdout = sys.stdout
