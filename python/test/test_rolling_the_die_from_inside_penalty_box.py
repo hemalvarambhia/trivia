@@ -2,10 +2,9 @@ import unittest
 
 from parameterized import parameterized
 from test.game_with_commentary import GameWithCommentary
-from test.play_trivia_test import PlayTriviaTest
 
 
-class TestRollingTheDieFromInsidePenaltyBox(PlayTriviaTest):
+class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
     def test_rolling_an_odd_number_allows_current_player_to_leave_penalty_box(self):
         with GameWithCommentary() as game:

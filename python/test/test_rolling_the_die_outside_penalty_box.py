@@ -2,10 +2,9 @@ import unittest
 
 from parameterized import parameterized
 from test.game_with_commentary import GameWithCommentary
-from test.play_trivia_test import PlayTriviaTest
 
 
-class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
+class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
     def test_game_reports_who_the_current_player_is(self):
         with GameWithCommentary() as game:
