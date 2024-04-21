@@ -9,7 +9,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
 
     def test_game_reports_who_the_current_player_is(self):
         with GameWithCommentary() as game:
-            self.between(game, 'Player 1', 'Player 2')
+            self.between(game, players=['Player 1', 'Player 2'])
 
             game.roll(3)
 
@@ -17,7 +17,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
 
     def test_game_reports_the_face_the_die_landed_on(self):
         with GameWithCommentary() as game:
-            self.between(game, 'Player 1', 'Player 2')
+            self.between(game, players=['Player 1', 'Player 2'])
 
             game.roll(4)
 
@@ -25,7 +25,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
 
     def test_game_reports_the_current_players_new_location_on_the_board(self):
         with GameWithCommentary() as game:
-            self.between(game, 'Player 1', 'Player 2')
+            self.between(game, players=['Player 1', 'Player 2'])
 
             game.roll(6)
 
@@ -33,7 +33,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
 
     def test_game_asks_current_player_the_category_of_question_for_their_location_on_the_board(self):
         with GameWithCommentary() as game:
-            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
+            self.between(game, players=['Irrelevant Player 1', 'Irrelevant Player 2'])
 
             game.roll(6)
 
@@ -43,7 +43,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
     @parameterized.expand([0, 4, 8])
     def test_game_asks_current_player_a_pop_question_at_correct_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
-            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
+            self.between(game, players=['Irrelevant Player 1', 'Irrelevant Player 2'])
 
             game.roll(number_on_die)
 
@@ -52,7 +52,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
 
     def test_game_removes_pop_question_from_stack_once_it_is_asked(self):
         with GameWithCommentary() as game:
-            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
+            self.between(game, players=['Irrelevant Player 1', 'Irrelevant Player 2'])
 
             game.roll(0)
 
@@ -61,7 +61,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
     @parameterized.expand([1, 5, 9])
     def test_game_asks_current_player_a_science_question_at_assigned_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
-            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
+            self.between(game, players=['Irrelevant Player 1', 'Irrelevant Player 2'])
 
             game.roll(number_on_die)
 
@@ -71,7 +71,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
     @parameterized.expand([2, 6, 10])
     def test_game_asks_current_player_a_sports_question_at_assigned_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
-            self.between(game, 'Irrelevant Player 1', 'Irrelevant Player 2')
+            self.between(game, players=['Irrelevant Player 1', 'Irrelevant Player 2'])
 
             game.roll(number_on_die)
 
@@ -81,7 +81,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
     # Clients can make the current player roll twice, as long as
     def test_game_brings_player_up_to_the_last_location_eleven_on_the_board(self):
         with GameWithCommentary() as game:
-            self.between(game, 'Player 1', 'Irrelevant Player 2')
+            self.between(game, players=['Player 1', 'Irrelevant Player 2'])
             game.roll(5)  # Player 1 location 5
             game.roll(6)  # Player 1 location 11
 
@@ -89,7 +89,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
 
     def test_game_returns_current_player_to_the_starting_square_of_the_board_when_they_are_initially_at_square_eleven(self):
         with GameWithCommentary() as game:
-            self.between(game, 'Player 1', 'Irrelevant Player 2')
+            self.between(game, players=['Player 1', 'Irrelevant Player 2'])
             game.roll(5) # Player 1 location 5
             game.roll(6) # Player 1 location 11
 
@@ -99,7 +99,7 @@ class TestRollingTheDieOutsidePenaltyBox(PlayTriviaTest):
 
     def test_game_brings_current_player_to_next_square_after_the_start_with_they_are_initially_at_location_eleven(self):
         with GameWithCommentary() as game:
-            self.between(game, 'Player 1', 'Irrelevant Player')
+            self.between(game, players=['Player 1', 'Irrelevant Player'])
             game.roll(5)  # Player 1 location 5
             game.roll(6)  # Player 1 location 11
 
