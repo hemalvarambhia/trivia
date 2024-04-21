@@ -1,5 +1,8 @@
 import unittest
 from ugly_trivia.trivia import Game
+from contextlib import redirect_stdout
+import io
+from test.game_with_no_commentary import GameWithNoCommentary
 import sys
 
 
@@ -32,11 +35,12 @@ class TestNumberOfPlayers(unittest.TestCase):
         self.__assertNotPlayable(game)
 
     def test_that_a_trivia_game_with_one_player_is_unplayable(self):
-        with SilentGame() as game:
-            game.between(['Player 1'])
+        with io.StringIO() as fake_out, redirect_stdout(fake_out):
+            with GameWithNoCommentary() as game:
+                game.between(['Player 1'])
 
-            self.__assertHasPlayers(1, game)
-            self.__assertNotPlayable(game)
+                self.__assertHasPlayers(1, game)
+                self.__assertNotPlayable(game)
 
     def test_that_a_trivia_game_with_two_players_is_playable(self):
         with SilentGame() as game:
