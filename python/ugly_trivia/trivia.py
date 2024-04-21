@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 
 class Game:
+
+    @classmethod
+    def between(cls, players):
+        game = Game()
+        for player in players:
+            game.add(player)
+
+        return game
+
     def __init__(self):
         self.players = []
         self.places = [0] * 6
