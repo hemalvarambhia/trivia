@@ -28,7 +28,7 @@ class TestRollingTheDieFromInsidePenaltyBox(PlayTriviaTest):
 
     def test_current_player_moves_a_number_of_steps_forward_on_rolling_an_odd_number(self):
         with GameWithCommentary() as game:
-            self.between(game, players=['Current Player', 'Irrelevant Player'])
+            game.between(players=['Current Player', 'Irrelevant Player'])
 
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
@@ -44,7 +44,7 @@ class TestRollingTheDieFromInsidePenaltyBox(PlayTriviaTest):
 
     def test_current_player_is_asked_question_for_the_given_category_on_rolling_an_odd_number(self):
         with GameWithCommentary() as game:
-            self.between(game, players=['Current Player', 'Irrelevant Player'])
+            game.between(players=['Current Player', 'Irrelevant Player'])
 
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
@@ -62,7 +62,7 @@ class TestRollingTheDieFromInsidePenaltyBox(PlayTriviaTest):
 
     def test_current_player_cannot_leave_penalty_box_on_rolling_an_even_number(self):
         with GameWithCommentary() as game:
-            self.between(game, players=['Current Player', 'Irrelevant Player'])
+            game.between(players=['Current Player', 'Irrelevant Player'])
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
             game.roll(6)
