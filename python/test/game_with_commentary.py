@@ -2,6 +2,15 @@ from ugly_trivia.trivia import Game
 import sys
 
 class GameWithCommentary(Game):
+
+    @classmethod
+    def between(cls, players):
+        game = Game()
+        for player in players:
+            game.add(player)
+
+        return game
+
     def __init__(self):
         self._stdout = sys.stdout
         self._commentary = []
