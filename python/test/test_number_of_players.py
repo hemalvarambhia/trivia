@@ -35,33 +35,36 @@ class TestNumberOfPlayers(unittest.TestCase):
         self.__assertNotPlayable(game)
 
     def test_that_a_trivia_game_with_one_player_is_unplayable(self):
-        with io.StringIO() as fake_out, redirect_stdout(fake_out):
-            with GameWithNoCommentary() as game:
-                game.between(['Player 1'])
+        with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
+            game = GameWithNoCommentary()
+            game.between(['Player 1'])
 
-                self.__assertHasPlayers(1, game)
-                self.__assertNotPlayable(game)
+            self.__assertHasPlayers(1, game)
+            self.__assertNotPlayable(game)
 
     def test_that_a_trivia_game_with_two_players_is_playable(self):
-        with SilentGame() as game:
+        with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
+            game = GameWithNoCommentary()
             game.between(['Player 1', 'Player 2'])
 
             self.__assertHasPlayers(2, game)
             self.__assertIsPlayable(game)
 
     def test_that_a_trivia_game_with_more_than_two_players_is_playable(self):
-        with SilentGame() as game:
+        with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
+            game = GameWithNoCommentary()
             game.between(['Player 1', 'Player 2', 'Player 3', 'Player 4'])
 
             self.__assertHasPlayers(4, game)
             self.__assertIsPlayable(game)
 
     def test_that_a_trivia_game_with_five_players_is_playable(self):
-        game = (
-            self.__game_with(['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5']))
+        with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
+            game = GameWithNoCommentary()
+            game.between(['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5'])
 
-        self.__assertHasPlayers(5, game)
-        self.__assertIsPlayable(game)
+            self.__assertHasPlayers(5, game)
+            self.__assertIsPlayable(game)
 
     def test_that_six_players_cannot_play_trivia(self):
         self.assertRaises(IndexError, lambda: self.__game_with(
@@ -72,9 +75,9 @@ class TestNumberOfPlayers(unittest.TestCase):
             ['Player 1', 'Player 2', 'Player 3', 'Player 4', 'Player 5', 'Player 6', 'Player 7']))
 
     def __game_with(self, players):
-        with SilentGame() as game:
-            for player in players:
-                game.add(player)
+        with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
+            game = GameWithNoCommentary()
+            game.between(players)
 
         return game
 
