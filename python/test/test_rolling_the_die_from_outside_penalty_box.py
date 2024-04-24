@@ -44,8 +44,8 @@ class TestRollingTheDieFromOutsidePenaltyBox(unittest.TestCase):
 
             game.roll(4)
 
-            self.assertIn("The category is Pop", game.commentary())
-            self.assertIn('Pop Question 0', game.commentary())
+            self.assertEqual("The category is Pop", game.commentary()[-2])
+            self.assertEqual('Pop Question 0', game.commentary()[-1])
 
     def test_game_removes_pop_question_from_stack_once_it_is_asked(self):
         with GameWithCommentary() as game:
