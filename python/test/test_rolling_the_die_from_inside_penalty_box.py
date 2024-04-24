@@ -12,8 +12,8 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
 
             # Player 1 turn.
             self.current_player_rolls_and_answered_incorrectly(game)
-            # Now it is Irrelevant Player's turn.
 
+            # Now it is Irrelevant Player's turn.
             self.current_player_rolls_and_answers_their_question(game)
             # Now it is Player 1's turn.
 
@@ -30,6 +30,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             # Player 1's turn
             self.current_player_rolls_and_answered_incorrectly(game)
 
+            # Irrelevant player's turn
             self.current_player_rolls_and_answers_their_question(game)
 
             # Player 1 rolls an odd number.
@@ -44,6 +45,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             # Player 1's turn
             self.current_player_rolls_and_answered_incorrectly(game)
 
+            # Irrelevant player's turn
             self.current_player_rolls_and_answers_their_question(game)
 
             game.roll(5)
@@ -57,6 +59,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             # Player 1's turn.
             self.current_player_rolls_and_answered_incorrectly(game)
 
+            # Irrelevant player's turn
             self.current_player_rolls_and_answers_their_question(game)
 
             # Player 1 rolls an even number, meaning they cannot leave the penalty box
