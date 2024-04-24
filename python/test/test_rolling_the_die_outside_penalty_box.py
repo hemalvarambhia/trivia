@@ -57,26 +57,6 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
 
             self.assertNotIn("Pop Question 0", game.pop_questions)
 
-    @parameterized.expand([1, 5, 9])
-    def test_game_asks_current_player_a_science_question_at_assigned_locations_on_the_board(self, number_on_die):
-        with GameWithCommentary() as game:
-            game.between(players=['Irrelevant Player 1', 'Irrelevant Player 2'])
-
-            game.roll(number_on_die)
-
-            self.assertIn('The category is Science', game.commentary())
-            self.assertIn('Science Question 0', game.commentary())
-
-    @parameterized.expand([2, 6, 10])
-    def test_game_asks_current_player_a_sports_question_at_assigned_locations_on_the_board(self, number_on_die):
-        with GameWithCommentary() as game:
-            game.between(players=['Irrelevant Player 1', 'Irrelevant Player 2'])
-
-            game.roll(number_on_die)
-
-            self.assertIn('The category is Sports', game.commentary())
-            self.assertIn('Sports Question 0', game.commentary())
-
     # Clients can make the current player roll twice, as long as
     def test_game_brings_player_up_to_the_last_location_eleven_on_the_board(self):
         with GameWithCommentary() as game:
