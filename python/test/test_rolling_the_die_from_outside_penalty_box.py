@@ -38,7 +38,7 @@ class TestRollingTheDieFromOutsidePenaltyBox(unittest.TestCase):
             self.assertEqual("The category is Sports", game.commentary()[-2])
             self.assertEqual("Sports Question 0", game.commentary()[-1])
 
-    def test_game_asks_current_player_a_pop_question_at_correct_locations_on_the_board(self):
+    def test_game_asks_current_player_the_question_for_their_new_location_on_the_board(self):
         with GameWithCommentary() as game:
             game.between(players=['Irrelevant Player 1', 'Irrelevant Player 2'])
 
