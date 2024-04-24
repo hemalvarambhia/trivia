@@ -68,9 +68,6 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             self.assertEqual("Player 1 is not getting out of the penalty box", game.commentary()[-1])
             self.assertEqual(False, game.is_getting_out_of_penalty_box)
 
-    @unittest.skip('Test list')
-    def test_current_player_can_enter_penalty_box_then_leave_it_and_reenter_later(self):
-        pass
 
     def current_player_rolls_and_answered_incorrectly(self, game):
         game.roll(5)
