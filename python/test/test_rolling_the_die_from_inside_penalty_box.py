@@ -16,7 +16,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             # Now it is Irrelevant Player's turn.
 
             # Irrelevant Player rolls the die and answers correctly.
-            self.current_player_rolls_and_answers_correctly(game)
+            self.current_player_rolls_and_answers_their_question(game)
             # Now it is Player 1's turn.
 
             # Current Player rolls an odd number.
@@ -34,7 +34,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             self.current_player_rolls_and_answered_incorrectly(game)
 
             # Irrelevant Player rolls the die and answers correctly.
-            self.current_player_rolls_and_answers_correctly(game)
+            self.current_player_rolls_and_answers_their_question(game)
 
             # Player 1 rolls an odd number.
             game.roll(1)
@@ -50,7 +50,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             self.current_player_rolls_and_answered_incorrectly(game)
 
             # Irrelevant Player rolls the die and answers correctly.
-            self.current_player_rolls_and_answers_correctly(game)
+            self.current_player_rolls_and_answers_their_question(game)
 
             # Current Player rolls an odd number.
             game.roll(5)
@@ -65,7 +65,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             # are placed inside the penalty box.
             self.current_player_rolls_and_answered_incorrectly(game)
 
-            self.current_player_rolls_and_answers_correctly(game)
+            self.current_player_rolls_and_answers_their_question(game)
 
             # Player 1 rolls an even number, meaning they cannot leave the penalty box
             game.roll(4)
@@ -81,7 +81,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
         game.roll(5)
         game.wrong_answer()
 
-    def current_player_rolls_and_answers_correctly(self, game):
+    def current_player_rolls_and_answers_their_question(self, game):
         irrelevant_die_face = 1
         game.roll(irrelevant_die_face)
         game.was_correctly_answered()
