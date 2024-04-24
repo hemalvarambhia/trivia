@@ -3,28 +3,6 @@ from ugly_trivia.trivia import Game
 from contextlib import redirect_stdout
 import io
 from test.game_with_no_commentary import GameWithNoCommentary
-import sys
-
-
-class SilentGame(Game):
-
-    def between(self, players):
-        for player in players:
-            self.add(player)
-
-    def __init__(self):
-        self._stdout = sys.stdout
-        super().__init__()
-
-    def __enter__(self):
-        sys.stdout = self
-        return self
-
-    def __exit__(self, exc_type, exc_value, traceback):
-        sys.stdout = self._stdout
-
-    def write(self, text):
-        pass
 
 
 class TestNumberOfPlayers(unittest.TestCase):
