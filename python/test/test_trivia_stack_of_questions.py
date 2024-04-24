@@ -4,7 +4,7 @@ from parameterized import parameterized
 from test.game_with_commentary import GameWithCommentary
 
 
-class TestTriviaQuestions(unittest.TestCase):
+class TestTriviaStackOfQuestions(unittest.TestCase):
     @parameterized.expand([0, 4, 8])
     def test_game_asks_current_player_a_pop_question_at_correct_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
