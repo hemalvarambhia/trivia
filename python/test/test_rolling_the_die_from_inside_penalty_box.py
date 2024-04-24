@@ -64,7 +64,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             game.between(players=['Player 1', 'Irrelevant Player'])
             # Current Player's turn rolls the die and answers incorrectly, meaning they
             # are placed inside the penalty box.
-            game.roll(6)
+            game.roll(5)
             game.wrong_answer()
 
             self.current_player_rolls_and_answers_correctly(game)
