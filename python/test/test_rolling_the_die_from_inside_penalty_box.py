@@ -68,7 +68,8 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
             game.wrong_answer()
 
             self.current_player_rolls_and_answers_correctly(game)
-            # Current Player rolls an even number.
+
+            # Current Player rolls an even number, meaning they cannot leave the penalty box
             game.roll(4)
 
             self.assertEqual("Current Player is not getting out of the penalty box", game.commentary()[-1])
