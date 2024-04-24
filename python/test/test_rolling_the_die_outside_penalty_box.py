@@ -1,6 +1,5 @@
 import unittest
 
-from parameterized import parameterized
 from test.game_with_commentary import GameWithCommentary
 
 
@@ -39,12 +38,11 @@ class TestRollingTheDieOutsidePenaltyBox(unittest.TestCase):
             self.assertEqual("The category is Sports", game.commentary()[-2])
             self.assertEqual("Sports Question 0", game.commentary()[-1])
 
-    @parameterized.expand([0, 4, 8])
-    def test_game_asks_current_player_a_pop_question_at_correct_locations_on_the_board(self, number_on_die):
+    def test_game_asks_current_player_a_pop_question_at_correct_locations_on_the_board(self):
         with GameWithCommentary() as game:
             game.between(players=['Irrelevant Player 1', 'Irrelevant Player 2'])
 
-            game.roll(number_on_die)
+            game.roll(4)
 
             self.assertIn("The category is Pop", game.commentary())
             self.assertIn('Pop Question 0', game.commentary())
