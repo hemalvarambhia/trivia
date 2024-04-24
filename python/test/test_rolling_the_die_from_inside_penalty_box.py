@@ -10,12 +10,10 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
         with GameWithCommentary() as game:
             game.between(players=['Player 1', 'Irrelevant Player'])
 
-            # Player 1 turn rolls the die and answers incorrectly, meaning they
-            # are placed inside the penalty box.
+            # Player 1 turn.
             self.current_player_rolls_and_answered_incorrectly(game)
             # Now it is Irrelevant Player's turn.
 
-            # Irrelevant Player rolls the die and answers correctly.
             self.current_player_rolls_and_answers_their_question(game)
             # Now it is Player 1's turn.
 
@@ -29,11 +27,9 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
         with GameWithCommentary() as game:
             game.between(players=['Player 1', 'Irrelevant Player'])
 
-            # Player 1's turn rolls the die and answers incorrectly, meaning they
-            # are placed inside the penalty box.
+            # Player 1's turn
             self.current_player_rolls_and_answered_incorrectly(game)
 
-            # Irrelevant Player rolls the die and answers correctly.
             self.current_player_rolls_and_answers_their_question(game)
 
             # Player 1 rolls an odd number.
@@ -45,14 +41,11 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
         with GameWithCommentary() as game:
             game.between(players=['Player 1', 'Irrelevant Player'])
 
-            # Player 1's turn rolls the die and answers incorrectly, meaning they
-            # are placed inside the penalty box.
+            # Player 1's turn
             self.current_player_rolls_and_answered_incorrectly(game)
 
-            # Irrelevant Player rolls the die and answers correctly.
             self.current_player_rolls_and_answers_their_question(game)
 
-            # Current Player rolls an odd number.
             game.roll(5)
 
             self.assertEqual("The category is Sports", game.commentary()[-2])
@@ -61,8 +54,7 @@ class TestRollingTheDieFromInsidePenaltyBox(unittest.TestCase):
     def test_current_player_cannot_leave_penalty_box_on_rolling_an_even_number(self):
         with GameWithCommentary() as game:
             game.between(players=['Player 1', 'Irrelevant Player'])
-            # Player 1's turn rolls the die and answers incorrectly, meaning they
-            # are placed inside the penalty box.
+            # Player 1's turn.
             self.current_player_rolls_and_answered_incorrectly(game)
 
             self.current_player_rolls_and_answers_their_question(game)
