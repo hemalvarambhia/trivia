@@ -23,9 +23,13 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
     def test_answering_trivia_question_incorrectly_places_current_player_in_penalty_box(self):
         pass
 
-    @unittest.skip('Test list')
     def test_answering_trivia_question_incorrectly_does_not_award_player_a_gold_coin(self):
-        pass
+        with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
+            game = GameWithCommentary()
+            game.between(['Player 1', 'Irrelevant'])
+            game.roll(2)
+
+            self.assertChangesBy(game, "purses", 0, lambda: game.wrong_answer())
 
     def assertChangesBy(self, game, property, change, code_block):
         before = getattr(game, property)[0]
