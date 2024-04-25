@@ -23,6 +23,8 @@ class TestTriviaStackOfQuestions(unittest.TestCase):
 
             self.assertNotIn("Pop Question 0", game.pop_questions)
 
+    # SMELL: Should not be rolling a 9. We are really doing this because we want
+    # the location to test against.
     @parameterized.expand([1, 5, 9])
     def test_game_asks_current_player_a_science_question_at_assigned_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
@@ -33,6 +35,8 @@ class TestTriviaStackOfQuestions(unittest.TestCase):
             self.assertIn('The category is Science', game.commentary())
             self.assertIn('Science Question 0', game.commentary())
 
+    # SMELL: Should not be rolling a 10. We are really doing this because we want
+    # the location to test against
     @parameterized.expand([2, 6, 10])
     def test_game_asks_current_player_a_sports_question_at_assigned_locations_on_the_board(self, number_on_die):
         with GameWithCommentary() as game:
