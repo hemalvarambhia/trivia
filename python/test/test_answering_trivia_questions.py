@@ -13,7 +13,7 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
             game.between(['Player 1', 'Irrelevant'])
             game.roll(2)
 
-            self.assertChangesBy(game, "purses", 1, lambda: game.was_correctly_answered())
+            self.assertChangesBy(code_block=lambda: game.was_correctly_answered(), game=game, property="purses", change=1)
 
     @unittest.skip('Test list')
     def test_answering_trivia_question_correctly_keeps_current_player_out_of_penalty_box(self):
@@ -29,7 +29,7 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
             game.between(['Player 1', 'Irrelevant'])
             game.roll(2)
 
-            self.assertChangesBy(game, "purses", 0, lambda: game.wrong_answer())
+            self.assertChangesBy(code_block=lambda: game.wrong_answer(), game=game, property="purses", change=0)
 
     def assertChangesBy(self, game, property, change, code_block):
         before = getattr(game, property)[0]
