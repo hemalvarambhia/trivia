@@ -17,9 +17,13 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
                 code_block=lambda: game.was_correctly_answered(), property=lambda: getattr(game, "purses")[0], by=1
             )
 
-    @unittest.skip('Test list')
     def test_answering_trivia_question_correctly_keeps_current_player_out_of_penalty_box(self):
-        pass
+        with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
+            game = GameWithCommentary()
+            game.between(['Player 1', 'Irrelevant'])
+            game.roll(2)
+
+            self.assertUnchanged(code_block=lambda: game.was_correctly_answered(), property=lambda: getattr(game, "in_penalty_box")[0])
 
     @unittest.skip('Test list')
     def test_answering_trivia_question_incorrectly_places_current_player_in_penalty_box(self):
@@ -43,3 +47,12 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
         after = property()
 
         self.assertEqual(by, after - before)
+
+    def assertUnchanged(self, property, code_block):
+        before = property()
+
+        code_block()
+
+        after = property()
+
+        self.assertEqual(0, after - before)
