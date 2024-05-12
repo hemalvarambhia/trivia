@@ -8,13 +8,14 @@ from test.game_with_commentary import GameWithCommentary
 class TestAnsweringTriviaQuestions(unittest.TestCase):
 
     def test_answering_trivia_question_correctly_wins_current_player_a_gold_coin(self):
+        def purses(trivia_game): return getattr(trivia_game, "purses")
         with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
             game = GameWithCommentary()
             game.between(['Player 1', 'Irrelevant'])
             game.roll(2)
 
             self.assertChanges(
-                property=lambda: getattr(game, "purses")[0], by=1,
+                property=lambda: purses(game)[0], by=1,
                 code_block=lambda: game.was_correctly_answered()
             )
 
