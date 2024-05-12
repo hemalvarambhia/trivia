@@ -32,9 +32,19 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
                 code_block=lambda: game.was_correctly_answered()
             )
 
-    @unittest.skip('Test list')
     def test_answering_trivia_question_incorrectly_places_current_player_in_penalty_box(self):
-        pass
+        def in_penalty_box(trivia_game): return getattr(trivia_game, "in_penalty_box")
+        with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
+            game = GameWithCommentary()
+            game.between(['Player 1', 'Irrelevant'])
+            game.roll(2)
+
+            current_player = 0
+            self.assertChangesFromTo(
+                attribute=lambda: in_penalty_box(game)[current_player],
+                transition=(False, True),
+                code_block=lambda: game.wrong_answer()
+            )
 
     def test_answering_trivia_question_incorrectly_does_not_award_player_a_gold_coin(self):
         def purse(trivia_game): return getattr(trivia_game, "purses")
@@ -59,3 +69,13 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
 
     def assertUnchanged(self, attribute, code_block):
         self.assertChanges(attribute, 0, code_block)
+
+    def assertChangesFromTo(self, attribute, transition, code_block):
+        before = attribute()
+
+        code_block()
+
+        after = attribute()
+
+        self.assertEqual(transition[0], before)
+        self.assertEqual(transition[1], after)
