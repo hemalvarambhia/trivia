@@ -19,13 +19,15 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
             )
 
     def test_answering_trivia_question_correctly_keeps_current_player_out_of_penalty_box(self):
+        def in_penalty_box(trivia_game): return getattr(trivia_game, "in_penalty_box")
         with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
             game = GameWithCommentary()
             game.between(['Player 1', 'Irrelevant'])
             game.roll(2)
 
+            current_player = 0
             self.assertUnchanged(
-                property=lambda: getattr(game, "in_penalty_box")[0],
+                property=lambda: in_penalty_box(game)[current_player],
                 code_block=lambda: game.was_correctly_answered()
             )
 
