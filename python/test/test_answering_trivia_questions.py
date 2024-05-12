@@ -43,8 +43,8 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
             game.between(['Player 1', 'Irrelevant'])
             game.roll(2)
 
-            self.assertChanges(
-                attribute=lambda: purse(game)[0], by=0,
+            self.assertUnchanged(
+                attribute=lambda: purse(game)[0],
                 code_block=lambda: game.wrong_answer()
             )
 
