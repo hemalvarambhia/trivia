@@ -44,7 +44,8 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
             game.roll(2)
 
             self.assertChanges(
-                code_block=lambda: game.wrong_answer(), property=lambda: purse(game)[0], by=0
+                property=lambda: purse(game)[0], by=0,
+                code_block=lambda: game.wrong_answer()
             )
 
     def assertChanges(self, property, by, code_block):
