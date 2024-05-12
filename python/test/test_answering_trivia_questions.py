@@ -58,10 +58,4 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
         self.assertEqual(by, after - before)
 
     def assertUnchanged(self, attribute, code_block):
-        before = attribute()
-
-        code_block()
-
-        after = attribute()
-
-        self.assertEqual(0, after - before)
+        self.assertChanges(attribute, 0, code_block)
