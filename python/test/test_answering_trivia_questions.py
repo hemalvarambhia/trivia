@@ -15,7 +15,7 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
             game.roll(2)
 
             self.assertChanges(
-                property=lambda: purses(game)[0], by=1,
+                attribute=lambda: purses(game)[0], by=1,
                 code_block=lambda: game.was_correctly_answered()
             )
 
@@ -28,7 +28,7 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
 
             current_player = 0
             self.assertUnchanged(
-                property=lambda: in_penalty_box(game)[current_player],
+                attribute=lambda: in_penalty_box(game)[current_player],
                 code_block=lambda: game.was_correctly_answered()
             )
 
@@ -44,24 +44,24 @@ class TestAnsweringTriviaQuestions(unittest.TestCase):
             game.roll(2)
 
             self.assertChanges(
-                property=lambda: purse(game)[0], by=0,
+                attribute=lambda: purse(game)[0], by=0,
                 code_block=lambda: game.wrong_answer()
             )
 
-    def assertChanges(self, property, by, code_block):
-        before = property()
+    def assertChanges(self, attribute, by, code_block):
+        before = attribute()
 
         code_block()
 
-        after = property()
+        after = attribute()
 
         self.assertEqual(by, after - before)
 
-    def assertUnchanged(self, property, code_block):
-        before = property()
+    def assertUnchanged(self, attribute, code_block):
+        before = attribute()
 
         code_block()
 
-        after = property()
+        after = attribute()
 
         self.assertEqual(0, after - before)
