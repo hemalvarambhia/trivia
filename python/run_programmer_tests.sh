@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python -m unittest
+PYTHONPATH=ugly_trivia:tests pipenv run python -m unittest
