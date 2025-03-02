@@ -14,7 +14,7 @@ you're done.
 
 To run tests in python, perform the following steps:
 
-Simply run `sh -x sh -x run_programmer_tests.sh`
+Simply run `PYTHONPATH=src:tests pipenv run python -m unittest`
 
 
 ### Generating the Golden Masters
