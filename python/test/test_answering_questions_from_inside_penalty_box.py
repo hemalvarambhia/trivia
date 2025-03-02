@@ -6,7 +6,7 @@ from test.game_with_commentary import GameWithCommentary
 
 
 class TestAnsweringQuestionsFromInsidePenaltyBox(unittest.TestCase):
-    def test_answering_question_correctly_allows_current_player_to_leave_penalty_box_but_is_getting_out_of_penalty_box_is_unchanged(self):
+    def test_answering_question_correctly_leaves_is_getting_out_of_penalty_box_unchanged(self):
         def is_getting_out_of_penalty_box(trivia_game): return getattr(trivia_game, "is_getting_out_of_penalty_box")
         with (io.StringIO() as fake_out, redirect_stdout(fake_out)):
             game = GameWithCommentary()
